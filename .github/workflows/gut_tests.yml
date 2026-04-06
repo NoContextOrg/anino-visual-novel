@@ -1,0 +1,30 @@
+name: GUT Tests
+
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+
+jobs:
+  test:
+    name: Run Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout the PR code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Run Godot tests in headless mode
+      - name: Run GUT tests
+        uses: abarichello/godot-ci@master
+        with:
+          args: -s addons/gut/gut_cmdln.gd
+
+      # Step 3: Upload test results as artifacts
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: gut-test-results
+          path: test_results/
