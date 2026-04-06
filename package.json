@@ -1,0 +1,13 @@
+{
+  "name": "anino-visual-novel",
+  "version": "0.1.0",
+  "description": "Anino Visual Novel - A Godot 4.6 project",
+  "private": true,
+  "devDependencies": {
+    "@commitlint/cli": "^19.0.0",
+    "@commitlint/config-conventional": "^19.0.0"
+  },
+  "scripts": {
+    "commitlint": "commitlint"
+  }
+}
