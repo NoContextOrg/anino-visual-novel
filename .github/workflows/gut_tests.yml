@@ -19,7 +19,7 @@ jobs:
       - name: Run GUT tests
         uses: abarichello/godot-ci@master
         with:
-          args: -s addons/gut/gut_cmdln.gd
+          args: addons/gut/gut_cmdln.gd
 
       # Step 3: Upload test results as artifacts
       - name: Upload test results
