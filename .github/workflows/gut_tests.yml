@@ -11,22 +11,29 @@ jobs:
     name: Run Unit Tests
     runs-on: ubuntu-latest
     steps:
-      # Step 1: Checkout the PR code
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Step 2: Run Godot tests in headless mode
+      - name: Setup Godot
+        uses: abarichello/godot-ci@master
+        with:
+          args: --version
+
+      - name: Download GUT addon
+        run: |
+          mkdir -p addons
+          cd addons
+          git clone https://github.com/bitwes/Gut.git gut
+
       - name: Run GUT tests
         uses: abarichello/godot-ci@master
         with:
-          args: --headless --path . -s addons/gut/gut_cmdln.gd -gconfig=.gutconfig.json -gexit
-        env:
-          GODOT_TEST_ARGS: ""
+          args: --headless -s addons/gut/gut_cmdln.gd -gconfig=.gutconfig.json -gexit
 
-      # Step 3: Upload test results as artifacts
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: gut-test-results
           path: test_results/
+          retention-days: 7
