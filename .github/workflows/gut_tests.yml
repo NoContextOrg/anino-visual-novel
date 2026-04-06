@@ -11,25 +11,40 @@ jobs:
     name: Run Unit Tests
     runs-on: ubuntu-latest
     steps:
+      # Step 1: Checkout the PR code
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Setup Godot
-        uses: abarichello/godot-ci@master
         with:
-          args: --version
+          fetch-depth: 0
 
-      - name: Download GUT addon
+      # Step 2: Verify GUT addon exists
+      - name: Check GUT addon
         run: |
-          mkdir -p addons
-          cd addons
-          git clone https://github.com/bitwes/Gut.git gut
+          if [ -d "addons/gut" ]; then
+            echo "✓ GUT addon found locally"
+          else
+            echo "⚠ GUT addon not found, downloading..."
+            mkdir -p addons
+            cd addons
+            git clone --depth 1 https://github.com/bitwes/Gut.git gut
+          fi
 
+      # Step 3: Verify test configuration
+      - name: Check GUT config
+        run: |
+          if [ ! -f ".gutconfig.json" ]; then
+            echo "Error: .gutconfig.json not found"
+            exit 1
+          fi
+          echo "✓ GUT configuration found"
+
+      # Step 4: Run Godot tests in headless mode
       - name: Run GUT tests
         uses: abarichello/godot-ci@master
         with:
-          args: --headless -s addons/gut/gut_cmdln.gd -gconfig=.gutconfig.json -gexit
+          args: --headless --path . -s addons/gut/gut_cmdln.gd -gconfig=.gutconfig.json -gexit
 
+      # Step 5: Upload test results as artifacts
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
@@ -37,3 +52,4 @@ jobs:
           name: gut-test-results
           path: test_results/
           retention-days: 7
+          if-no-files-found: warn
