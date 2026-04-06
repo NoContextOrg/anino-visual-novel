@@ -17,32 +17,34 @@ jobs:
         with:
           fetch-depth: 0
 
-      # Step 2: Verify GUT addon exists
-      - name: Check GUT addon
+      # Step 2: Verify/Download GUT addon
+      - name: Setup GUT addon
         run: |
-          if [ -d "addons/gut" ]; then
-            echo "✓ GUT addon found locally"
-          else
-            echo "⚠ GUT addon not found, downloading..."
+          if [ ! -d "addons/gut" ]; then
             mkdir -p addons
             cd addons
             git clone --depth 1 https://github.com/bitwes/Gut.git gut
+            cd ..
           fi
+          echo "✓ GUT addon ready"
 
-      # Step 3: Verify test configuration
-      - name: Check GUT config
+      # Step 3: Verify GUT config exists
+      - name: Verify GUT configuration
         run: |
           if [ ! -f ".gutconfig.json" ]; then
-            echo "Error: .gutconfig.json not found"
+            echo "⚠ .gutconfig.json not found"
             exit 1
           fi
-          echo "✓ GUT configuration found"
+          echo "✓ GUT config verified"
 
       # Step 4: Run Godot tests in headless mode
       - name: Run GUT tests
-        uses: abarichello/godot-ci@master
-        with:
-          args: --headless --path . -s addons/gut/gut_cmdln.gd -gconfig=.gutconfig.json -gexit
+        run: |
+          docker run --rm \
+            -v "$PWD":/project \
+            -w /project \
+            barichello/godot-ci:mono-4.6 \
+            godot --headless --path /project -s addons/gut/gut_cmdln.gd -gconfig=.gutconfig.json -gexit
 
       # Step 5: Upload test results as artifacts
       - name: Upload test results
@@ -50,6 +52,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: gut-test-results
-          path: test_results/
+          path: |
+            test_results/
+            .godot/
           retention-days: 7
-          if-no-files-found: warn
