@@ -1,7 +1,5 @@
-# .github/workflows/alpha_build_export.yml
 name: Alpha Build Export
 
-# Trigger only when code is merged into main
 on:
   push:
     branches:
@@ -9,41 +7,44 @@ on:
 
 jobs:
   export_builds:
-    name: Export Alpha Builds
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the repository
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      # Export Windows build
+      - name: Create Build Directories
+        run: mkdir -p builds/windows builds/web
+
+      - name: Install Export Templates
+        run: |
+          docker run --rm \
+            -v "$PWD":/project \
+            -w /project \
+            barichello/godot-ci:mono-4.6 \
+            godot --headless --install-templates
+
       - name: Export Windows Build
         run: |
           docker run --rm \
             -v "$PWD":/project \
             -w /project \
             barichello/godot-ci:mono-4.6 \
-            godot --headless --export "Windows Desktop" builds/windows/Alpha.exe
+            godot --headless --export-release "Windows Desktop" builds/windows/Alpha.exe
 
-      # Export HTML5 build
       - name: Export Web Build
         run: |
           docker run --rm \
             -v "$PWD":/project \
             -w /project \
             barichello/godot-ci:mono-4.6 \
-            godot --headless --export "HTML5" builds/web/Alpha.html
+            godot --headless --export-release "HTML5" builds/web/Alpha.html
 
-      # Upload builds as artifacts
-      - name: Upload Windows Build
-        uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: Alpha-Windows
           path: builds/windows/Alpha.exe
 
-      - name: Upload Web Build
-        uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: Alpha-Web
           path: builds/web/Alpha.html
