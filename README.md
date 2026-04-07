@@ -165,6 +165,7 @@ res://
 │   ├── chapter_2/
 │   └── ...
 └── resources/            # Custom .tres files (Character profiles, Theme files)
+└── addons/               # GUT test files
 ```
 
 ---
