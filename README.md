@@ -51,6 +51,8 @@ Godot scene files (`.tscn`) are difficult to merge. To avoid corrupted files and
 * **Componentize**: Break large scenes into smaller, instanced `.tscn` files
 * **Test Locally**: Always run the game and your specific GUT tests before pushing code
 
+Here’s the final cleaned version with the **Label Legend section removed**:
+
 ---
 
 ## 🔄 Development Workflow
@@ -61,12 +63,13 @@ Godot scene files (`.tscn`) are difficult to merge. To avoid corrupted files and
   `type/issue-id-description`
   *(e.g., `feature/101-player-dash`)*
 
-* We use **Conventional Commits**. PRs will be blocked if titles do not match:
+* We use **Conventional Commits**, with the following allowed types:
 
-```text
+```text id="58214"
 feat(scope): description
 fix(scope): description
 chore(scope): description
+docs(scope): description
 ```
 
 ---
@@ -75,12 +78,68 @@ chore(scope): description
 
 * Open a PR against `main`
 * Link the issue (e.g., `Closes #101`)
+* Ensure the issue has proper labels:
+
+  * `type:*`
+  * `size:*`
+  * `priority:*`
 * Request a review from the Architect
 * **Squash and Merge** once approved and CI checks pass
 
 ---
 
-Good catch—that aligns much better with typical game pipelines. Here’s the corrected version with **Game Designer** explicitly owning the story:
+### 📄 PR Template Requirement
+
+All pull requests must follow `.github/pull_request_template.md`:
+
+#### **Related Issue**
+
+```id="x91kd3"
+Closes #
+```
+
+#### **Type of Change** *(must match issue label)*
+
+* feat: New feature (`type: feature`)
+* fix: Bug fix (`type: bug`)
+* chore: Tooling/refactor (`type: chore`)
+* docs: Documentation (`type: docs`)
+
+---
+
+### **Testing & Checklist**
+
+* My commit messages follow the Conventional Commits format
+* I have tested my changes in Godot
+* I have updated documentation if needed
+* I have not broken any existing functionality
+
+---
+
+## 📅 Weekly Development Timeline
+
+### **Sunday — Task Assignment & Kickoff**
+
+A stand-up meeting is conducted to distribute and explain tasks for the week.
+Team members may begin working on their assigned responsibilities immediately after the meeting.
+
+---
+
+### **Wednesday — Progress Review (Project Manager)**
+
+The Project Manager reviews task progress, identifies any blockers or risks, and provides guidance or adjustments as needed.
+
+---
+
+### **Friday — Build Review (Technical Lead)**
+
+The Technical Lead evaluates the current build, assesses completed features, and provides technical feedback and required improvements.
+
+---
+
+### **Saturday & Sunday — DevOps Review & Evaluation**
+
+The DevOps team reviews system integration, conducts testing, and evaluates deployment readiness and performance.
 
 ---
 
@@ -166,7 +225,7 @@ res://
   Dialogue, branching logic, and narrative data (JSON/text). Not LFS-tracked for fast iteration.
 
 * **story role:**
-  The Game Designer defines narrative flow, choices, pacing, and structure used by the gameplay systems.
+  Defines narrative flow, choices, pacing, and structure used by the gameplay systems.
 
 * **resources/**
   `.tres` files acting as bridges (e.g., `Character.tres` referencing assets in `assets/characters/`).
