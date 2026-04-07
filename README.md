@@ -80,16 +80,109 @@ chore(scope): description
 
 ---
 
+Good catch—that aligns much better with typical game pipelines. Here’s the corrected version with **Game Designer** explicitly owning the story:
+
+---
+
 ## 📁 Project Architecture
 
-```text
+```text id="9f4a21"
 res://
-├── assets/         # LFS tracked: art/backgrounds, art/characters, audio/bgm, audio/sfx
-├── data/           # Story scripts and JSON data
-├── scenes/         # Game levels and main scenes
-├── scripts/        # Global scripts and core logic
-└── ui/             # Menus and dialogue boxes
+├── assets/
+│   ├── characters/       # Subfolders for each NPC (sprites, expressions)
+│   ├── backgrounds/      # Organized by location
+│   ├── music/
+│   └── sfx/
+├── scenes/
+│   ├── ui/               # Main Menu, Dialogue Box, Settings (UI Team)
+│   ├── system/           # Save/Load, Scene Manager, Audio Manager
+│   └── templates/        # Master scene for a "Chapter"
+├── src/                  # The GDScript logic
+│   ├── ui/               # Scripts for UI components
+│   ├── gameplay/         # Dialogue parser, Choice handlers
+│   └── autoload/         # Globals (GameManager.gd, EventBus.gd)
+├── story/
+│   ├── chapter_1/        # JSON/Resource/Dialogue files
+│   ├── chapter_2/
+│   └── ...
+└── resources/            # Custom .tres files (Character profiles, Theme files)
 ```
+
+---
+
+## 📂 res://assets/ (Managed via Git LFS)
+
+**Primary Owner:** DevOps
+**Contributors:** Art & Sound Teams
+
+**Role:** Ensures `.gitattributes` tracks large files so the repo stays lean.
+
+* **characters/** *(DevOps / Art)*
+  High-resolution character sprites. DevOps manages LFS locking to prevent conflicts on `.psd` or `.png` files.
+
+* **backgrounds/** *(DevOps / Art)*
+  Large environment files, organized by `location_time` (e.g., `rooftop_sunset.png`).
+
+* **music/** & **sfx/** *(DevOps / Sound)*
+  All `.ogg` and `.wav` files. DevOps monitors LFS bandwidth for efficient access.
+
+---
+
+## 📂 res://scenes/ (The "Assembly Line")
+
+**Primary Owner:** UI & Systems Programmers & Gameplay Programmer
+
+* **ui/** *(UI & Systems Programmers)*
+  `.tscn` files for HUD, Settings, and Save/Load screens.
+
+* **system/** *(Gameplay Programmer)*
+  “Invisible” scenes like `AudioPlayer`, `SaveEngine`, and `TransitionFader`.
+
+* **templates/** *(Game Designer / Gameplay Programmer)*
+  Master story scene combining Background + Character + Dialogue UI.
+
+---
+
+## 📂 res://src/ (The "Engine Room")
+
+**Primary Owner:** Gameplay Programmer
+
+* **ui/** *(UI & Systems Programmers)*
+  Menu logic (e.g., `MainMenu.gd` handles button signals).
+
+* **gameplay/** *(Gameplay Programmer)*
+  Core systems. `DialogueParser.gd` is critical for the Alpha build.
+
+* **autoload/** *(DevOps / Gameplay Programmer)*
+  Globals like `GameState.gd`. These singletons must be stable and well-documented.
+
+---
+
+## 📂 res://story/ & res://resources/ (The "Database")
+
+**Primary Owner:** Gameplay Programmer 
+
+* **chapter_1/** to **chapter_5/**
+  Dialogue, branching logic, and narrative data (JSON/text). Not LFS-tracked for fast iteration.
+
+* **story role:**
+  The Game Designer defines narrative flow, choices, pacing, and structure used by the gameplay systems.
+
+* **resources/**
+  `.tres` files acting as bridges (e.g., `Character.tres` referencing assets in `assets/characters/`).
+
+---
+
+## 📊 Ownership & Tech Stack
+
+| Folder        | Primary Dev                         | Tech Stack                |
+| ------------- | ----------------------------------- | ------------------------- |
+| assets/       | DevOps                              | Git LFS, `.png`, `.ogg`   |
+| scenes/ui/    | UI & Systems Programmers            | Godot Nodes, `.tscn`      |
+| src/ui/       | UI & Systems Programmers            | GDScript (Visual Logic)   |
+| src/gameplay/ | Gameplay Programmer                 | GDScript (System Logic)   |
+| src/autoload/ | Gameplay Programmer                 | Singletons / Global State |
+| story/        | Gameplay Programmer                 | JSON / Text / Markdown    |
 
 ---
 
