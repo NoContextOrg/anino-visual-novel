@@ -90,7 +90,6 @@ jobs:
             -w /project \
             godot-ci-font:latest \
             godot --headless --no-window /project/project.godot \
-            --skip-broken \
             --export-release "Windows Desktop" builds/windows/Alpha.exe
           echo "Windows export done: $(date)"
 
@@ -104,7 +103,6 @@ jobs:
             -w /project \
             godot-ci-font:latest \
             godot --headless --no-window /project/project.godot \
-            --skip-broken \
             --export-release "Web" builds/web/Alpha.html
           echo "Web export done: $(date)"
 
