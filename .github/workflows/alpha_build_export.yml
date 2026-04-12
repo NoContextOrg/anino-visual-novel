@@ -15,10 +15,11 @@ jobs:
       - name: Create Build Directories
         run: mkdir -p builds/windows builds/web
 
-      # Cache Docker layers (huge speed boost after first run)
+      # Docker Buildx
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      # Cache Docker layers
       - name: Cache Docker layers
         uses: actions/cache@v4
         with:
@@ -27,11 +28,20 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-buildx-
 
-      # Build custom Godot CI image (future-proof deps)
+      # Cache Godot import cache
+      - name: Cache Godot files
+        uses: actions/cache@v4
+        with:
+          path: .godot
+          key: ${{ runner.os }}-godot-${{ hashFiles('project.godot') }}
+          restore-keys: |
+            ${{ runner.os }}-godot-
+
+      # Build CI image
       - name: Build Godot CI Image
         run: |
           cat <<EOF > Dockerfile
-          FROM barichello/godot-ci:mono-4.6
+          FROM barichello/godot-ci:4.6
 
           RUN apt-get update && apt-get install -y \
               fontconfig \
@@ -43,43 +53,59 @@ jobs:
           EOF
 
           docker buildx build \
+            --load \
             --cache-from=type=local,src=/tmp/.buildx-cache \
             --cache-to=type=local,dest=/tmp/.buildx-cache-new \
-            -t godot-ci-font \
+            -t godot-ci-font:latest \
             .
 
-      # Move cache (required workaround)
+      # ✅ VERIFY IMAGE EXISTS (prevents your error)
+      - name: Verify Docker Image Exists
+        run: |
+          docker images | grep godot-ci-font || (echo "Image not built!" && exit 1)
+
+      # Move cache safely
       - name: Move Docker cache
         run: |
-          rm -rf /tmp/.buildx-cache
-          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+          if [ -d "/tmp/.buildx-cache-new" ]; then
+            rm -rf /tmp/.buildx-cache
+            mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+          fi
 
+      # Install export templates (NO project boot)
       - name: Install Export Templates
         run: |
           docker run --rm \
-            -v "$PWD":/project \
-            -w /project \
-            godot-ci-font \
-            godot --headless /project/project.godot --install-templates
+            godot-ci-font:latest \
+            godot --headless --no-window --quit --install-templates
 
+      # Windows Export
       - name: Export Windows Build
         run: |
+          echo "Windows export start: $(date)"
           docker run --rm \
             -v "$PWD":/project \
             -w /project \
-            godot-ci-font \
-            godot --headless /project/project.godot \
+            godot-ci-font:latest \
+            godot --headless --no-window /project/project.godot \
+            --skip-broken \
             --export-release "Windows Desktop" builds/windows/Alpha.exe
+          echo "Windows export done: $(date)"
 
+      # Web Export
       - name: Export Web Build
         run: |
+          echo "Web export start: $(date)"
           docker run --rm \
             -v "$PWD":/project \
             -w /project \
-            godot-ci-font \
-            godot --headless /project/project.godot \
-            --export-release "HTML5" builds/web/Alpha.html
+            godot-ci-font:latest \
+            godot --headless --no-window /project/project.godot \
+            --skip-broken \
+            --export-release "Web" builds/web/Alpha.html
+          echo "Web export done: $(date)"
 
+      # Upload artifacts
       - uses: actions/upload-artifact@v4
         with:
           name: Alpha-Windows
