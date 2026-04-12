@@ -62,7 +62,7 @@ jobs:
       # ✅ VERIFY IMAGE EXISTS (prevents your error)
       - name: Verify Docker Image Exists
         run: |
-          docker images | grep godot-ci-font || (echo "Image not built!" && exit 1)
+          docker inspect godot-ci-font:latest > /dev/null || (echo "Image godot-ci-font:latest not found!" && exit 1)
 
       # Move cache safely
       - name: Move Docker cache
