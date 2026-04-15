@@ -34,4 +34,3 @@ SubtitleLabel/font_sizes/font_size = 40
 SubtitleLabel/fonts/font = ExtResource("1_jlqpw")
 TitleLabel/base_type = &"Label"
 TitleLabel/font_sizes/font_size = 80
-TitleLabel/fonts/Font = null
