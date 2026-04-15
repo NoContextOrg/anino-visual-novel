@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://7rb4yvlxhpj2"]
 
 [ext_resource type="Script" uid="uid://dseijrlnkfb8b" path="res://scenes/ui/settings_menu.gd" id="1_qwcqe"]
-[ext_resource type="Theme" uid="uid://dh1v82xyn2ow2" path="res://resources/default_theme.tres" id="2_mhswj"]
+
+[sub_resource type="Theme" id="Theme_qwcqe"]
 
 [node name="Control" type="Control" unique_id=1792778358]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_qwcqe")
 script = ExtResource("1_qwcqe")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1486387852]
@@ -43,7 +45,6 @@ metadata/_tab_index = 2
 
 [node name="back_button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=590949822]
 layout_mode = 2
-theme = ExtResource("2_mhswj")
 theme_type_variation = &"FlatButton"
 text = "Back
 "
