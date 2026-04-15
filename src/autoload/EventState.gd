@@ -6,8 +6,8 @@ var flags = {
 	"has_made_pull_request": false
 }
 
-func set_flag(key: String, value):
+func set_flag(key: String, value: bool) -> void:
 	flags[key] = value
 	
-func get_flag(key: String):
+func get_flag(key: String) -> bool:
 	return flags.get(key, false)
