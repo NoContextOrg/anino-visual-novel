@@ -55,14 +55,19 @@ func display_line(speaker: String, text: String) -> void:
 
 ## Instantly reveal the remaining text.
 func _skip_typewriter() -> void:
-	if _tween and _tween.is_valid():
-		_tween.kill()
+	_kill_tween()
 	_dialogue_text.visible_ratio = 1.0
 	_is_typing = false
 
 
+## Stop the active tween without changing visible_ratio or _is_typing.
+func _kill_tween() -> void:
+	if _tween and _tween.is_valid():
+		_tween.kill()
+
+
 func _start_typewriter() -> void:
-	_skip_typewriter()  # Kill any previous tween
+	_kill_tween()
 	_dialogue_text.visible_ratio = 0.0
 
 	var char_count := _dialogue_text.get_total_character_count()

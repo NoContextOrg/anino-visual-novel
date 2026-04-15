@@ -59,6 +59,7 @@ func test_skip_typewriter_reveals_all_text() -> void:
 
 func test_on_dialogue_started_via_eventbus() -> void:
 	EventBus.dialogue_started.emit({"name": "Eve", "text": "Bus test"})
+	await get_tree().process_frame
 	assert_true(_box.visible, "Box should appear when EventBus signal fires")
 	var name_label: Label = _box.find_child("NameLabel")
 	assert_eq(name_label.text, "Eve")
