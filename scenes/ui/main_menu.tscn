@@ -99,6 +99,7 @@ focus_neighbor_top = NodePath("../PlayButton")
 focus_neighbor_bottom = NodePath("../SettingsButton")
 theme = SubResource("Theme_7suek")
 theme_type_variation = &"MainButton"
+disabled = true
 text = "Load Game"
 flat = true
 alignment = 0
