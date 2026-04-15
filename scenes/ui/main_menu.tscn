@@ -1,24 +1,140 @@
 [gd_scene format=3 uid="uid://dkkie03nslxcp"]
 
-[ext_resource type="Theme" uid="uid://dwjpijsc3chou" path="res://scenes/ui/default_theme.tres" id="1_m1kxf"]
+[ext_resource type="FontFile" uid="uid://dblyybjexl0om" path="res://resources/fonts/Montserrat-Italic-VariableFont_wght.ttf" id="1_m1kxf"]
 [ext_resource type="Script" uid="uid://xbkdo6ke4nwg" path="res://src/ui/main_menu.gd" id="1_x2yvf"]
 [ext_resource type="Texture2D" uid="uid://3ecxjs3m85k0" path="res://assets/background/green-pasteur-grass-field-illustration-anime-manga-visual-novel-background-wallpaper-photo (1).jpg" id="2_uhagc"]
 [ext_resource type="FontFile" uid="uid://ch0b2amh224hj" path="res://resources/fonts/Montserrat-Regular.ttf" id="5_q85j6"]
 
+[sub_resource type="Theme" id="Theme_m1kxf"]
+MainButton/base_type = &"BackButton"
+MainButton/colors/font_color = Color(1, 1, 1, 1)
+MainButton/colors/font_disabled_color = Color(0.39232534, 0.39232537, 0.39232534, 1)
+MainButton/colors/font_focus_color = Color(0, 0, 0, 1)
+MainButton/colors/font_hover_color = Color(0, 0, 0, 1)
+MainButton/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+MainButton/colors/font_outline_color = Color(0, 0, 0, 1)
+MainButton/colors/font_pressed_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_disabled_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_focus_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_hover_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_normal_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_pressed_color = Color(0, 0, 0, 1)
+MainButton/constants/align_to_largest_stylebox = 0
+MainButton/constants/h_separation = 0
+MainButton/constants/icon_max_width = 0
+MainButton/constants/outline_size = 0
+MainButton/font_sizes/font_size = 60
+MainButton/fonts/font = null
+MainButton/styles/disabled = null
+MainButton/styles/focus = null
+MainButton/styles/hover = null
+MainButton/styles/normal = null
+MainButton/styles/pressed = null
+SubtitleLabel/base_type = &"Label"
+SubtitleLabel/font_sizes/font_size = 40
+SubtitleLabel/fonts/font = ExtResource("1_m1kxf")
+TitleLabel/base_type = &"Label"
+TitleLabel/font_sizes/font_size = 90
+
+[sub_resource type="Theme" id="Theme_uhagc"]
+MainButton/base_type = &"BackButton"
+MainButton/colors/font_color = Color(1, 1, 1, 1)
+MainButton/colors/font_disabled_color = Color(0.39232534, 0.39232537, 0.39232534, 1)
+MainButton/colors/font_focus_color = Color(0, 0, 0, 1)
+MainButton/colors/font_hover_color = Color(0, 0, 0, 1)
+MainButton/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+MainButton/colors/font_outline_color = Color(0, 0, 0, 1)
+MainButton/colors/font_pressed_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_disabled_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_focus_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_hover_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_normal_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_pressed_color = Color(0, 0, 0, 1)
+MainButton/constants/align_to_largest_stylebox = 0
+MainButton/constants/h_separation = 0
+MainButton/constants/icon_max_width = 0
+MainButton/constants/outline_size = 0
+MainButton/font_sizes/font_size = 60
+MainButton/fonts/font = null
+MainButton/styles/disabled = null
+MainButton/styles/focus = null
+MainButton/styles/hover = null
+MainButton/styles/normal = null
+MainButton/styles/pressed = null
+SubtitleLabel/base_type = &"Label"
+SubtitleLabel/font_sizes/font_size = 40
+SubtitleLabel/fonts/font = ExtResource("1_m1kxf")
+TitleLabel/base_type = &"Label"
+TitleLabel/font_sizes/font_size = 90
+
+[sub_resource type="Theme" id="Theme_btxxm"]
+MainButton/base_type = &"BackButton"
+MainButton/colors/font_color = Color(1, 1, 1, 1)
+MainButton/colors/font_disabled_color = Color(0.39232534, 0.39232537, 0.39232534, 1)
+MainButton/colors/font_focus_color = Color(0, 0, 0, 1)
+MainButton/colors/font_hover_color = Color(0, 0, 0, 1)
+MainButton/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+MainButton/colors/font_outline_color = Color(0, 0, 0, 1)
+MainButton/colors/font_pressed_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_disabled_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_focus_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_hover_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_normal_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_pressed_color = Color(0, 0, 0, 1)
+MainButton/constants/align_to_largest_stylebox = 0
+MainButton/constants/h_separation = 0
+MainButton/constants/icon_max_width = 0
+MainButton/constants/outline_size = 0
+MainButton/font_sizes/font_size = 60
+MainButton/fonts/font = null
+MainButton/styles/disabled = null
+MainButton/styles/focus = null
+MainButton/styles/hover = null
+MainButton/styles/normal = null
+MainButton/styles/pressed = null
+SubtitleLabel/base_type = &"Label"
+SubtitleLabel/font_sizes/font_size = 40
+SubtitleLabel/fonts/font = ExtResource("1_m1kxf")
+TitleLabel/base_type = &"Label"
+TitleLabel/font_sizes/font_size = 90
+
 [sub_resource type="Theme" id="Theme_x2yvf"]
 default_font = ExtResource("5_q85j6")
 
-[sub_resource type="Theme" id="Theme_uhagc"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btxxm"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wb0q5"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q85j6"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8g5eo"]
-
-[sub_resource type="Theme" id="Theme_7suek"]
+[sub_resource type="Theme" id="Theme_wb0q5"]
+MainButton/base_type = &"BackButton"
+MainButton/colors/font_color = Color(1, 1, 1, 1)
+MainButton/colors/font_disabled_color = Color(0.39232534, 0.39232537, 0.39232534, 1)
+MainButton/colors/font_focus_color = Color(0, 0, 0, 1)
+MainButton/colors/font_hover_color = Color(0, 0, 0, 1)
+MainButton/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+MainButton/colors/font_outline_color = Color(0, 0, 0, 1)
+MainButton/colors/font_pressed_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_disabled_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_focus_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_hover_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_normal_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_pressed_color = Color(0, 0, 0, 1)
+MainButton/constants/align_to_largest_stylebox = 0
+MainButton/constants/h_separation = 0
+MainButton/constants/icon_max_width = 0
+MainButton/constants/outline_size = 0
+MainButton/font_sizes/font_size = 60
+MainButton/fonts/font = null
+MainButton/styles/disabled = null
+MainButton/styles/focus = null
+MainButton/styles/hover = null
+MainButton/styles/normal = null
+MainButton/styles/pressed = null
+SubtitleLabel/base_type = &"Label"
+SubtitleLabel/font_sizes/font_size = 40
+SubtitleLabel/fonts/font = ExtResource("1_m1kxf")
+TitleLabel/base_type = &"Label"
+TitleLabel/font_sizes/font_size = 90
 
 [node name="MainMenu" type="Control" unique_id=413469708]
 layout_mode = 3
@@ -27,7 +143,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_m1kxf")
+theme = SubResource("Theme_m1kxf")
 script = ExtResource("1_x2yvf")
 
 [node name="Background" type="TextureRect" parent="." unique_id=649349293]
@@ -60,11 +176,13 @@ offset_right = -491.0
 offset_bottom = -917.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_uhagc")
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_bottom = 150
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=761723636]
 layout_mode = 2
+theme = SubResource("Theme_btxxm")
 alignment = 2
 
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1065636741]
@@ -84,19 +202,17 @@ layout_mode = 2
 
 [node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=122197049]
 layout_mode = 2
-theme = SubResource("Theme_uhagc")
-theme_override_styles/normal = SubResource("StyleBoxFlat_btxxm")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_wb0q5")
-theme_override_styles/hover = SubResource("StyleBoxFlat_q85j6")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_8g5eo")
+theme = SubResource("Theme_x2yvf")
+theme_type_variation = &"MainButton"
 text = "Play Now"
 flat = true
 alignment = 0
 
 [node name="Load" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1968399434]
 layout_mode = 2
-theme = SubResource("Theme_7suek")
 disabled = true
+theme = SubResource("Theme_x2yvf")
+theme_type_variation = &"MainButton"
 text = "Load Game"
 flat = true
 alignment = 0
@@ -104,11 +220,15 @@ alignment = 0
 [node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1073779884]
 layout_mode = 2
 text = "Settings"
+theme = SubResource("Theme_x2yvf")
+theme_type_variation = &"MainButton"
 flat = true
 alignment = 0
 
 [node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1166346942]
 layout_mode = 2
+theme = SubResource("Theme_x2yvf")
+theme_type_variation = &"MainButton"
 text = "Quit"
 flat = true
 alignment = 0
