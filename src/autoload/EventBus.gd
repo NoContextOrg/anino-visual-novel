@@ -1,6 +1,8 @@
 extends Node
 
-signal dialogue_started(data)
-signal choice_made(id)
-signal scene_changed(new_scene)
-signal weather_changed(weather)
+#dialogue load and unload signal
+signal dialogue_requested(data: Dictionary)
+signal dialogue_finished()
+
+#scene transition signal
+signal background_change_requested(id: String) 
