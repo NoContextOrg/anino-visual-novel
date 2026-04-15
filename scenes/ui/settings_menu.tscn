@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://7rb4yvlxhpj2"]
+
+[ext_resource type="Script" uid="uid://dseijrlnkfb8b" path="res://scenes/ui/settings_menu.gd" id="1_qwcqe"]
+[ext_resource type="Theme" uid="uid://dh1v82xyn2ow2" path="res://resources/default_theme.tres" id="2_mhswj"]
+
+[node name="Control" type="Control" unique_id=1792778358]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qwcqe")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1486387852]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1957328436]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/VBoxContainer" unique_id=1132296081]
+layout_mode = 2
+current_tab = 0
+
+[node name="Audio" type="Control" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=717584306]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Video" type="Control" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=1818651676]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Controls" type="Control" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=716870015]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="back_button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=590949822]
+layout_mode = 2
+theme = ExtResource("2_mhswj")
+theme_type_variation = &"FlatButton"
+text = "Back
+"
