@@ -120,7 +120,3 @@ theme_type_variation = &"MainButton"
 text = "Quit"
 flat = true
 alignment = 0
-
-[node name="Control" type="Control" parent="." unique_id=2049701498]
-anchors_preset = 0
-metadata/_tab_index = 0
