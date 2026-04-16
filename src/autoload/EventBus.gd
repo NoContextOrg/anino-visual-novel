@@ -8,5 +8,5 @@ signal dialogue_finished()
 signal background_change_requested(id: String) 
 
 #signal for ui
-signal player_advanced_dialogue
-signal player_skipped_dialogue
+signal advance_requested
+signal skip_convo_requested
