@@ -41,7 +41,13 @@ func load_game() -> bool:
 		# Make sure the file isn't corrupted and is a valid dictionary
 		if typeof(json) == TYPE_DICTIONARY:
 			chapter_id = json.get("chapter_id", "")
-			line_index = json.get("line_index", 0)
+			
+			var loaded_line_index = json.get("line_index", 0)
+			if typeof(loaded_line_index) == TYPE_INT or typeof(loaded_line_index) == TYPE_FLOAT:
+				line_index = int(loaded_line_index)
+			else:
+				line_index = 0
+			
 			print("Game state loaded! Chapter: ", chapter_id, " Line: ", line_index)
 			return true
 			
