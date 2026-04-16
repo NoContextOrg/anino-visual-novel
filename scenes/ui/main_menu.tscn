@@ -6,19 +6,6 @@
 [ext_resource type="Theme" uid="uid://dwjpijsc3chou" path="res://resources/default_theme.tres" id="4_global_theme"]
 [ext_resource type="FontFile" uid="uid://ch0b2amh224hj" path="res://resources/fonts/Montserrat-Regular.ttf" id="5_font_reg"]
 
-[sub_resource type="Theme" id="Theme_menu_overrides"]
-MainButton/base_type = &"BackButton"
-MainButton/colors/font_color = Color(1, 1, 1, 1)
-MainButton/colors/font_disabled_color = Color(0.39232534, 0.39232537, 0.39232534, 1)
-MainButton/colors/font_focus_color = Color(0, 0, 0, 1)
-MainButton/colors/font_hover_color = Color(0, 0, 0, 1)
-MainButton/font_sizes/font_size = 60
-SubtitleLabel/base_type = &"Label"
-SubtitleLabel/font_sizes/font_size = 40
-SubtitleLabel/fonts/font = ExtResource("1_font_italic")
-TitleLabel/base_type = &"Label"
-TitleLabel/font_sizes/font_size = 90
-
 [node name="MainMenu" type="Control" unique_id=413469708]
 layout_mode = 3
 anchors_preset = 15
@@ -59,7 +46,7 @@ offset_right = -491.0
 offset_bottom = -917.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_menu_overrides")
+theme = ExtResource("4_global_theme")
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_bottom = 150
 

@@ -12,7 +12,6 @@ func _ready():
 	load_button.pressed.connect(_on_load_pressed)
 
 func _on_play_pressed():
-	# Make sure this file name is exactly correct!
 	get_tree().change_scene_to_file("res://scenes/templates/chapter_1.tscn")
 	
 func _on_load_pressed():
