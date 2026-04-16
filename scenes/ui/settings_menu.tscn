@@ -43,8 +43,7 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="back_button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=590949822]
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=590949822]
 layout_mode = 2
 theme_type_variation = &"FlatButton"
-text = "Back
-"
+text = "Back"
