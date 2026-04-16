@@ -40,16 +40,23 @@ func load_game() -> bool:
 		
 		# Make sure the file isn't corrupted and is a valid dictionary
 		if typeof(json) == TYPE_DICTIONARY:
-			chapter_id = json.get("chapter_id", "")
-			
-			var loaded_line_index = json.get("line_index", 0)
-			if typeof(loaded_line_index) == TYPE_INT or typeof(loaded_line_index) == TYPE_FLOAT:
-				line_index = int(loaded_line_index)
-			else:
-				line_index = 0
-			
-			print("Game state loaded! Chapter: ", chapter_id, " Line: ", line_index)
-			return true
-			
-	push_error("GameManager: Failed to read save file or file is corrupted.")
-	return false
+	if not file:
+		push_error("GameManager: Failed to open save file. Error code: %s" % FileAccess.get_open_error())
+		return false
+	
+	var content = file.get_as_text()
+	var json = JSON.parse_string(content)
+	
+	if json == null:
+		push_error("GameManager: Save file contains invalid JSON.")
+		return false
+	
+	# Make sure the file contains the expected dictionary structure
+	if typeof(json) != TYPE_DICTIONARY:
+		push_error("GameManager: Save file has an invalid structure.")
+		return false
+	
+	chapter_id = json.get("chapter_id", "")
+	line_index = json.get("line_index", 0)
+	print("Game state loaded! Chapter: ", chapter_id, " Line: ", line_index)
+	return true
