@@ -6,13 +6,18 @@ var _flags = {
 	"has_made_pull_request": false
 }
 
-func _validate_flag_key(key: String) -> void:
-	assert(_flags.has(key), "Unknown flag key: %s" % key)
+func _validate_flag_key(key: String) -> bool:
+	if !_flags.has(key):
+		push_error("Unknown flag key: %s" % key)
+		return false
+	return true
 	
 func set_flag(key: String, value):
-	_validate_flag_key(key)
+	if !_validate_flag_key(key):
+		return
 	_flags[key] = value
 	
 func get_flag(key: String):
-	_validate_flag_key(key)
+	if !_validate_flag_key(key):
+		return null
 	return _flags[key]
