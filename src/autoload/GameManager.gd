@@ -39,7 +39,7 @@ func load_game() -> bool:
 		var json = JSON.parse_string(content)
 		
 		# Make sure the file isn't corrupted and is a valid dictionary
-		if typeof(json) == TYPE_DICTIONARY:
+	if typeof(json) == TYPE_DICTIONARY:
 	if not file:
 		push_error("GameManager: Failed to open save file. Error code: %s" % FileAccess.get_open_error())
 		return false
