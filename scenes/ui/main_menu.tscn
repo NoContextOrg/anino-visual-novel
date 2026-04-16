@@ -95,7 +95,7 @@ text = "Load Game"
 flat = true
 alignment = 0
 
-[node name="SettingsButton" type="Button" parent="Margin_container/VBoxContainer" unique_id=1073779884]
+[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1073779884]
 layout_mode = 2
 theme_type_variation = &"MainButton"
 text = "Settings"

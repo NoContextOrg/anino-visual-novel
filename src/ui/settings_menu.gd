@@ -1,7 +1,7 @@
 extends Control
 
 
-@onready var back_button = $MarginContainer/VBoxContainer/back_button
+@onready var back_button = $MarginContainer/VBoxContainer/BackButton
 
 func _ready():
 	back_button.pressed.connect(_on_back_pressed)
