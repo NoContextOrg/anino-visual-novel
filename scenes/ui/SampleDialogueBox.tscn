@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://dmk01ebol40jx"]
+
+[ext_resource type="FontFile" uid="uid://bnh0lslf4yh87" path="res://addons/gut/fonts/CourierPrime-Regular.ttf" id="1_h4ipq"]
+[ext_resource type="FontFile" uid="uid://mcht266g817e" path="res://addons/gut/fonts/CourierPrime-Italic.ttf" id="1_rsvog"]
+[ext_resource type="Script" uid="uid://dwd7y0ioyr1l" path="res://src/ui/sample_dialogue_box.gd" id="2_rsvog"]
+
+[sub_resource type="Theme" id="Theme_eibla"]
+default_font = ExtResource("1_rsvog")
+default_font_size = 55
+RichTextLabel/font_sizes/normal_font_size = 55
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eibla"]
+bg_color = Color(0.7647059, 0.5176471, 0.6039216, 0.99215686)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_color = Color(0.46666667, 0.07450981, 0.35686275, 1)
+border_blend = true
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_dp2n8"]
+font = ExtResource("1_h4ipq")
+font_size = 60
+font_color = Color(0.46666667, 0.07450981, 0.35686275, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_menyh"]
+content_margin_left = 100.0
+content_margin_top = 57.0
+content_margin_right = 100.0
+content_margin_bottom = 57.0
+bg_color = Color(0.7647059, 0.5176471, 0.6039216, 0.9882353)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.46666667, 0.07450981, 0.35686275, 1)
+border_blend = true
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="Animation" id="Animation_rsvog"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1745, 1822)]
+}
+
+[sub_resource type="Animation" id="Animation_eibla"]
+resource_name = "sample_idle"
+length = 0.76666665
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.73),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1738, 1804), Vector2(1773, 1804)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dp2n8"]
+_data = {
+&"RESET": SubResource("Animation_rsvog"),
+&"sample_idle": SubResource("Animation_eibla")
+}
+
+[node name="SampleDialogueBox" type="Control" unique_id=131239595]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -1920.0
+offset_right = 960.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_eibla")
+script = ExtResource("2_rsvog")
+
+[node name="Name" type="PanelContainer" parent="." unique_id=1032126254]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 41.0
+offset_top = -522.0
+offset_right = 559.0
+offset_bottom = -432.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eibla")
+
+[node name="NameLabel" type="Label" parent="Name" unique_id=1233219798]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 6.21
+text = "Mary Ruth"
+label_settings = SubResource("LabelSettings_dp2n8")
+
+[node name="Dialogue" type="PanelContainer" parent="." unique_id=1179100936]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 41.0
+offset_top = -434.0
+offset_right = -44.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_menyh")
+
+[node name="DialogueLabel" type="RichTextLabel" parent="Dialogue" unique_id=299388543]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.46666667, 0.07450981, 0.35686275, 1)
+bbcode_enabled = true
+text = "Hi, I am [i]mary[/i], [wave]lorem[/wave] [b]ipsum[/b] [shake]bro[/shake] "
+
+[node name="ForwardSymbol" type="Control" parent="." unique_id=1944655154]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -175.0
+offset_top = -98.0
+offset_right = -114.0
+offset_bottom = -56.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="ForwardSymbol" unique_id=1837021293]
+position = Vector2(-27.000061, -47.00006)
+scale = Vector2(1.3600007, 1.3799965)
+color = Color(0.70982444, 4.668683e-05, 0.5517686, 1)
+polygon = PackedVector2Array(0, 0, 50, 25, 0, 50)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ForwardSymbol/Polygon2D" unique_id=1419337995]
+libraries/ = SubResource("AnimationLibrary_dp2n8")
+autoplay = &"sample_idle"
