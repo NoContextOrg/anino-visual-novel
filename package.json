@@ -4,10 +4,12 @@
   "description": "Anino Visual Novel - A Godot 4.6 project",
   "private": true,
   "devDependencies": {
-    "@commitlint/cli": "^19.0.0",
-    "@commitlint/config-conventional": "^19.0.0"
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "husky": "^9.1.7"
   },
   "scripts": {
-    "commitlint": "commitlint"
+    "commitlint": "commitlint",
+    "prepare": "husky"
   }
 }
