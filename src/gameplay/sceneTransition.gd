@@ -4,7 +4,7 @@ static var _fade_in_on_ready := false
 var _is_transitioning := false
 
 @export var trigger_action: StringName = &"ui_accept"
-@export var use_input_trigger := false
+@export var use_input_trigger := false                  
 @export_file("*.tscn") var target_scene_path := ""
 
 @onready var anim_player: AnimationPlayer = $UI_Anchor/AnimationPlayer
