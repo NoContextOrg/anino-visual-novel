@@ -2,4 +2,31 @@
 .godot/
 /android/
 builds/
-.vscode
+*.ek
+*.scn
+*.tscn.bak
+
+# Node & npm
+node_modules/
+package-lock.json
+npm-debug.log
+.npm/
+
+# Husky
+.husky/_/
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+Thumbs.db
+
+# Temporary & local
+Dockerfile
+*.local
+.env.local
