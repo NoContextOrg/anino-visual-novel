@@ -15,11 +15,26 @@ run/main_scene="uid://dkkie03nslxcp"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+EventBus="*uid://ccorr3eohdfcg"
+GameState="*uid://c0mneir8hnuhv"
+GameManager="*uid://dd67tblscidsx"
+
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1920
+window/size/window_width_override=1280
+window/size/window_height_override=800
 window/stretch/mode="canvas_items"
+
+[gui]
+
+theme/custom="uid://dwjpijsc3chou"
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/github_copilot/plugin.cfg", "res://addons/gut/plugin.cfg")
 
 [input]
 
