@@ -1,0 +1,12 @@
+[
+  {
+	"speaker": "Jhered",
+	"text": "Hello there!",
+	"expression": "happy"
+  },
+  {
+	"speaker": "Carl",
+	"text": "Oh, hi!",
+	"expression": "neutral"
+  }
+]
