@@ -31,6 +31,9 @@ window/stretch/mode="canvas_items"
 [gui]
 
 theme/custom="uid://dwjpijsc3chou"
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/github_copilot/plugin.cfg", "res://addons/gut/plugin.cfg")
 
 [input]
 
