@@ -32,14 +32,7 @@ func load_game() -> bool:
 		print("No save file found.")
 		return false
 		
-	# Open the file in READ mode
 	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.READ)
-	if file:
-		var content = file.get_as_text()
-		var json = JSON.parse_string(content)
-		
-		# Make sure the file isn't corrupted and is a valid dictionary
-	if typeof(json) == TYPE_DICTIONARY:
 	if not file:
 		push_error("GameManager: Failed to open save file. Error code: %s" % FileAccess.get_open_error())
 		return false
@@ -51,12 +44,12 @@ func load_game() -> bool:
 		push_error("GameManager: Save file contains invalid JSON.")
 		return false
 	
-	# Make sure the file contains the expected dictionary structure
 	if typeof(json) != TYPE_DICTIONARY:
 		push_error("GameManager: Save file has an invalid structure.")
 		return false
 	
 	chapter_id = json.get("chapter_id", "")
 	line_index = json.get("line_index", 0)
+	
 	print("Game state loaded! Chapter: ", chapter_id, " Line: ", line_index)
 	return true
