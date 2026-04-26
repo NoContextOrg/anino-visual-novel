@@ -1,17 +1,25 @@
 extends TextureRect
 
-@export var background_fade_duration := 0.35
-@export var backgrounds_base_path := "res://assets/backgrounds"
+@export var background_fade_duration := 0.8
+@export var backgrounds_base_path := "res://assets/background"
 @export var trigger_action: StringName = &"ui_accept"
 @export var use_input_trigger := false
 @export_file("*.png", "*.jpg", "*.jpeg", "*.webp") var target_background_path := ""
 @export var switch_once := true
+@export var background_id_map: Dictionary = {}
+
+const _SUPPORTED_IMAGE_EXTENSIONS := ["png", "jpg", "jpeg", "webp"]
 
 var _overlay: TextureRect
 var _has_switched := false
+var _event_bus: Object
 
 func _ready() -> void:
     _setup_overlay()
+    _connect_event_bus()
+
+func _exit_tree() -> void:
+    _disconnect_event_bus()
 
 func _unhandled_input(event: InputEvent) -> void:
     if not use_input_trigger:
@@ -25,6 +33,16 @@ func _unhandled_input(event: InputEvent) -> void:
 
     _has_switched = true
     transition_to_location(target_background_path)
+
+func _on_background_change_requested(id: String) -> void:
+    print("BackgroundManager: background_change_requested called with id: %s" % id)
+
+    var resolved_path := _resolve_background_request(id)
+    
+    if not resolved_path.is_empty():
+        transition_to_location(resolved_path)
+    else:
+        push_warning("BackgroundManager: Could not resolve path for ID: %s" % id)
 
 func transition_to_location(location_file: String) -> void:
     var loaded_texture := _load_background_texture(location_file)
@@ -72,6 +90,54 @@ func _load_background_texture(location_file: String) -> Texture2D:
         return null
 
     return resource as Texture2D
+
+func _resolve_background_request(id: String) -> String:
+    var trimmed_id := id.strip_edges()
+    if trimmed_id.is_empty():
+        return ""
+
+    if background_id_map.has(trimmed_id):
+        var mapped_path := str(background_id_map[trimmed_id]).strip_edges()
+        if mapped_path.begins_with("res://"):
+            return mapped_path
+        return backgrounds_base_path.path_join(mapped_path)
+
+    if trimmed_id.begins_with("res://"):
+        return trimmed_id
+
+    if trimmed_id.begins_with("assets/"):
+        return "res://%s" % trimmed_id
+
+    if not trimmed_id.get_extension().is_empty():
+        return backgrounds_base_path.path_join(trimmed_id)
+
+    for ext in _SUPPORTED_IMAGE_EXTENSIONS:
+        var candidate := backgrounds_base_path.path_join("%s.%s" % [trimmed_id, ext])
+        if ResourceLoader.exists(candidate):
+            return candidate
+
+    return ""
+
+func _connect_event_bus() -> void:
+    _event_bus = get_node_or_null("/root/EventBus")
+    if _event_bus == null:
+        push_warning("BackgroundManager: /root/EventBus not found; background change events are disabled.")
+        return
+    if not _event_bus.has_signal("background_change_requested"):
+        push_warning("BackgroundManager: EventBus is missing signal 'background_change_requested'.")
+        return
+
+    var callback := Callable(self, "_on_background_change_requested")
+    if not _event_bus.is_connected("background_change_requested", callback):
+        _event_bus.connect("background_change_requested", callback)
+
+func _disconnect_event_bus() -> void:
+    if _event_bus == null:
+        return
+
+    var callback := Callable(self, "_on_background_change_requested")
+    if _event_bus.is_connected("background_change_requested", callback):
+        _event_bus.disconnect("background_change_requested", callback)
 
 func _setup_overlay() -> void:
     var existing := get_node_or_null("BackgroundFadeOverlay")

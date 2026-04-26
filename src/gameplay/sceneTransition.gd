@@ -11,10 +11,15 @@ var _is_transitioning := false
 @onready var fader: ColorRect = $UI_Anchor/Transition
 
 func _ready() -> void:
+    fader.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
     if _fade_in_on_ready:
         _fade_in_on_ready = false
         fader.color = Color(0, 0, 0, 1)
+        fader.mouse_filter = Control.MOUSE_FILTER_STOP
         anim_player.play("fade_from_black")
+        await anim_player.animation_finished
+        fader.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func _unhandled_input(event: InputEvent) -> void:
     if not use_input_trigger:
@@ -29,6 +34,7 @@ func transition_to_scene(scene_path: String) -> void:
         return
     _is_transitioning = true
 
+    fader.mouse_filter = Control.MOUSE_FILTER_STOP
     anim_player.play("fade_to_black")
     await anim_player.animation_finished
 
@@ -37,5 +43,6 @@ func transition_to_scene(scene_path: String) -> void:
     if error != OK:
         _fade_in_on_ready = false
         _is_transitioning = false
+        fader.mouse_filter = Control.MOUSE_FILTER_IGNORE
         push_error("Failed to change scene: %s (%s)" % [scene_path, error])
 
