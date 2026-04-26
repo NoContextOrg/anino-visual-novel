@@ -55,6 +55,6 @@ func update_hint() -> void:
 	_current_hint = next_hint
 	hint_label.text = _current_hint
 
-# Call your manager
+# Call your Game manager
 func update_progress(value: float) -> void:
 	progress_bar.value = value
