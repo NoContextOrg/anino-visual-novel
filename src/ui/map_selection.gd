@@ -75,5 +75,3 @@ func set_chapter_state(chapter_index: int, state: ChapterState) -> void:
 		ChapterState.COMPLETED:
 			button.disabled = false
 			button.theme_type_variation = &"CompletedChapterButton"
-
-

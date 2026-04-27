@@ -131,7 +131,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_menyh")
 layout_mode = 2
 theme_override_colors/default_color = Color(0.46666667, 0.07450981, 0.35686275, 1)
 bbcode_enabled = true
-text = "Hi, I am [i]mary[/i], [wave]lorem[/wave] [b]ipsum[/b] [shake]bro[/shake] "
+text = "Welcome to Project Anino!!!"
 
 [node name="ForwardSymbol" type="Control" parent="." unique_id=1944655154]
 layout_mode = 1
