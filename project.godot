@@ -20,11 +20,12 @@ config/icon="res://icon.svg"
 EventBus="*uid://ccorr3eohdfcg"
 GameState="*uid://c0mneir8hnuhv"
 GameManager="*uid://dd67tblscidsx"
+SceneTransition="*uid://cypbcbe5tfaha"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1920
+window/size/viewport_width=1280
+window/size/viewport_height=800
 window/size/window_width_override=1280
 window/size/window_height_override=800
 window/stretch/mode="canvas_items"
