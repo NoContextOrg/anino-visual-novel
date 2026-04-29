@@ -48,7 +48,6 @@ func load_game() -> bool:
 		push_error("GameManager: Save file contains invalid JSON.")
 		return false
 	
-	# Make sure the file contains the expected dictionary structure
 	if typeof(json) != TYPE_DICTIONARY:
 		push_error("GameManager: Save file has an invalid structure.")
 		return false
