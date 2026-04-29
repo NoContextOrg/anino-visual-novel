@@ -1,12 +1,17 @@
 [
-  {
-	"speaker": "Jhered",
-	"text": "Hello there!",
-	"expression": "happy"
-  },
-  {
-	"speaker": "Carl",
-	"text": "Oh, hi!",
-	"expression": "neutral"
-  }
+	{ "text": "[bg: forest]" },
+
+	{ "speaker": "Jhered", "text": "Welcome to the forest." },
+
+	{
+		"speaker": "Jhered",
+		"text": "Where do you want to go?",
+		"choices": [
+			{ "text": "Go left", "next": 3 },
+			{ "text": "Go right", "next": 4 }
+		]
+	},
+
+	{ "speaker": "Jhered", "text": "You chose left." },
+	{ "speaker": "Jhered", "text": "You chose right." }
 ]
