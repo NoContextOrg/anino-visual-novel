@@ -28,18 +28,22 @@ func save_game() -> void:
 
 # Call this from your Main Menu when the player clicks "Continue"
 func load_game() -> bool:
+	# 1. Check if the file exists first
 	if not FileAccess.file_exists(SAVE_FILE_PATH):
 		print("No save file found.")
 		return false
 		
+	# 2. Try to open the file in READ mode
 	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.READ)
 	if not file:
 		push_error("GameManager: Failed to open save file. Error code: %s" % FileAccess.get_open_error())
 		return false
 	
+	# 3. Read the text and parse the JSON
 	var content = file.get_as_text()
 	var json = JSON.parse_string(content)
 	
+	# 4. Validate the JSON data
 	if json == null:
 		push_error("GameManager: Save file contains invalid JSON.")
 		return false
@@ -48,6 +52,7 @@ func load_game() -> bool:
 		push_error("GameManager: Save file has an invalid structure.")
 		return false
 	
+	# 5. Apply the data to our variables
 	chapter_id = json.get("chapter_id", "")
 	line_index = json.get("line_index", 0)
 	
