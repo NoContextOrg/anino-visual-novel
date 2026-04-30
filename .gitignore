@@ -5,6 +5,7 @@ builds/
 *.ek
 *.scn
 *.tscn.bak
+*.uid
 
 # Node & npm
 node_modules/
@@ -30,3 +31,4 @@ Thumbs.db
 Dockerfile
 *.local
 .env.local
+
