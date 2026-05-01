@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cdhids6t38m5s"]
+
+[ext_resource type="Script" uid="uid://c313qxupog17d" path="res://src/ui/chapter_1/scene_5/scene_5.gd" id="1_n5d4y"]
+[ext_resource type="Texture2D" uid="uid://b518coh71x8gd" path="res://assets/background/chapter_1/scene_5/tree.png" id="2_aswgp"]
+[ext_resource type="PackedScene" uid="uid://dmk01ebol40jx" path="res://scenes/ui/SampleDialogueBox.tscn" id="3_fhbvt"]
+
+[node name="Scene5" type="Node2D" unique_id=119392293]
+script = ExtResource("1_n5d4y")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1061159416]
+offset_left = -856.0
+offset_top = 17.0
+offset_right = 2740.0
+offset_bottom = 1920.0
+texture = ExtResource("2_aswgp")
+stretch_mode = 4
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=888072540]
+
+[node name="SampleDialogueBox" parent="CanvasLayer" unique_id=131239595 instance=ExtResource("3_fhbvt")]
