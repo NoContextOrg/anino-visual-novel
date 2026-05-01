@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bvqjt51iuku2p"]
+
+[ext_resource type="Texture2D" uid="uid://51j7pkybpcxf" path="res://assets/ui/ch1_scene3_mats/table_foreground.png" id="1_mxvhm"]
+[ext_resource type="Texture2D" uid="uid://bn4pyms31ajgh" path="res://assets/ui/ch1_scene3_mats/hospital_reports_btn.png" id="2_fcx7l"]
+[ext_resource type="Texture2D" uid="uid://bokl58r2vdoos" path="res://assets/ui/ch1_scene3_mats/blank_scroll.png" id="2_mxvhm"]
+
+[node name="scene_three" type="Node2D" unique_id=1112385526]
+
+[node name="background" type="ColorRect" parent="." unique_id=572439709]
+offset_right = 1439.0
+offset_bottom = 1024.0
+color = Color(0.41981313, 0.41981313, 0.4198131, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="table_fg" type="TextureRect" parent="background" unique_id=457509315]
+layout_mode = 0
+offset_top = 344.0
+offset_right = 1439.0
+offset_bottom = 1024.0
+texture = ExtResource("1_mxvhm")
+
+[node name="hospital_report_btn" type="MenuButton" parent="background/table_fg" unique_id=1423085719]
+layout_mode = 0
+offset_left = 995.99994
+offset_top = 181.99998
+offset_right = 1631.0
+offset_bottom = 832.0
+rotation = -0.2617994
+scale = Vector2(0.5947239, 0.6822969)
+button_pressed = true
+icon = ExtResource("2_fcx7l")
+
+[node name="scroll_panel" type="PopupPanel" parent="background" unique_id=412855753]
+oversampling_override = 1.0
+title = "scroll_info_pop"
+size = Vector2i(1408, 772)
+
+[node name="scroll_popup_panel" type="TextureRect" parent="background/scroll_panel" unique_id=1317726181]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 1404.0
+offset_bottom = 768.0
+texture = ExtResource("2_mxvhm")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="background/scroll_panel/scroll_popup_panel" unique_id=1856135094]
+modulate = Color(0, 0, 0, 1)
+light_mask = 0
+visibility_layer = 1047552
+layout_mode = 0
+offset_left = 251.99997
+offset_top = 199.0
+offset_right = 384.99997
+offset_bottom = 222.0
+scale = Vector2(1.5360514, 2.0251203)
+theme_override_font_sizes/font_size = 12
+text = "Information here"
