@@ -30,10 +30,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Control" unique_id=313490889]
 layout_mode = 0
-offset_left = 230.0
-offset_top = 716.0
-offset_right = 1687.0
-offset_bottom = 1050.0
+offset_left = 202.0
+offset_top = 666.0
+offset_right = 1659.0
+offset_bottom = 1000.0
 texture = ExtResource("1_nkf06")
 
 [node name="Button" type="Button" parent="Control" unique_id=1090363012]
@@ -43,3 +43,11 @@ offset_top = 88.0
 offset_right = 1846.0
 offset_bottom = 140.0
 text = "x"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=886543541]
+offset_left = 119.0
+offset_top = 1306.0
+offset_right = 1846.0
+offset_bottom = 1722.0
+theme_override_font_sizes/normal_font_size = 49
+text = "The M1 steel helmet became standard issue for American troops during World War II, offering improved protection against shrapnel and battlefield debris. For many soldiers in Bataan, it was more than gear—it was often their only shield against the relentless bombardment."
