@@ -105,10 +105,10 @@ Example (matches current repo categories):
 ```text
 assets/
 └── background/
-    └── chapter_1/
-        └── scene_1/
-            ├── rooftop_sunset.jpg
-            └── rooftop_night.jpg
+	└── chapter_1/
+		└── scene_1/
+			├── rooftop_sunset.jpg
+			└── rooftop_night.jpg
 ```
 
 Example (per-concern foldering, like `assets/ui/map/...`):
@@ -116,12 +116,12 @@ Example (per-concern foldering, like `assets/ui/map/...`):
 ```text
 assets/
 └── ui/
-    ├── map/
-    │   ├── background_map.png
-    │   ├── chapter_1_button.png
-    │   └── chapter_2_button.png
-    └── loading/
-        └── load_spinner.png
+	├── map/
+	│   ├── background_map.png
+	│   ├── chapter_1_button.png
+	│   └── chapter_2_button.png
+	└── loading/
+		└── load_spinner.png
 ```
 
 ---
