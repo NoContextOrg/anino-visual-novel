@@ -49,6 +49,26 @@ This repository includes **GUT** under `res://addons/gut/` and it is enabled in 
 
 ---
 
+## 👥 Team Structure
+
+- **Project Manager**: Owns the GitHub Board, requirements, and sprint prioritization
+- **Architect / Tech Lead**: Defines core architecture and acts as the primary PR reviewer
+- **DevOps**: Manages CI/CD, Godot export templates, and automated builds
+- **Gameplay Programmers**: Implement mechanics, AI, and core game loops
+- **UI & Systems Programmers**: Build menus, save systems, and audio implementation
+
+---
+
+## 🛑 The Golden Rule: "One Dev, One Scene"
+
+Godot scene files (`.tscn`) are difficult to merge. To avoid corrupted files and merge conflicts:
+
+- **Communicate**: If you are editing a major shared scene (e.g., `Main.tscn`), tell the team
+- **Componentize**: Break large scenes into smaller, instanced `.tscn` files
+- **Test Locally**: Always run the game and your specific GUT tests before pushing code
+
+---
+
 ## 🧭 Project Rules (Read before touching files)
 
 ### 1) Naming + layout (CI is case-sensitive)
@@ -90,6 +110,74 @@ assets/
             ├── rooftop_sunset.jpg
             └── rooftop_night.jpg
 ```
+
+Example (per-concern foldering, like `assets/ui/map/...`):
+
+```text
+assets/
+└── ui/
+    ├── map/
+    │   ├── background_map.png
+    │   ├── chapter_1_button.png
+    │   └── chapter_2_button.png
+    └── loading/
+        └── load_spinner.png
+```
+
+---
+
+## 🔄 Development Workflow
+
+### 1) Branching & Commits
+
+- Create a branch for every issue:
+  - `type/issue-id-description` (e.g., `docs/23-update-quick-start-and-setup-guide`)
+- We use **Conventional Commits**:
+
+```text
+feat(scope): description
+fix(scope): description
+chore(scope): description
+docs(scope): description
+```
+
+### 2) Pull Requests
+
+- Open a PR against `main`
+- Link the issue (e.g., `Closes #23`)
+- Ensure the issue has proper labels:
+  - `type:*`
+  - `size:*`
+  - `priority:*`
+- Request a review from the Architect
+- **Squash and Merge** once approved and CI checks pass
+
+---
+
+## 📄 PR Template Requirement
+
+All pull requests must follow `.github/pull_request_template.md`.
+
+**Related Issue**
+
+```text
+Closes #
+```
+
+**Type of Change** *(must match issue label)*
+
+- `feat`: New feature (`type: feature`)
+- `fix`: Bug fix (`type: bug`)
+- `chore`: Tooling/refactor (`type: chore`)
+- `docs`: Documentation (`type: docs`)
+
+**Testing & Checklist**
+
+- My commit messages follow the Conventional Commits format
+- I have tested my changes in Godot
+- I have run GUT tests locally before pushing
+- I have updated documentation if needed
+- I have not broken any existing functionality
 
 ---
 
@@ -169,47 +257,57 @@ head -n 5 assets/path/to/suspicious_file
 
 ---
 
-## 🔄 Development Workflow
+## 🧷 Git LFS Push Failures (GH008) — What it means and how to fix it
 
-### Branching & commits
+If you see this during `git push`:
 
-- Branches: `type/issue-id-short-description`
-  - Example: `feature/101-dialogue-skipping`
-- Conventional Commits:
+- `remote: error: GH008: Your push referenced at least 1 unknown Git LFS object`
 
-```text
-feat(scope): description
-fix(scope): description
-chore(scope): description
-docs(scope): description
+It means your commit references an LFS object that **was not uploaded** to GitHub’s LFS storage yet.
+
+### Hooks note (this repo uses Husky)
+
+This repo uses Husky (`core.hooksPath=.husky/_`). The LFS pre-push hook lives at:
+
+- `.husky/_/pre-push`
+
+So you won’t see it under `.git/hooks/pre-push`.
+
+### Fix steps
+
+```bash
+# Ensure the LFS hook is correctly installed/updated (safe to run)
+git lfs update --force
+
+# Upload all LFS objects required by your branch
+git lfs push --all origin <your-branch>
+
+# Retry the normal push
+git push -u origin <your-branch>
 ```
 
-### Pull Requests
+### If it says your local objects are missing/corrupt
 
-- Open a PR against `main`
-- Link the issue (e.g., `Closes #101`)
-- Ensure the issue has labels: `type:*`, `size:*`, `priority:*`
-- Request a review from the Architect
-- **Squash and Merge** once approved and CI checks pass
+Repair your local LFS cache, then retry:
 
----
-
-## 🛑 The Golden Rule: "One Dev, One Scene"
-
-Godot scene files (`.tscn`) are difficult to merge. To avoid corrupted files and merge conflicts:
-
-- Communicate if you are editing a shared scene
-- Componentize large scenes into smaller instanced scenes
+```bash
+git lfs fetch --all origin
+git lfs fsck
+git lfs checkout
+```
 
 ---
 
-## 👥 Team Structure
+## 📅 Weekly Development Timeline
 
-- **Project Manager**: Owns the GitHub Board, requirements, and sprint prioritization
-- **Architect / Tech Lead**: Defines core architecture and acts as the primary PR reviewer
-- **DevOps**: Manages CI/CD, Godot export templates, and automated builds
-- **Gameplay Programmers**: Implement mechanics, AI, and core game loops
-- **UI & Systems Programmers**: Build menus, save systems, and audio implementation
+- **Sunday — Task Assignment & Kickoff**
+  - Stand-up meeting to distribute tasks; work can start immediately after
+- **Wednesday — Progress Review (Project Manager)**
+  - Review progress and unblock issues
+- **Friday — Build Review (Technical Lead)**
+  - Evaluate the current build and request improvements
+- **Saturday & Sunday — DevOps Review & Evaluation**
+  - Integration checks, testing, and deployment readiness evaluation
 
 ---
 
@@ -218,10 +316,98 @@ Godot scene files (`.tscn`) are difficult to merge. To avoid corrupted files and
 ```text
 res://
 ├── assets/               # LFS-backed binaries (png/jpg/psd/wav/ogg)
-├── builds/               # Export outputs (web/windows)
 ├── resources/            # Godot-native resources (.tres/.res)
-├── scenes/               # .tscn (UI/system/templates)
+├── scenes/               # .tscn (ui/system/templates)
 ├── src/                  # GDScript (autoload/gameplay/ui)
 ├── story/                # Narrative data (JSON/text/markdown)
-└── addons/               # Editor plugins (GUT, etc.)
+├── addons/               # Editor plugins (GUT, etc.)
+└── builds/               # Export outputs (web/windows) (not committed)
 ```
+
+---
+
+## 📂 res://assets/ (Managed via Git LFS)
+
+**Primary Owner:** DevOps
+**Contributors:** Art & Sound Teams
+
+**Role:** Ensures `.gitattributes` tracks large files so the repo stays lean.
+
+- `characters/` *(DevOps / Art)*: high-resolution character sprites
+- `background/` *(DevOps / Art)*: large environment files
+- `music/` + `sfx/` *(DevOps / Sound)*: `.ogg` and `.wav`
+
+---
+
+## 📂 res://scenes/ (The "Assembly Line")
+
+**Primary Owner:** UI & Systems Programmers & Gameplay Programmer
+
+- `ui/` *(UI & Systems Programmers)*: menus and HUD `.tscn`
+- `system/` *(Gameplay Programmer)*: invisible scenes (audio/save/transition)
+- `templates/` *(Game Designer / Gameplay Programmer)*: chapter templates
+
+---
+
+## 📂 res://src/ (The "Engine Room")
+
+**Primary Owner:** Gameplay Programmer
+
+- `ui/` *(UI & Systems Programmers)*: menu logic scripts
+- `gameplay/` *(Gameplay Programmer)*: core systems (e.g., dialogue)
+- `autoload/` *(DevOps / Gameplay Programmer)*: global singletons
+
+---
+
+## 📂 res://story/ & res://resources/ (The "Database")
+
+**Primary Owner:** Gameplay Programmer
+
+- `story/`: dialogue, branching logic, narrative data (JSON/text)
+- `resources/`: `.tres` bridges referencing assets (e.g., characters, themes)
+
+---
+
+## 📊 Ownership & Tech Stack
+
+| Folder        | Primary Dev              | Tech Stack                |
+| ------------- | ------------------------ | ------------------------- |
+| `assets/`     | DevOps                   | Git LFS, `.png`, `.ogg`   |
+| `scenes/ui/`  | UI & Systems Programmers | Godot Nodes, `.tscn`      |
+| `src/ui/`     | UI & Systems Programmers | GDScript (UI logic)       |
+| `src/gameplay/` | Gameplay Programmer    | GDScript (system logic)   |
+| `src/autoload/` | Gameplay Programmer    | Singletons / global state |
+| `story/`      | Gameplay Programmer      | JSON / Text / Markdown    |
+
+---
+
+## 🏷️ Label Legend
+
+Every issue should have one label from each of the first three categories.
+
+### 1) Type (What is it?)
+
+- `type: bug` – Something is broken
+- `type: feature` – New mechanics or content
+- `type: chore` – Tooling or refactoring
+- `type: docs` – Documentation updates
+
+### 2) Size (How long?)
+
+- `size: S` – 1–2 hours
+- `size: M` – 1–3 days
+- `size: L` – Full sprint
+
+### 3) Priority (When?)
+
+- `priority: high` – Critical blockers or must-haves
+- `priority: med` – Standard sprint work
+- `priority: low` – Polish and minor tweaks
+
+### 4) Status (Where is it?)
+
+- `status: in-progress` – Active development
+- `status: blocked` – Technical or tool-related hard stop
+- `status: needs-info` – Waiting on a decision, art asset, or PM
+- `status: in-review` – Finished; waiting for Architect approval
+- `status: revision` – Changes requested by reviewer; high priority
