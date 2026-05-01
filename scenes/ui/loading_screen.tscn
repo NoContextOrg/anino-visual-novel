@@ -1,7 +1,6 @@
-[gd_scene format=3 uid="uid://cw4yrmmkr4ie6"]
+[gd_scene format=3 uid="uid://ckw4gkh7maqjx"]
 
-[ext_resource type="Script" uid="uid://b4r0dbs4jdx5y" path="res://src/ui/loading_screen.gd" id="1_q4fso"]
-[ext_resource type="Texture2D" uid="uid://3ecxjs3m85k0" path="res://assets/background/green-pasteur-grass-field-illustration-anime-manga-visual-novel-background-wallpaper-photo (1).jpg" id="1_rqdcv"]
+[ext_resource type="Script" path="res://src/ui/loading_screen.gd" id="1_q4fso"]
 [ext_resource type="FontFile" uid="uid://ch0b2amh224hj" path="res://resources/fonts/Montserrat-Regular.ttf" id="3_5fj0j"]
 [ext_resource type="Texture2D" uid="uid://c7ltd8j3moqga" path="res://assets/ui/LoadSpinner.png" id="4_s2kth"]
 
@@ -22,7 +21,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(32, 32)
-texture = ExtResource("1_rqdcv")
 expand_mode = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=739350458]
