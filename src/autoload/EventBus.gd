@@ -14,3 +14,7 @@ signal skip_convo_requested
 # choice system
 signal choices_requested(choices: Array)
 signal choice_selected(index: int)
+
+# modal and hotspot signals
+signal show_image_modal_requested(image_path: String)
+signal hotspot_clicked(id: String)

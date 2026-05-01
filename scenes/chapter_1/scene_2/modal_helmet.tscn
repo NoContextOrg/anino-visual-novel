@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://csr6whs4dewmf"]
+
+[ext_resource type="Script" uid="uid://b8xwysar5bnih" path="res://src/ui/chapter_1/scene_2/modal_helmet.gd" id="1_jqokb"]
+[ext_resource type="Texture2D" uid="uid://ud7v3da8ijcn" path="res://assets/hotspots/chapter_1/scene_2/helmet.png" id="2_jqokb"]
+
+[node name="Modal2" type="CanvasLayer" unique_id=169697560]
+script = ExtResource("1_jqokb")
+
+[node name="Control" type="Control" parent="." unique_id=204336050]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=792707318]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.1569072
+anchor_top = 1.1114037
+anchor_right = 1.3587118
+anchor_bottom = 1.5521219
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-6.1070275, -2.793361)
+size_flags_vertical = 4
+color = Color(0, 0, 0, 0.8862745)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=313490889]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 354.0
+offset_right = 1279.0
+offset_bottom = 1242.0
+texture = ExtResource("2_jqokb")
+
+[node name="Button" type="Button" parent="Control" unique_id=1090363012]
+layout_mode = 0
+offset_left = 1759.0
+offset_top = 88.0
+offset_right = 1846.0
+offset_bottom = 140.0
+text = "x"
