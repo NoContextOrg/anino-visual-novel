@@ -30,5 +30,3 @@ Thumbs.db
 Dockerfile
 *.local
 .env.local
-
-assets/
