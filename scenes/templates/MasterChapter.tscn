@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bynwg3pupa5p3"]
 
-[ext_resource type="Script" uid="uid://cbre18vqymqph" path="res://src/gameplay/sceneTransition.gd" id="1_06f3a"]
+[ext_resource type="Script" uid="uid://cbre18vqymqph" path="res://src/gameplay/SceneTransition.gd" id="1_06f3a"]
 [ext_resource type="Script" path="res://src/gameplay/backgroundTransition.gd" id="2_h2co6"]
 
 [sub_resource type="Animation" id="Animation_arje4"]
