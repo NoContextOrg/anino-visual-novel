@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6vq3hmotwx3n"
-path="res://.godot/imported/scattered_papers.png-7525c175f082e8d60c744ba61e7233c4.ctex"
+uid="uid://igo85dssixk7"
+path="res://.godot/imported/steel_helmet_btn.png-21c5006bd4e86fa78ed87ec4dbb4cd96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/ch1_scene3_mats/scattered_papers.png"
-dest_files=["res://.godot/imported/scattered_papers.png-7525c175f082e8d60c744ba61e7233c4.ctex"]
+source_file="res://assets/ui/table_scene/steel_helmet_btn.png"
+dest_files=["res://.godot/imported/steel_helmet_btn.png-21c5006bd4e86fa78ed87ec4dbb4cd96.ctex"]
 
 [params]
 

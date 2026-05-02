@@ -1,17 +1,18 @@
 [gd_scene format=3 uid="uid://bvqjt51iuku2p"]
 
-[ext_resource type="Texture2D" uid="uid://51j7pkybpcxf" path="res://assets/ui/ch1_scene3_mats/table_foreground.png" id="1_b6iab"]
-[ext_resource type="Texture2D" uid="uid://bn4pyms31ajgh" path="res://assets/ui/ch1_scene3_mats/hospital_reports_btn.png" id="2_4yjjn"]
-[ext_resource type="Texture2D" uid="uid://b6vq3hmotwx3n" path="res://assets/ui/ch1_scene3_mats/scattered_papers.png" id="2_7cekh"]
-[ext_resource type="Texture2D" uid="uid://igo85dssixk7" path="res://assets/ui/ch1_scene3_mats/steel_helmet_btn.png" id="3_7cekh"]
-[ext_resource type="Texture2D" uid="uid://beyplrjeia06d" path="res://assets/ui/ch1_scene3_mats/canteen_btn.png" id="4_l6prv"]
-[ext_resource type="Texture2D" uid="uid://barm8s2iv0rre" path="res://assets/ui/ch1_scene3_mats/war_map_btn.png" id="5_at8l2"]
-[ext_resource type="Texture2D" uid="uid://bb4kpp0nfka6t" path="res://assets/ui/ch1_scene3_mats/lensatic_compass_btn.png" id="6_vi6me"]
-[ext_resource type="Texture2D" uid="uid://bokl58r2vdoos" path="res://assets/ui/ch1_scene3_mats/blank_scroll.png" id="7_spsm5"]
+[ext_resource type="Script" uid="uid://cirxvgdhtkpw2" path="res://src/ui/table_map_scene.gd" id="1_7cekh"]
+[ext_resource type="Texture2D" uid="uid://51j7pkybpcxf" path="res://assets/ui/table_scene/table_foreground.png" id="1_b6iab"]
+[ext_resource type="Texture2D" uid="uid://b6vq3hmotwx3n" path="res://assets/ui/table_scene/scattered_papers.png" id="2_7cekh"]
+[ext_resource type="Texture2D" uid="uid://igo85dssixk7" path="res://assets/ui/table_scene/steel_helmet_btn.png" id="3_7cekh"]
+[ext_resource type="Texture2D" uid="uid://barm8s2iv0rre" path="res://assets/ui/table_scene/war_map_btn.png" id="6_at8l2"]
+[ext_resource type="Theme" uid="uid://dwjpijsc3chou" path="res://resources/default_theme.tres" id="6_l6prv"]
+[ext_resource type="Texture2D" uid="uid://bokl58r2vdoos" path="res://assets/ui/table_scene/blank_scroll.png" id="7_spsm5"]
+[ext_resource type="Texture2D" uid="uid://bn4pyms31ajgh" path="res://assets/ui/table_scene/hospital_reports_btn.png" id="8_vi6me"]
+[ext_resource type="Texture2D" uid="uid://beyplrjeia06d" path="res://assets/ui/table_scene/canteen_btn.png" id="9_spsm5"]
+[ext_resource type="Texture2D" uid="uid://bb4kpp0nfka6t" path="res://assets/ui/table_scene/lensatic_compass_btn.png" id="10_syi01"]
+[ext_resource type="FontFile" uid="uid://ch0b2amh224hj" path="res://resources/fonts/Montserrat-Regular.ttf" id="12_vi6me"]
 
-[sub_resource type="BitMap" id="BitMap_syi01"]
-
-[sub_resource type="BitMap" id="BitMap_b6iab"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7cekh"]
 
 [node name="TableMapScene" type="Control" unique_id=1619248148]
 layout_mode = 3
@@ -20,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7cekh")
 
 [node name="background" type="ColorRect" parent="." unique_id=572439709]
 layout_mode = 1
@@ -58,7 +60,7 @@ offset_left = 333.0
 offset_top = 35.0
 offset_right = 1536.5295
 offset_bottom = 826.00836
-scale = Vector2(0.5001954, 0.42603847)
+scale = Vector2(0.5001954, 0.42983022)
 texture = ExtResource("2_7cekh")
 
 [node name="scattered_papers" type="TextureRect" parent="background/table_fg/props" unique_id=59063113]
@@ -88,28 +90,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="war_map_btn" type="TextureButton" parent="background/table_fg/interactables" unique_id=928412243]
+[node name="war_map_btn" type="TextureButton" parent="background/table_fg/interactables" unique_id=989128668]
 layout_mode = 0
-offset_left = 241.00003
-offset_top = 124.0
-offset_right = 1086.0002
+offset_left = 223.0
+offset_top = 132.0
+offset_right = 1060.0
 offset_bottom = 618.0
-rotation = 0.010067284
-scale = Vector2(1.6992326, 1.3738632)
-texture_normal = ExtResource("5_at8l2")
+rotation = -0.0020903768
+scale = Vector2(1.8020352, 1.3958006)
+theme = ExtResource("6_l6prv")
+theme_type_variation = &"TableItemButton"
+texture_normal = ExtResource("6_at8l2")
 
-[node name="hospital_report_btn" type="TextureButton" parent="background/table_fg/interactables" unique_id=1068721336]
+[node name="hospital_report_btn" type="TextureButton" parent="background/table_fg/interactables" unique_id=456037193]
 layout_mode = 0
 offset_left = 1552.0001
 offset_top = 276.0
 offset_right = 2187.0
 offset_bottom = 926.0
 rotation = -0.0020903768
-scale = Vector2(0.55713695, 0.6297264)
-texture_normal = ExtResource("2_4yjjn")
-texture_click_mask = SubResource("BitMap_syi01")
+scale = Vector2(0.5608391, 0.6319172)
+theme = ExtResource("6_l6prv")
+theme_type_variation = &"TableItemButton"
+texture_normal = ExtResource("8_vi6me")
 
-[node name="helmet_btn" type="TextureButton" parent="background/table_fg/interactables" unique_id=637902498]
+[node name="helmet_btn" type="TextureButton" parent="background/table_fg/interactables" unique_id=395324421]
 layout_mode = 0
 offset_left = 1309.0
 offset_top = -90.0
@@ -117,9 +122,11 @@ offset_right = 2341.0
 offset_bottom = 942.0
 rotation = 0.16351545
 scale = Vector2(0.49823868, 0.3970951)
+theme = ExtResource("6_l6prv")
+theme_type_variation = &"TableItemButton"
 texture_normal = ExtResource("3_7cekh")
 
-[node name="canteen_btn" type="TextureButton" parent="background/table_fg/interactables" unique_id=123606097]
+[node name="canteen_btn" type="TextureButton" parent="background/table_fg/interactables" unique_id=1391483106]
 layout_mode = 0
 offset_left = 228.0
 offset_top = 318.0
@@ -127,30 +134,32 @@ offset_right = 652.0
 offset_bottom = 933.0
 rotation = -0.052581787
 scale = Vector2(0.3446676, 0.3356364)
-texture_normal = ExtResource("4_l6prv")
-texture_click_mask = SubResource("BitMap_b6iab")
+theme = ExtResource("6_l6prv")
+theme_type_variation = &"TableItemButton"
+texture_normal = ExtResource("9_spsm5")
 
-[node name="compass_btn" type="TextureButton" parent="background/table_fg/interactables" unique_id=831415326]
+[node name="compass_btn" type="TextureButton" parent="background/table_fg/interactables" unique_id=1908900955]
 layout_mode = 0
 offset_left = 1328.0001
 offset_top = 154.99997
 offset_right = 1721.0001
 offset_bottom = 746.0
 rotation = 0.36594445
-scale = Vector2(0.5475407, 0.44106907)
-texture_normal = ExtResource("6_vi6me")
+scale = Vector2(0.55017424, 0.4439072)
+theme = ExtResource("6_l6prv")
+theme_type_variation = &"TableItemButton"
+texture_normal = ExtResource("10_syi01")
 
 [node name="scroll_panel" type="PopupPanel" parent="background" unique_id=412855753]
 oversampling_override = 1.0
 title = "scroll_info_pop"
 initial_position = 1
 size = Vector2i(1408, 772)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7cekh")
 
 [node name="scroll_popup_panel" type="TextureRect" parent="background/scroll_panel" unique_id=1317726181]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 1404.0
-offset_bottom = 768.0
+offset_right = 1408.0
+offset_bottom = 772.0
 texture = ExtResource("7_spsm5")
 stretch_mode = 3
 
@@ -161,11 +170,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 190
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 190
+theme_override_constants/margin_bottom = 120
 
-[node name="Label" type="Label" parent="background/scroll_panel/scroll_popup_panel/margin_container" unique_id=1856135094]
+[node name="label" type="Label" parent="background/scroll_panel/scroll_popup_panel/margin_container" unique_id=1856135094]
 modulate = Color(0, 0, 0, 1)
 light_mask = 0
 visibility_layer = 1047552
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.4392157, 0.25882354, 0.078431375, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("12_vi6me")
+theme_override_font_sizes/font_size = 32
 text = "Information here"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

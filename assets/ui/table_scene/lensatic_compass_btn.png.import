@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn4pyms31ajgh"
-path="res://.godot/imported/hospital_reports_btn.png-64f402f72493556aa47e4d5a77b34910.ctex"
+uid="uid://bb4kpp0nfka6t"
+path="res://.godot/imported/lensatic_compass_btn.png-f78885e0f0ded6bd6aeb73b5f7e91817.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/ch1_scene3_mats/hospital_reports_btn.png"
-dest_files=["res://.godot/imported/hospital_reports_btn.png-64f402f72493556aa47e4d5a77b34910.ctex"]
+source_file="res://assets/ui/table_scene/lensatic_compass_btn.png"
+dest_files=["res://.godot/imported/lensatic_compass_btn.png-f78885e0f0ded6bd6aeb73b5f7e91817.ctex"]
 
 [params]
 

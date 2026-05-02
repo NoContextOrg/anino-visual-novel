@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlyrnwkuuw050"
-path="res://.godot/imported/closed_blank_scroll.png-ba223a461541c8eafe653c707cd02532.ctex"
+uid="uid://sxbtu1x0kvr2"
+path="res://.godot/imported/table_ubg.png-56573b029bd51c7d7d159ee19c24dbba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/ch1_scene3_mats/closed_blank_scroll.png"
-dest_files=["res://.godot/imported/closed_blank_scroll.png-ba223a461541c8eafe653c707cd02532.ctex"]
+source_file="res://assets/ui/table_scene/table_ubg.png"
+dest_files=["res://.godot/imported/table_ubg.png-56573b029bd51c7d7d159ee19c24dbba.ctex"]
 
 [params]
 

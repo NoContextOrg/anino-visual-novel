@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://51j7pkybpcxf"
-path="res://.godot/imported/table_foreground.png-79560cbc9ef4d01fdb864989ad5d1453.ctex"
+uid="uid://bn4pyms31ajgh"
+path="res://.godot/imported/hospital_reports_btn.png-c5a9f8045ed80f68853ff00659133cea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/ch1_scene3_mats/table_foreground.png"
-dest_files=["res://.godot/imported/table_foreground.png-79560cbc9ef4d01fdb864989ad5d1453.ctex"]
+source_file="res://assets/ui/table_scene/hospital_reports_btn.png"
+dest_files=["res://.godot/imported/hospital_reports_btn.png-c5a9f8045ed80f68853ff00659133cea.ctex"]
 
 [params]
 
