@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 EventBus="*uid://ccorr3eohdfcg"
 GameState="*uid://c0mneir8hnuhv"
 GameManager="*uid://dd67tblscidsx"
+SceneManager="*uid://bxkyj68l5jed0"
+SceneTransition="*uid://mq6arono6y6x"
 
 [display]
 
