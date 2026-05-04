@@ -30,3 +30,6 @@ Thumbs.db
 Dockerfile
 *.local
 .env.local
+
+*.import
+*.uid
