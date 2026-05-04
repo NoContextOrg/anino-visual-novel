@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://d18vt7tc51s84"]
 
-[ext_resource type="Script" uid="uid://ddfixbf78c4i3" path="res://src/ui/chapter_1/scene_2/scene_2.gd" id="1_d3884"]
+[ext_resource type="Script" uid="uid://v4dnbtw0bm5s" path="res://src/ui/chapter_1/scene_2/scene_2.gd" id="1_d3884"]
 [ext_resource type="Texture2D" uid="uid://b7vk445okoke" path="res://assets/background/chapter_1/scene_2/camp_background.png" id="2_okpv3"]
-[ext_resource type="Script" uid="uid://jbcd315h6nqd" path="res://src/ui/chapter_1/scene_2/lantern.gd" id="3_w2rvn"]
+[ext_resource type="Script" uid="uid://t21qivi5ufa3" path="res://src/ui/chapter_1/scene_2/lantern.gd" id="3_w2rvn"]
 [ext_resource type="PackedScene" uid="uid://dmk01ebol40jx" path="res://scenes/ui/SampleDialogueBox.tscn" id="4_wg7b0"]
 [ext_resource type="Texture2D" uid="uid://7umvqir4ej76" path="res://assets/hotspots/chapter_1/scene_2/rifle.png" id="5_biss5"]
-[ext_resource type="Script" uid="uid://gl3noh4cugpk" path="res://src/ui/chapter_1/scene_2/rifle_script.gd" id="6_epd45"]
+[ext_resource type="Script" uid="uid://b3t26xbcexbna" path="res://src/ui/chapter_1/scene_2/rifle_script.gd" id="6_epd45"]
 [ext_resource type="PackedScene" uid="uid://bxwwomhar5ovg" path="res://scenes/chapter_1/scene_2/modal_rifle.tscn" id="7_fp0au"]
 [ext_resource type="Texture2D" uid="uid://ud7v3da8ijcn" path="res://assets/hotspots/chapter_1/scene_2/helmet.png" id="8_hby04"]
-[ext_resource type="Script" uid="uid://caqf605vfb63t" path="res://src/ui/chapter_1/scene_2/helmet_script.gd" id="9_tt6b1"]
+[ext_resource type="Script" uid="uid://dq1ad0wrdudrm" path="res://src/ui/chapter_1/scene_2/helmet_script.gd" id="9_tt6b1"]
 [ext_resource type="PackedScene" uid="uid://csr6whs4dewmf" path="res://scenes/chapter_1/scene_2/modal_helmet.tscn" id="10_10rna"]
 
 [sub_resource type="Gradient" id="Gradient_2ib4t"]
