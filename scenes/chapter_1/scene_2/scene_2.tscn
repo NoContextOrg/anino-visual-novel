@@ -24,20 +24,20 @@ fill_to = Vector2(0.9, 0.5)
 script = ExtResource("1_d3884")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1096951841]
-offset_left = -1279.0
-offset_top = -13.0
-offset_right = 2252.9063
-offset_bottom = 1919.0
+offset_left = -415.0
+offset_top = -11.0
+offset_right = 1468.0
+offset_bottom = 1025.0
 texture = ExtResource("2_okpv3")
-expand_mode = 3
-metadata/_edit_use_anchors_ = true
+expand_mode = 2
+stretch_mode = 4
 
 [node name="cool_tone" type="CanvasModulate" parent="." unique_id=1120236417]
 color = Color(0.083965786, 0.20867932, 0.42754754, 1)
 
 [node name="warm_light" type="PointLight2D" parent="." unique_id=628856596]
-position = Vector2(727, 1006)
-scale = Vector2(52.20312, 28.515625)
+position = Vector2(417, 566)
+scale = Vector2(41.789063, 22.632813)
 color = Color(0.79421383, 0.51520514, 0.10596668, 1)
 energy = 1.5
 texture = SubResource("GradientTexture2D_7jrj1")
@@ -55,12 +55,13 @@ offset_bottom = 9.0
 grow_vertical = 0
 
 [node name="RifleButton" type="TextureButton" parent="." unique_id=1531838399]
-offset_left = -22.000046
-offset_top = 794.0
-offset_right = 2093.0745
-offset_bottom = 1293.4523
-rotation = 0.9411068
+offset_left = 241.99997
+offset_top = 526.0
+offset_right = 938.53125
+offset_bottom = 781.0252
+rotation = 0.93279165
 texture_normal = ExtResource("5_biss5")
+ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("6_epd45")
 closeup_image_path = "res://assets/hotspots/chapter_1/scene_2/rifle.png"
@@ -69,12 +70,13 @@ closeup_image_path = "res://assets/hotspots/chapter_1/scene_2/rifle.png"
 visible = false
 
 [node name="HelmetButton" type="TextureButton" parent="." unique_id=2009684565]
-offset_left = 1483.0
-offset_top = 186.0
-offset_right = 2004.9086
-offset_bottom = 909.7621
-rotation = 0.012142822
+offset_left = 1058.9999
+offset_top = 101.99999
+offset_right = 1300.7598
+offset_bottom = 535.03357
+rotation = 0.049610578
 texture_normal = ExtResource("8_hby04")
+ignore_texture_size = true
 stretch_mode = 4
 flip_h = true
 script = ExtResource("9_tt6b1")
