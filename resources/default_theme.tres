@@ -1,6 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://dwjpijsc3chou"]
 
-[ext_resource type="FontFile" uid="uid://dblyybjexl0om" path="res://resources/fonts/Montserrat-Italic-VariableFont_wght.ttf" id="1_jlqpw"]
+[ext_resource type="FontFile" uid="uid://d2arlclfybj5n" path="res://resources/fonts/Montserrat-Italic-VariableFont_wght.ttf" id="1_jlqpw"]
 
 [resource]
 CompletedChapterButton/base_type = &"UnlockedChapterButton"
