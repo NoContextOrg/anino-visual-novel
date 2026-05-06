@@ -1,22 +1,10 @@
 [gd_scene format=3 uid="uid://dkkie03nslxcp"]
 
-[ext_resource type="Theme" uid="uid://dwjpijsc3chou" path="res://resources/default_theme.tres" id="1_m1kxf"]
-[ext_resource type="Script" uid="uid://xbkdo6ke4nwg" path="res://src/ui/main_menu.gd" id="1_x2yvf"]
-[ext_resource type="Texture2D" uid="uid://3ecxjs3m85k0" path="res://assets/background/green-pasteur-grass-field-illustration-anime-manga-visual-novel-background-wallpaper-photo (1).jpg" id="2_uhagc"]
-
-[sub_resource type="Theme" id="Theme_1g8jr"]
-
-[sub_resource type="Theme" id="Theme_uhagc"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btxxm"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wb0q5"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q85j6"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8g5eo"]
-
-[sub_resource type="Theme" id="Theme_7suek"]
+[ext_resource type="FontFile" uid="uid://dblyybjexl0om" path="res://resources/fonts/Montserrat-Italic-VariableFont_wght.ttf" id="1_font_italic"]
+[ext_resource type="Script" uid="uid://xbkdo6ke4nwg" path="res://src/ui/main_menu.gd" id="2_script"]
+[ext_resource type="Texture2D" uid="uid://3ecxjs3m85k0" path="res://assets/background/green-pasteur-grass-field-illustration-anime-manga-visual-novel-background-wallpaper-photo (1).jpg" id="3_bg"]
+[ext_resource type="Theme" uid="uid://dwjpijsc3chou" path="res://resources/default_theme.tres" id="4_global_theme"]
+[ext_resource type="FontFile" uid="uid://ch0b2amh224hj" path="res://resources/fonts/Montserrat-Regular.ttf" id="5_font_reg"]
 
 [node name="MainMenu" type="Control" unique_id=413469708]
 layout_mode = 3
@@ -25,8 +13,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_m1kxf")
-script = ExtResource("1_x2yvf")
+theme = ExtResource("4_global_theme")
+script = ExtResource("2_script")
 
 [node name="Background" type="TextureRect" parent="." unique_id=649349293]
 layout_mode = 1
@@ -35,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_uhagc")
+texture = ExtResource("3_bg")
 stretch_mode = 4
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1526207557]
@@ -53,11 +41,12 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -53.0
-offset_top = 45.0
+offset_top = -14.0
 offset_right = -491.0
-offset_bottom = -858.0
+offset_bottom = -917.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_global_theme")
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_bottom = 150
 
@@ -67,7 +56,6 @@ alignment = 2
 
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1065636741]
 layout_mode = 2
-theme = SubResource("Theme_1g8jr")
 theme_type_variation = &"TitleLabel"
 text = "PROJECT ANINO"
 
@@ -82,32 +70,20 @@ layout_mode = 2
 
 [node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=122197049]
 layout_mode = 2
-focus_neighbor_bottom = NodePath("../Load")
-theme = SubResource("Theme_uhagc")
 theme_type_variation = &"MainButton"
-theme_override_styles/normal = SubResource("StyleBoxFlat_btxxm")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_wb0q5")
-theme_override_styles/hover = SubResource("StyleBoxFlat_q85j6")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_8g5eo")
 text = "Play Now"
 flat = true
 alignment = 0
 
-[node name="Load" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1968399434]
+[node name="LoadButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1968399434]
 layout_mode = 2
-focus_neighbor_top = NodePath("../PlayButton")
-focus_neighbor_bottom = NodePath("../SettingsButton")
-theme = SubResource("Theme_7suek")
 theme_type_variation = &"MainButton"
-disabled = true
 text = "Load Game"
 flat = true
 alignment = 0
 
 [node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1073779884]
 layout_mode = 2
-focus_neighbor_top = NodePath("../Load")
-focus_neighbor_bottom = NodePath("../QuitButton")
 theme_type_variation = &"MainButton"
 text = "Settings"
 flat = true
@@ -115,8 +91,11 @@ alignment = 0
 
 [node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1166346942]
 layout_mode = 2
-focus_neighbor_top = NodePath("../SettingsButton")
 theme_type_variation = &"MainButton"
 text = "Quit"
 flat = true
 alignment = 0
+
+[node name="Control" type="Control" parent="." unique_id=2049701498]
+anchors_preset = 0
+metadata/_tab_index = 0

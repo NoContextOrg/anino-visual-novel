@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://bhuebrmmmt0wj"]
+
+[ext_resource type="FontFile" uid="uid://dblyybjexl0om" path="res://resources/fonts/Montserrat-Italic-VariableFont_wght.ttf" id="1_l5iig"]
+[ext_resource type="Theme" uid="uid://dwjpijsc3chou" path="res://resources/default_theme.tres" id="2_aqeku"]
+
+[sub_resource type="Theme" id="Theme_pam83"]
+BackButton/base_type = &"Button"
+BackButton/font_sizes/font_size = 16
+MainButton/base_type = &"BackButton"
+MainButton/colors/font_color = Color(1, 1, 1, 1)
+MainButton/colors/font_disabled_color = Color(0.39232534, 0.39232537, 0.39232534, 1)
+MainButton/colors/font_focus_color = Color(0, 0, 0, 1)
+MainButton/colors/font_hover_color = Color(0, 0, 0, 1)
+MainButton/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+MainButton/colors/font_outline_color = Color(0, 0, 0, 1)
+MainButton/colors/font_pressed_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_disabled_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_focus_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_hover_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_normal_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_pressed_color = Color(0, 0, 0, 1)
+MainButton/constants/align_to_largest_stylebox = 0
+MainButton/constants/h_separation = 0
+MainButton/constants/icon_max_width = 0
+MainButton/constants/outline_size = 0
+MainButton/font_sizes/font_size = 60
+MainButton/fonts/font = null
+MainButton/styles/disabled = null
+MainButton/styles/focus = null
+MainButton/styles/hover = null
+MainButton/styles/normal = null
+MainButton/styles/pressed = null
+SubtitleLabel/base_type = &"Label"
+SubtitleLabel/font_sizes/font_size = 40
+SubtitleLabel/fonts/font = ExtResource("1_l5iig")
+TitleLabel/base_type = &"Label"
+TitleLabel/font_sizes/font_size = 90
+
+[sub_resource type="Theme" id="Theme_ypyp2"]
+BackButton/base_type = &"Button"
+BackButton/font_sizes/font_size = 16
+MainButton/base_type = &"BackButton"
+MainButton/colors/font_color = Color(1, 1, 1, 1)
+MainButton/colors/font_disabled_color = Color(0.39232534, 0.39232537, 0.39232534, 1)
+MainButton/colors/font_focus_color = Color(0, 0, 0, 1)
+MainButton/colors/font_hover_color = Color(0, 0, 0, 1)
+MainButton/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+MainButton/colors/font_outline_color = Color(0, 0, 0, 1)
+MainButton/colors/font_pressed_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_disabled_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_focus_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_hover_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_normal_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_pressed_color = Color(0, 0, 0, 1)
+MainButton/constants/align_to_largest_stylebox = 0
+MainButton/constants/h_separation = 0
+MainButton/constants/icon_max_width = 0
+MainButton/constants/outline_size = 0
+MainButton/font_sizes/font_size = 60
+MainButton/fonts/font = null
+MainButton/styles/disabled = null
+MainButton/styles/focus = null
+MainButton/styles/hover = null
+MainButton/styles/normal = null
+MainButton/styles/pressed = null
+SubtitleLabel/base_type = &"Label"
+SubtitleLabel/font_sizes/font_size = 40
+SubtitleLabel/fonts/font = ExtResource("1_l5iig")
+TitleLabel/base_type = &"Label"
+TitleLabel/font_sizes/font_size = 90
+
+[node name="SaveSlot" type="PanelContainer" unique_id=2126544664]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_pam83")
+focus_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=577806339]
+layout_mode = 2
+theme = SubResource("Theme_ypyp2")
+
+[node name="ChapterName" type="Label" parent="VBoxContainer" unique_id=239189233]
+layout_mode = 2
+theme = ExtResource("2_aqeku")
+theme_type_variation = &"SubtitleLabel"
+text = "Chapter 1: ???"
+
+[node name="TimeStamp" type="Label" parent="VBoxContainer" unique_id=932693416]
+layout_mode = 2
+text = "00/00/0000 00:00"
+
+[node name="Playtime" type="Label" parent="VBoxContainer" unique_id=1644155439]
+layout_mode = 2
+text = "00:00:00"

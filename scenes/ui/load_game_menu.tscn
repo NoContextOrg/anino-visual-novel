@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dqoa7r4wl4nl2"]
+
+[ext_resource type="PackedScene" uid="uid://bhuebrmmmt0wj" path="res://scenes/ui/save_slot.tscn" id="1_i06sh"]
+[ext_resource type="Theme" uid="uid://dwjpijsc3chou" path="res://resources/default_theme.tres" id="3_woc3k"]
+[ext_resource type="Script" uid="uid://bf2r3abbsnpb" path="res://src/ui/load_game_menu.gd" id="4_woc3k"]
+
+[node name="LoadGameMenu" type="Control" unique_id=693097643]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_woc3k")
+script = ExtResource("4_woc3k")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1416865690]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.08876064, 0.21607795, 0.21147385, 0.42745098)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=292543724]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 254.0
+offset_right = 3.0
+offset_bottom = 254.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=861432373]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1173280749]
+layout_mode = 2
+text = "Load Game"
+
+[node name="SlotsContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1105487906]
+layout_mode = 2
+
+[node name="SaveSlot" parent="MarginContainer/VBoxContainer/SlotsContainer" unique_id=2126544664 instance=ExtResource("1_i06sh")]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../SaveSlot2")
+
+[node name="SaveSlot2" parent="MarginContainer/VBoxContainer/SlotsContainer" unique_id=303098749 instance=ExtResource("1_i06sh")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../SaveSlot")
+focus_neighbor_bottom = NodePath("../SaveSlot3")
+
+[node name="SaveSlot3" parent="MarginContainer/VBoxContainer/SlotsContainer" unique_id=1018810444 instance=ExtResource("1_i06sh")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../SaveSlot2")
+focus_neighbor_bottom = NodePath("../../Button")
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1891881046]
+layout_mode = 2
+text = "Back"
+focus_neighbor_top = NodePath("../SlotsContainer/SaveSlot3")
