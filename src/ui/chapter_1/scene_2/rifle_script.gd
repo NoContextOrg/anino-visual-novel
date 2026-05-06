@@ -12,8 +12,7 @@ func _on_pressed() -> void:
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
 	if rifle_modal:
-		# Play a click SFX via the EventBus, then show the modal
-		EventBus.play_sfx_requested.emit("res://assets/chapter_1/scene_2/metal_sound.mp3")
+		EventBus.play_sfx_requested.emit("res://assets/chapter_1/scene_2/metal_sound.mp3", -20.0)
 		rifle_modal.show()
 	else:
 		push_error("Rifle modal node not found.")

@@ -12,7 +12,7 @@ func _on_pressed() -> void:
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
 	if helmet_modal:
-		EventBus.play_sfx_requested.emit("res://assets/chapter_1/scene_2/distant_explosion.mp3")
+		EventBus.play_sfx_requested.emit("res://assets/chapter_1/scene_2/distant_explosion.mp3", -15.0)
 		helmet_modal.show()
 	else:
 		push_error("Rifle modal node not found.")

@@ -51,10 +51,11 @@ func _on_bg_change(path: String):
 
 
 
-func _on_sfx(path: String) -> void:
+func _on_sfx(path: String, volume_db: float = 0.0) -> void:
 	var audio = load(path)
 	if audio == null:
 		push_error("Failed to load SFX: " + path)
 		return
 	sfx_player.stream = audio
+	sfx_player.volume_db = volume_db
 	sfx_player.play()
