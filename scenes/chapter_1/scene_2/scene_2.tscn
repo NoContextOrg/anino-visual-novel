@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://d18vt7tc51s84"]
 
 [ext_resource type="Script" uid="uid://ddfixbf78c4i3" path="res://src/ui/chapter_1/scene_2/scene_2.gd" id="1_d3884"]
-[ext_resource type="Texture2D" uid="uid://b7vk445okoke" path="res://assets/background/chapter_1/scene_2/camp_background.png" id="2_okpv3"]
 [ext_resource type="Script" uid="uid://jbcd315h6nqd" path="res://src/ui/chapter_1/scene_2/lantern.gd" id="3_w2rvn"]
 [ext_resource type="PackedScene" uid="uid://dmk01ebol40jx" path="res://scenes/ui/SampleDialogueBox.tscn" id="4_wg7b0"]
 [ext_resource type="Texture2D" uid="uid://7umvqir4ej76" path="res://assets/hotspots/chapter_1/scene_2/rifle.png" id="5_biss5"]
@@ -28,7 +27,6 @@ offset_left = -415.0
 offset_top = -11.0
 offset_right = 1468.0
 offset_bottom = 1025.0
-texture = ExtResource("2_okpv3")
 expand_mode = 2
 stretch_mode = 4
 
@@ -36,7 +34,7 @@ stretch_mode = 4
 color = Color(0.083965786, 0.20867932, 0.42754754, 1)
 
 [node name="warm_light" type="PointLight2D" parent="." unique_id=628856596]
-position = Vector2(417, 566)
+position = Vector2(480.00003, 562)
 scale = Vector2(41.789063, 22.632813)
 color = Color(0.79421383, 0.51520514, 0.10596668, 1)
 energy = 1.5

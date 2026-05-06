@@ -1,4 +1,8 @@
 [
+		{
+		"speaker": "",
+		"text": "[bg: res://assets/background/chapter_1/scene_4_assets/tent_scene.png]"
+	},
 	{
 		"speaker": "Eren Yearner",
 		"text": "He stands unmoving, eyes fixed on a map that no longer offers answers."
