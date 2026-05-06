@@ -32,3 +32,6 @@ Dockerfile
 *.local
 .env.local
 
+*.import
+*.uid
+.import/

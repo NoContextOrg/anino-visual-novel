@@ -6,6 +6,7 @@ signal dialogue_finished()
 
 #scene transition signal
 signal background_change_requested(id: String) 
+signal scene_change_requested(scene_path: String) 
 
 #signal for ui
 signal advance_requested
