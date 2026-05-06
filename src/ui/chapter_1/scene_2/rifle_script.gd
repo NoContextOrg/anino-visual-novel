@@ -1,7 +1,6 @@
 extends TextureButton
 
-# Drag and drop your close-up image from the FileSystem into this variable in the Inspector!
-@export var closeup_image_path: String = "res://assets/ui/map_closeup.png"
+@onready var rifle_modal: CanvasLayer = get_node_or_null("../ModalRifle")
 
 func _ready() -> void:
 	pressed.connect(_on_pressed)
@@ -12,8 +11,12 @@ func _on_pressed() -> void:
 	# Reset the cursor
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
-	# Tell the EventBus to open the modal with THIS specific image!
-	EventBus.show_image_modal_requested.emit(closeup_image_path)
+	if rifle_modal:
+		# Play a click SFX via the EventBus, then show the modal
+		EventBus.play_sfx_requested.emit("res://assets/chapter_1/scene_2/metal_sound.mp3")
+		rifle_modal.show()
+	else:
+		push_error("Rifle modal node not found.")
 
 func _on_mouse_entered() -> void:
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)

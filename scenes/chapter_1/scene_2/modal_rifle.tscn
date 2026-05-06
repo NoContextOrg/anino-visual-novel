@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bxwwomhar5ovg"]
 
 [ext_resource type="Script" uid="uid://dd1sluaeavdhf" path="res://src/ui/chapter_1/scene_2/modal_rifle.gd" id="1_dtjyr"]
-[ext_resource type="Texture2D" uid="uid://7umvqir4ej76" path="res://assets/hotspots/chapter_1/scene_2/rifle.png" id="1_nkf06"]
+[ext_resource type="Texture2D" uid="uid://de8mcsgjpqi3m" path="res://assets/chapter_1/scene_2/items/rifle.png" id="2_eqrqm"]
 
 [node name="Modal" type="CanvasLayer" unique_id=169697560]
 script = ExtResource("1_dtjyr")
@@ -30,11 +30,14 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Control" unique_id=313490889]
 layout_mode = 0
-offset_left = 172.0
-offset_top = 328.0
-offset_right = 1237.0
-offset_bottom = 562.0
-texture = ExtResource("1_nkf06")
+offset_left = 1119.0
+offset_top = 288.99997
+offset_right = 1384.384
+offset_bottom = 1057.6605
+rotation = 1.6015726
+texture = ExtResource("2_eqrqm")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Button" type="Button" parent="Control" unique_id=1090363012]
 layout_mode = 0
@@ -45,9 +48,9 @@ offset_bottom = 117.0
 text = "x"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=886543541]
-offset_left = 111.0
-offset_top = 710.0
-offset_right = 1323.0
-offset_bottom = 995.0
+offset_left = 114.0
+offset_top = 658.0
+offset_right = 1326.0
+offset_bottom = 943.0
 theme_override_font_sizes/normal_font_size = 30
 text = "The M1 steel helmet became standard issue for American troops during World War II, offering improved protection against shrapnel and battlefield debris. For many soldiers in Bataan, it was more than gear—it was often their only shield against the relentless bombardment."
