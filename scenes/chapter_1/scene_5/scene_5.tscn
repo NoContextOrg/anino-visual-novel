@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cdhids6t38m5s"]
 
-[ext_resource type="Script" uid="uid://c313qxupog17d" path="res://src/ui/chapter_1/scene_5/scene_5.gd" id="1_n5d4y"]
+[ext_resource type="Script" uid="uid://dvyaewblsokue" path="res://src/ui/chapter_1/scene_5/scene_5.gd" id="1_n5d4y"]
 [ext_resource type="Texture2D" uid="uid://b518coh71x8gd" path="res://assets/background/chapter_1/scene_5/tree.png" id="2_aswgp"]
 [ext_resource type="PackedScene" uid="uid://dmk01ebol40jx" path="res://scenes/ui/SampleDialogueBox.tscn" id="3_fhbvt"]
 

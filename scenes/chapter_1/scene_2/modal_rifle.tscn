@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://bxwwomhar5ovg"]
+[gd_scene format=3 uid="uid://p0va0chq3bs0"]
 
-[ext_resource type="Script" uid="uid://dd1sluaeavdhf" path="res://src/ui/chapter_1/scene_2/modal_rifle.gd" id="1_dtjyr"]
+[ext_resource type="Script" uid="uid://qke1bhr7qqw1" path="res://src/ui/chapter_1/scene_2/modal_rifle.gd" id="1_dtjyr"]
 [ext_resource type="Texture2D" uid="uid://de8mcsgjpqi3m" path="res://assets/chapter_1/scene_2/items/rifle.png" id="2_eqrqm"]
 
 [node name="Modal" type="CanvasLayer" unique_id=169697560]
@@ -51,6 +51,6 @@ text = "x"
 offset_left = 114.0
 offset_top = 658.0
 offset_right = 1326.0
-offset_bottom = 943.0
+offset_bottom = 786.0
 theme_override_font_sizes/normal_font_size = 30
-text = "The M1 steel helmet became standard issue for American troops during World War II, offering improved protection against shrapnel and battlefield debris. For many soldiers in Bataan, it was more than gear—it was often their only shield against the relentless bombardment."
+text = "The M1 Garand or M1 rifle is a semi-automatic rifle that was the service rifle of the U.S. Army during World War II and the Korean War. "
