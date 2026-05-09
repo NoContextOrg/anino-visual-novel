@@ -1,18 +1,19 @@
 [gd_scene format=3 uid="uid://d18vt7tc51s84"]
 
-[ext_resource type="Script" uid="uid://ddfixbf78c4i3" path="res://src/ui/chapter_1/scene_2/scene_2.gd" id="1_d3884"]
-[ext_resource type="Texture2D" uid="uid://b2vw1piv35ntx" path="res://assets/chapter_1/scene_2/background/inside_tent_bg_3.jpg" id="2_d3884"]
+[ext_resource type="Script" uid="uid://cr777tupuejky" path="res://src/ui/chapter_1/scene_2/scene_2.gd" id="1_d3884"]
+[ext_resource type="Texture2D" uid="uid://d0qyl1lpbog6" path="res://assets/chapter_1/scene_2/background/inside_tent_bg_3.jpg" id="2_d3884"]
 [ext_resource type="Texture2D" uid="uid://mrtbhtp4m6vb" path="res://assets/chapter_1/scene_2/background/inside_tent_bg_2.jpg" id="2_w2rvn"]
-[ext_resource type="Script" uid="uid://jbcd315h6nqd" path="res://src/ui/chapter_1/scene_2/lantern.gd" id="3_w2rvn"]
+[ext_resource type="Script" uid="uid://t21qivi5ufa3" path="res://src/ui/chapter_1/scene_2/lantern.gd" id="3_w2rvn"]
 [ext_resource type="PackedScene" uid="uid://dmk01ebol40jx" path="res://scenes/ui/SampleDialogueBox.tscn" id="4_wg7b0"]
 [ext_resource type="Texture2D" uid="uid://de8mcsgjpqi3m" path="res://assets/chapter_1/scene_2/items/rifle.png" id="5_w2rvn"]
-[ext_resource type="Script" uid="uid://gl3noh4cugpk" path="res://src/ui/chapter_1/scene_2/rifle_script.gd" id="6_epd45"]
-[ext_resource type="PackedScene" uid="uid://bxwwomhar5ovg" path="res://scenes/chapter_1/scene_2/modal_rifle.tscn" id="7_fp0au"]
+[ext_resource type="Script" uid="uid://0lovpmcc0q6y" path="res://src/ui/chapter_1/scene_2/rifle_script.gd" id="6_epd45"]
+[ext_resource type="PackedScene" uid="uid://p0va0chq3bs0" path="res://scenes/chapter_1/scene_2/modal_rifle.tscn" id="7_fp0au"]
 [ext_resource type="Texture2D" uid="uid://ci6xw1l3m32lm" path="res://assets/chapter_1/scene_2/items/helmet.png" id="8_w2rvn"]
-[ext_resource type="Script" uid="uid://caqf605vfb63t" path="res://src/ui/chapter_1/scene_2/helmet_script.gd" id="9_tt6b1"]
-[ext_resource type="PackedScene" uid="uid://csr6whs4dewmf" path="res://scenes/chapter_1/scene_2/modal_helmet.tscn" id="10_10rna"]
-[ext_resource type="Texture2D" uid="uid://bcp4o82b8ohol" path="res://assets/chapter_1/scene_2/background/inside_tent_bg_1.jpg" id="11_okpv3"]
+[ext_resource type="Script" uid="uid://dahyvrm507r53" path="res://src/ui/chapter_1/scene_2/helmet_script.gd" id="9_tt6b1"]
+[ext_resource type="PackedScene" uid="uid://3hk8hh46fpbs" path="res://scenes/chapter_1/scene_2/modal_helmet.tscn" id="10_10rna"]
+[ext_resource type="Texture2D" uid="uid://c8mcnjuh5smb" path="res://assets/chapter_1/scene_2/background/inside_tent_bg_1.jpg" id="11_okpv3"]
 [ext_resource type="AudioStream" uid="uid://c8uhs7jo4ovug" path="res://assets/background/chapter_1/scene_4_assets/war_sfx.mp3" id="13_wg7b0"]
+[ext_resource type="Texture2D" uid="uid://cyeulc5doeksg" path="res://assets/chapter_1/scene_2/items/lamp_2.png" id="14_biss5"]
 
 [sub_resource type="Gradient" id="Gradient_2ib4t"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -92,7 +93,6 @@ offset_left = -965.0
 offset_top = -1911.0
 offset_right = 955.0
 offset_bottom = 9.0
-grow_vertical = 0
 
 [node name="RifleButton" type="TextureButton" parent="." unique_id=1531838399]
 offset_left = 551.9725
@@ -127,8 +127,18 @@ libraries/ = SubResource("AnimationLibrary_wg7b0")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=519207019]
 stream = ExtResource("13_wg7b0")
+volume_db = 15.0
 autoplay = true
 
 [node name="SFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1431157127]
 position = Vector2(112, 641)
 rotation = -0.011085214
+
+[node name="Lamp" type="TextureRect" parent="." unique_id=1279826843]
+offset_left = 634.0
+offset_top = 715.0
+offset_right = 792.0
+offset_bottom = 1043.0
+texture = ExtResource("14_biss5")
+expand_mode = 4
+stretch_mode = 4
