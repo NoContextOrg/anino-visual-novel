@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bynwg3pupa5p3"]
 
-[ext_resource type="Script" uid="uid://cbre18vqymqph" path="res://src/gameplay/sceneTransition.gd" id="1_06f3a"]
-[ext_resource type="Script" uid="uid://nwexhgkeoqxr" path="res://src/gameplay/backgroundTransition.gd" id="2_h2co6"]
+[ext_resource type="Script" uid="uid://bxkyj68l5jed0" path="res://src/autoload/SceneManager.gd" id="1_mb08d"]
 
 [sub_resource type="Animation" id="Animation_arje4"]
 length = 0.001
@@ -64,7 +63,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_06f3a")
+script = ExtResource("1_mb08d")
 
 [node name="Background" type="TextureRect" parent="." unique_id=106927862]
 layout_mode = 1
@@ -73,7 +72,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_h2co6")
 
 [node name="CharacterContainer" type="Control" parent="." unique_id=1961700964]
 layout_mode = 1
