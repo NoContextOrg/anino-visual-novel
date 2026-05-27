@@ -11,18 +11,18 @@ config_version=5
 [application]
 
 config/name="anino-visual-novel"
-run/main_scene="uid://6ek870sbkik3"
+run/main_scene="uid://dkkie03nslxcp"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Parser="*uid://cnmfer8jfiq7h"
-SceneTransition="*uid://gufsmetfidcc"
-EventBus="*uid://t2dqri0ktpy8"
-GameState="*uid://26epef3gd8km"
-GameManager="*uid://c2nla6tei06h3"
-SceneManager="*uid://bpoqqt774bpvf"
+Parser="*res://src/gameplay/DialogueParser.gd"
+SceneTransition="*res://src/gameplay/sceneTransition.gd"
+EventBus="*res://src/autoload/EventBus.gd"
+GameState="*res://src/autoload/GameState.gd"
+GameManager="*res://src/autoload/GameManager.gd"
+SceneManager="*res://src/autoload/SceneManager.gd"
 
 [display]
 

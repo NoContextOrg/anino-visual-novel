@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dkkie03nslxcp"]
 
 [ext_resource type="Theme" uid="uid://dwjpijsc3chou" path="res://resources/default_theme.tres" id="1_m1kxf"]
-[ext_resource type="Script" uid="uid://xbkdo6ke4nwg" path="res://src/ui/main_menu.gd" id="1_x2yvf"]
-[ext_resource type="Texture2D" uid="uid://3ecxjs3m85k0" path="res://assets/background/green-pasteur-grass-field-illustration-anime-manga-visual-novel-background-wallpaper-photo (1).jpg" id="2_uhagc"]
+[ext_resource type="Script" uid="uid://dtm7fyxorme7h" path="res://src/ui/main_menu.gd" id="1_x2yvf"]
+[ext_resource type="Texture2D" uid="uid://b1svg5u2rdw5m" path="res://assets/chapter_1/scene_1_1/background/burning_mountain_1.jpg" id="2_uhagc"]
 
 [sub_resource type="Theme" id="Theme_1g8jr"]
 
@@ -36,7 +36,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_uhagc")
-stretch_mode = 4
+expand_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1526207557]
 layout_mode = 1
@@ -52,10 +52,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -53.0
-offset_top = 45.0
-offset_right = -491.0
-offset_bottom = -858.0
+offset_left = -57.0
+offset_top = 79.0
+offset_right = -495.0
+offset_bottom = 79.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 100
