@@ -33,12 +33,14 @@ func start():
 func process_next_line():
 	# end of dialogue
 	if current_index >= dialogue_data.size():
+		print("DialogueParser: Dialogue finished, emitting dialogue_finished")
 		EventBus.dialogue_finished.emit()
 		return
 	
 	var line = dialogue_data[current_index]
 	current_index += 1
 	
+	print("DialogueParser: Processing line ", current_index - 1, ": ", line)
 	_handle_line(line)
 
 
@@ -73,6 +75,7 @@ func _handle_line(line):
 	# -----------------------
 	# NORMAL DIALOGUE + SFX
 	# -----------------------
+	print("DialogueParser: Emitting dialogue_requested with speaker: ", line.get("speaker", ""))
 	EventBus.dialogue_requested.emit({
 		"speaker": line.get("speaker", ""),
 		"text": text,

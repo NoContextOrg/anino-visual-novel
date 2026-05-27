@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bfppwnxvpampj"]
+
+[ext_resource type="PackedScene" uid="uid://dmk01ebol40jx" path="res://scenes/ui/SampleDialogueBox.tscn" id="1_a3g2u"]
+[ext_resource type="Texture2D" uid="uid://c87q1d3bt13bu" path="res://assets/background/chapter_1/scene_1/scene1_1.png" id="2_k61kr"]
+[ext_resource type="Script" uid="uid://ctx1q3y246cdk" path="res://src/ui/chapter_1/scene_1/scene_1.gd" id="2_scene1"]
+[ext_resource type="Script" uid="uid://cbuyd5kjmbrj7" path="res://src/ui/chapter_1/scene_1/modal_crow.gd" id="5_3ie4q"]
+
+[node name="Scene1" type="Node2D" unique_id=1819517157]
+script = ExtResource("2_scene1")
+
+[node name="Background" type="TextureRect" parent="." unique_id=287644896]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = 16.0
+offset_right = 1449.0
+offset_bottom = 980.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_k61kr")
+
+[node name="DialogueLayer" type="CanvasLayer" parent="." unique_id=1462112965]
+
+[node name="SampleDialogueBox" parent="DialogueLayer" unique_id=131239595 instance=ExtResource("1_a3g2u")]
+grow_vertical = 0
+
+[node name="ModalCrow" type="CanvasLayer" parent="." unique_id=1993058535]
+script = ExtResource("5_3ie4q")
+
+[node name="Control" type="Control" parent="ModalCrow" unique_id=1695673385]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="ModalCrow/Control" unique_id=44768358]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="ModalCrow/Control" unique_id=1629696212]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "X"
+
+[node name="CrowButton" type="TextureButton" parent="." unique_id=1046847113]
+offset_left = 568.0
+offset_top = 185.0
+offset_right = 1333.0
+offset_bottom = 698.0
+
+[node name="MtSamatButton" type="TextureButton" parent="." unique_id=611614310]
+offset_top = 695.0
+offset_right = 1089.0
+offset_bottom = 1010.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=107573436]

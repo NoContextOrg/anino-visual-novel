@@ -10,6 +10,15 @@ signal skip_convo_requested
 
 var _active_tween: Tween
 
+func _ready():
+	# Hide the box when the scene first loads
+	hide()
+	
+	# 1. Listen for the EventBus to give us text, and send it straight to your display_text function
+	EventBus.dialogue_requested.connect(display_text)
+	
+	# 2. When the player clicks to advance, tell your global Parser to give us the next line!
+	# (Assuming your DialogueParser.gd has a function to advance the line, like advance_dialogue)
 func display_text(char_name: String, text: String):
 	show()
 	name_label.text = char_name
@@ -31,6 +40,7 @@ func end_dialogue():
 
 # Click-to-Advance or Space-to-Skip
 func _input(event):
+	EventBus.advance_requested.emit()
 	if event is InputEventKey and event.keycode == KEY_SPACE and event.pressed and not event.echo:
 		end_dialogue()
 		skip_convo_requested.emit()

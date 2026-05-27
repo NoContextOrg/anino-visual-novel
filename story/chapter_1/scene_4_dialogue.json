@@ -1,0 +1,207 @@
+[
+	{
+		"speaker": "",
+		"text": "[bg: res://assets/background/chapter_1/scene_4_assets/tent_scene.png]"
+	},
+	{
+		"speaker": "Narrator",
+		"text": "The tent is quieter now — not because the fighting has stopped"
+	},
+	{
+		"speaker": "Narrator",
+		"text": "but because many inside no longer have the strength to respond to it."
+	},
+	{
+		"speaker": "",
+		"text": "[bg: res://assets/background/chapter_1/scene_4_assets/blockade_scene.png]"
+	},
+	{
+		"speaker": "Narrator",
+		"text": "By early April 1942, Bataan had been under siege for nearly three months."
+	},
+	{
+		"speaker": "Narrator",
+		"text": "No reinforcements had arrived."
+	},
+	{
+		"speaker": "Narrator",
+		"text": "No resupply had broken through the blockade."
+	},
+	{
+		"speaker": "Narrator",
+		"text": "Ammunition was critically low, forcing units to conserve fire or abandon positions altogether."
+	},
+	{
+		"speaker": "",
+		"text": "[bg: res://assets/background/chapter_1/scene_4_assets/weakened_blockade_scene.png]"
+	},
+	{
+		"speaker": "Narrator",
+		"text": "Entire regiments had been reduced to fractions of their original strength."
+	},
+	{
+		"speaker": "Narrator",
+		"text": "Some soldiers could no longer stand without support."
+	},
+	{
+		"speaker": "Narrator",
+		"text": "Others remained in line despite fever, ordered to hold positions that could no longer be defended."
+	},
+	{
+		"speaker": "",
+		"text": "[bg: res://assets/background/chapter_1/scene_4_assets/command_scene.png]"
+	},
+	{
+		"speaker": "Narrator",
+		"text": "For months, they had held on with the expectation that help might come."
+	},
+	{
+		"speaker": "Narrator",
+		"text": "But by now, that hope had begun to fade."
+	},
+	{
+		"speaker": "Narrator",
+		"text": "Command was no longer deciding how to win the battle—"
+	},
+	{
+		"speaker": "Narrator",
+		"text": "but whether to continue holding on…"
+	},
+	{
+		"speaker": "Narrator",
+		"text": "or to prevent what remained of the force from being completely destroyed."
+	},
+	{
+		"speaker": "",
+		"text": "[bg: res://assets/background/chapter_1/scene_4_assets/fading_daylight_scene.png]"
+	},
+	{
+		"speaker": "Narrator",
+		"text": "From inside the command tent, the outside world is reduced to fragments—"
+	},
+	{
+		"speaker": "Narrator",
+		"text": "a partially opened canvas flap,"
+	},
+	{
+		"speaker": "Narrator",
+		"text": "a narrow strip of fading daylight,"
+	},
+	{
+		"speaker": "Narrator",
+		"text": "and the faint, irregular sound of water falling from a nearly empty canteen."
+	},
+	{
+		"speaker": "",
+		"text": "[bg: res://assets/background/chapter_1/scene_4_assets/general_king_scene.png]"
+	},
+	{
+		"speaker": "General King",
+		"text": "I can hear it… even over everything else."
+	},
+	{
+		"speaker": "General King",
+		"text": "The silence between suffering."
+	},
+	{
+		"speaker": "",
+		"text": "[bg: res://assets/background/chapter_1/scene_4_assets/soldier_scene.png]"
+	},
+	{
+		"speaker": "Narrator",
+		"text": "A soldier lies near the edge of the tent."
+	},
+	{
+		"speaker": "Narrator",
+		"text": "His uniform hangs loose, no longer fitting a body that has been stripped down by hunger and exhaustion."
+	},
+	{
+		"speaker": "Narrator",
+		"text": "Beside him, a canteen hangs at an angle—its last drops falling slowly into nothing."
+	},
+	{
+		"speaker": "",
+		"text": "[bg: res://assets/background/chapter_1/scene_4_assets/canteen_scene.png]"
+	},
+	{
+		"speaker": "Narrator",
+		"text": "Each drop echoes louder than gunfire.",
+		"sfx": "res://assets/background/chapter_1/scene_4_assets/water_dripping_sfx.mp3"
+	},
+	{
+		"speaker": "General King",
+		"text": "Even water... is rationed down to time."
+	},
+	{
+		"speaker": "",
+		"text": "[bg: res://assets/background/chapter_1/scene_4_assets/food_scene.png]"
+	},
+	{
+		"speaker": "Narrator",
+		"text": "Food stocks meant for months had been consumed in weeks after the retreat into Bataan."
+	},
+	{
+		"speaker": "Narrator",
+		"text": "Pack animals had long since been slaughtered for meat."
+	},
+	{
+		"speaker": "Narrator",
+		"text": "What remained was stretched beyond its limit."
+	},
+	{
+		"speaker": "Narrator",
+		"text": "What remained was stretched beyond its limit."
+	},
+	{
+		"speaker": "",
+		"text": "[bg: res://assets/background/chapter_1/scene_4_assets/fighting_soldiers_scene.png]"
+	},
+	{
+		"speaker": "Narrator",
+		"text": "Many had been fighting without proper rest for weeks—"
+	},
+	{
+		"speaker": "Narrator",
+		"text": "rotating between the front lines and overcrowded aid stations,"
+	},
+	{
+		"speaker": "Narrator",
+		"text": "only to return again with less strength than before."
+	},
+	{
+		"speaker": "",
+		"text": "[bg: res://assets/background/chapter_1/scene_4_assets/70k_soldiers_scene.png]"
+	},
+	{
+		"speaker": "Narrator",
+		"text": "Outside this tent, more than 70,000 American and Filipino troops remained on the peninsula—"
+	},
+	{
+		"speaker": "Narrator",
+		"text": "most of them weakened, many unable to fight,"
+	},
+	{
+		"speaker": "Narrator",
+		"text": "all waiting for orders that would decide what happened next."
+	},
+	{
+		"speaker": "Narrator",
+		"text": "They had been told to hold."
+	},
+	{
+		"speaker": "Narrator",
+		"text": "And they had."
+	},
+	{
+		"speaker": "Narrator",
+		"text": "But time—"
+	},
+	{
+		"speaker": "Narrator",
+		"text": "and strength—"
+	},
+	{
+		"speaker": "Narrator",
+		"text": "were no longer on their side."
+	},
+]

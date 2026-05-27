@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bynwg3pupa5p3"]
 
-[ext_resource type="Script" uid="uid://bxkyj68l5jed0" path="res://src/autoload/SceneManager.gd" id="1_mb08d"]
+[ext_resource type="Script" uid="uid://gufsmetfidcc" path="res://src/gameplay/sceneTransition.gd" id="1_06f3a"]
 
 [sub_resource type="Animation" id="Animation_arje4"]
 length = 0.001
@@ -63,7 +63,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_mb08d")
+script = ExtResource("1_06f3a")
 
 [node name="Background" type="TextureRect" parent="." unique_id=106927862]
 layout_mode = 1
@@ -107,6 +107,7 @@ metadata/_edit_use_anchors_ = true
 [node name="UI_Anchor" type="CanvasLayer" parent="." unique_id=987300738]
 
 [node name="DialogueBox" type="Panel" parent="UI_Anchor" unique_id=1975857215]
+self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -122,6 +123,8 @@ grow_vertical = 0
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 18.0
+offset_right = -9.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
