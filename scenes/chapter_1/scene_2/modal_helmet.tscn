@@ -1,20 +1,21 @@
-[gd_scene format=3 uid="uid://csr6whs4dewmf"]
+[gd_scene format=3 uid="uid://3hk8hh46fpbs"]
 
-[ext_resource type="Script" uid="uid://b8xwysar5bnih" path="res://src/ui/chapter_1/scene_2/modal_helmet.gd" id="1_jqokb"]
-[ext_resource type="Texture2D" uid="uid://ud7v3da8ijcn" path="res://assets/hotspots/chapter_1/scene_2/helmet.png" id="2_jqokb"]
+[ext_resource type="Script" uid="uid://vgfxwi6vb728" path="res://src/ui/chapter_1/scene_2/modal_helmet.gd" id="1_jqokb"]
+[ext_resource type="Texture2D" uid="uid://ci6xw1l3m32lm" path="res://assets/chapter_1/scene_2/items/helmet.png" id="2_20bso"]
 
-[node name="Modal2" type="CanvasLayer" unique_id=169697560]
+[node name="Mod" type="CanvasLayer" unique_id=1889342317]
 script = ExtResource("1_jqokb")
 
-[node name="Control" type="Control" parent="." unique_id=204336050]
+[node name="Control" type="Control" parent="." unique_id=1236084468]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" type="ColorRect" parent="Control" unique_id=792707318]
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=470819858]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.1358554
@@ -25,29 +26,36 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(-6.1070275, -2.793361)
 size_flags_vertical = 4
-color = Color(0, 0, 0, 0.8862745)
+color = Color(0, 0, 0, 0.9607843)
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="Control" unique_id=313490889]
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=526726175]
 layout_mode = 0
-offset_left = 511.0
-offset_top = 137.0
-offset_right = 920.0
-offset_bottom = 748.0
-texture = ExtResource("2_jqokb")
+offset_left = 508.0
+offset_top = 313.0
+offset_right = 880.0
+offset_bottom = 617.0
+texture = ExtResource("2_20bso")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="Control" unique_id=1090363012]
+[node name="Button" type="Button" parent="Control" unique_id=1898324111]
 layout_mode = 0
 offset_left = 1320.0
 offset_top = 71.0
 offset_right = 1407.0
 offset_bottom = 123.0
 text = "x"
+metadata/_edit_use_anchors_ = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1583731315]
-offset_left = 136.0
-offset_top = 817.0
-offset_right = 1349.0
-offset_bottom = 953.0
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1444242295]
+anchors_preset = -1
+anchor_bottom = 0.045898438
+offset_left = 109.0
+offset_top = 730.0
+offset_right = 1322.0
+offset_bottom = 866.0
 theme_override_font_sizes/normal_font_size = 30
 text = "The M1 steel helmet became standard issue for American troops during World War II, offering improved protection against shrapnel and battlefield debris. For many soldiers in Bataan, it was more than gear—it was often their only shield against the relentless bombardment."
+metadata/_edit_use_anchors_ = true

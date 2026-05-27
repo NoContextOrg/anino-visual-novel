@@ -11,17 +11,12 @@ var _active_tween: Tween
 var current_line_index = 0
 
 func _ready():
-	print("SampleDialogueBox: _ready() called")
-	print("Dialogue Label exists: ", dialogue_label != null)
-	print("Name Label exists: ", name_label != null)
 	hide()
 	EventBus.dialogue_requested.connect(display_text)
 	EventBus.dialogue_finished.connect(end_dialogue)
-	print("SampleDialogueBox: Signals connected")
 
 
 func display_text(data: Dictionary):
-	print("SampleDialogueBox: display_text() called with data: ", data)
 	show()
 	name_label.text = data.get("speaker", "")
 	dialogue_label.text = data.get("text", "")

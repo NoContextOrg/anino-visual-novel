@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://6ek870sbkik3"]
 
-[ext_resource type="Script" uid="uid://bmx02e6yf24ks" path="res://scenes/chapter_1/scene_4/scene_4.gd" id="1_bo7ak"]
+[ext_resource type="Script" uid="uid://b36csrscxqh71" path="res://scenes/chapter_1/scene_4/scene_4.gd" id="1_bo7ak"]
 [ext_resource type="Script" uid="uid://t21qivi5ufa3" path="res://src/ui/chapter_1/scene_2/lantern.gd" id="2_uhwgr"]
 [ext_resource type="PackedScene" uid="uid://dmk01ebol40jx" path="res://scenes/ui/SampleDialogueBox.tscn" id="2_vyh6a"]
 [ext_resource type="AudioStream" uid="uid://c8uhs7jo4ovug" path="res://assets/background/chapter_1/scene_4_assets/war_sfx.mp3" id="4_bo7ak"]

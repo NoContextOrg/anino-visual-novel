@@ -1,6 +1,8 @@
 extends Control
 
 signal dialogue_finished
+signal emphasis_shake_started
+signal emphasis_shake_stopped
 
 # RichTextLabel for dialogue, Label for name
 @onready var dialogue_label = $Dialogue/DialogueLabel
@@ -104,10 +106,14 @@ func _play_emphasis_shake() -> void:
 		return
 
 	_dialogue_base_position = position
+	if not _shake_active:
+		emphasis_shake_started.emit()
 	_shake_active = true
 	set_process(true)
 
 func _stop_emphasis_shake() -> void:
+	if _shake_active:
+		emphasis_shake_stopped.emit()
 	_shake_active = false
 	position = _dialogue_base_position
 	set_process(false)
@@ -128,6 +134,7 @@ func _process(delta: float) -> void:
 func end_dialogue():
 	if _active_tween and _active_tween.is_running():
 		_active_tween.kill()
+	_stop_emphasis_shake()
 	current_line_index = dialogue_queue.size() #temporary function
 	set_process_input(false)
 	hide()

@@ -21,4 +21,4 @@ signal show_image_modal_requested(image_path: String)
 signal hotspot_clicked(id: String)
 
 # sfx signal
-signal play_sfx_requested(path: String)
+signal play_sfx_requested(path: String, volume_db: float)
