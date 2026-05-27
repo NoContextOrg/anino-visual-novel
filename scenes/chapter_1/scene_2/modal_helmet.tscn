@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://3hk8hh46fpbs"]
+[gd_scene format=3 uid="uid://k1stn8mlrbuy"]
 
-[ext_resource type="Script" uid="uid://vgfxwi6vb728" path="res://src/ui/chapter_1/scene_2/modal_helmet.gd" id="1_jqokb"]
+[ext_resource type="Script" uid="uid://rgs0rud6yp6w" path="res://src/ui/chapter_1/scene_2/modal_helmet.gd" id="1_jqokb"]
 [ext_resource type="Texture2D" uid="uid://ci6xw1l3m32lm" path="res://assets/chapter_1/scene_2/items/helmet.png" id="2_20bso"]
 
 [node name="Mod" type="CanvasLayer" unique_id=1889342317]
@@ -30,13 +30,18 @@ color = Color(0, 0, 0, 0.9607843)
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Control" unique_id=526726175]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.049305554
+anchor_top = -0.125
+anchor_right = 0.07369965
+anchor_bottom = 0.009765625
 offset_left = 508.0
 offset_top = 313.0
 offset_right = 880.0
 offset_bottom = 617.0
 texture = ExtResource("2_20bso")
-expand_mode = 1
+expand_mode = 3
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
