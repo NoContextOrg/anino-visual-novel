@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://c7ncrxodne1ai"]
+
+[ext_resource type="Texture2D" uid="uid://bwutgvsc4vhfj" path="res://assets/hotspots/chapter_1/scene_1/mt_samat.png" id="1_jg131"]
+[ext_resource type="FontFile" uid="uid://dblyybjexl0om" path="res://resources/fonts/Montserrat-Italic-VariableFont_wght.ttf" id="2_f7pgm"]
+[ext_resource type="FontFile" uid="uid://ch0b2amh224hj" path="res://resources/fonts/Montserrat-Regular.ttf" id="3_miniv"]
+
+[sub_resource type="Theme" id="Theme_p5ept"]
+CompletedChapterButton/base_type = &"UnlockedChapterButton"
+CompletedChapterButton/colors/icon_hover_color = Color(0.972549, 0.8509804, 0.7411765, 1)
+CompletedChapterButton/colors/icon_normal_color = Color(0.6101441, 0.8469436, 0.21378231, 1)
+CompletedChapterButton/colors/icon_pressed_color = Color(1, 1, 1, 1)
+LockedChapterButton/base_type = &"UnlockedChapterButton"
+LockedChapterButton/colors/icon_disabled_color = Color(0.2509804, 0.2509804, 0.2509804, 1)
+LockedChapterButton/colors/icon_hover_color = Color(1, 1, 1, 1)
+LockedChapterButton/colors/icon_normal_color = Color(1, 0.9490196, 0.8, 1)
+LockedChapterButton/colors/icon_pressed_color = Color(0.8509804, 0.7019608, 0.2509804, 1)
+MainButton/base_type = &"BackButton"
+MainButton/colors/font_color = Color(1, 1, 1, 1)
+MainButton/colors/font_disabled_color = Color(0.39232534, 0.39232537, 0.39232534, 1)
+MainButton/colors/font_focus_color = Color(0, 0, 0, 1)
+MainButton/colors/font_hover_color = Color(0, 0, 0, 1)
+MainButton/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+MainButton/colors/font_outline_color = Color(0, 0, 0, 1)
+MainButton/colors/font_pressed_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_disabled_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_focus_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_hover_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_normal_color = Color(0, 0, 0, 1)
+MainButton/colors/icon_pressed_color = Color(0, 0, 0, 1)
+MainButton/constants/align_to_largest_stylebox = 0
+MainButton/constants/h_separation = 0
+MainButton/constants/icon_max_width = 0
+MainButton/constants/outline_size = 0
+MainButton/font_sizes/font_size = 60
+MainButton/fonts/font = null
+MainButton/styles/disabled = null
+MainButton/styles/focus = null
+MainButton/styles/hover = null
+MainButton/styles/normal = null
+MainButton/styles/pressed = null
+SubtitleLabel/base_type = &"Label"
+SubtitleLabel/font_sizes/font_size = 40
+SubtitleLabel/fonts/font = ExtResource("2_f7pgm")
+TitleLabel/base_type = &"Label"
+TitleLabel/font_sizes/font_size = 90
+UnlockedChapterButton/base_type = &"Button"
+UnlockedChapterButton/colors/icon_hover_color = Color(0.9742344, 0.849228, 0.73932606, 1)
+UnlockedChapterButton/colors/icon_pressed_color = Color(1, 1, 1, 1)
+
+[node name="CanvasLayer2" type="CanvasLayer" unique_id=76592466]
+
+[node name="Control" type="Control" parent="." unique_id=1376398636]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1927905362]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0.015686275, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1885565551]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 184.0
+offset_right = 643.0
+offset_bottom = 654.0
+texture = ExtResource("1_jg131")
+
+[node name="Button" type="Button" parent="Control" unique_id=278492049]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -2.0
+offset_right = 1409.0
+offset_bottom = 978.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1352291654]
+offset_left = 653.0
+offset_top = 385.0
+offset_right = 1305.0
+offset_bottom = 776.0
+theme = SubResource("Theme_p5ept")
+theme_override_fonts/normal_font = ExtResource("3_miniv")
+theme_override_font_sizes/normal_font_size = 30
+text = "The crow is a powerful symbol of transition and vigilance. Set against a backdrop of destruction, it represents a \"witness\" to the cycle of end and rebirth."
+horizontal_alignment = 3
