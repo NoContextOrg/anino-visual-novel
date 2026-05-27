@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://6ek870sbkik3"]
+
+[ext_resource type="Script" uid="uid://b36csrscxqh71" path="res://scenes/chapter_1/scene_4/scene_4.gd" id="1_bo7ak"]
+[ext_resource type="Script" uid="uid://t21qivi5ufa3" path="res://src/ui/chapter_1/scene_2/lantern.gd" id="2_uhwgr"]
+[ext_resource type="PackedScene" uid="uid://dmk01ebol40jx" path="res://scenes/ui/SampleDialogueBox.tscn" id="2_vyh6a"]
+[ext_resource type="AudioStream" uid="uid://c8uhs7jo4ovug" path="res://assets/background/chapter_1/scene_4_assets/war_sfx.mp3" id="4_bo7ak"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uhwgr"]
+
+[sub_resource type="Gradient" id="Gradient_2ib4t"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bo7ak"]
+gradient = SubResource("Gradient_2ib4t")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.9, 0.5)
+
+[node name="Scene4" type="Node2D" unique_id=110744277]
+script = ExtResource("1_bo7ak")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1818596888]
+position = Vector2(1651.725, 866.31)
+scale = Vector2(1.465, 1.465)
+texture = SubResource("CompressedTexture2D_uhwgr")
+
+[node name="cool_tone" type="CanvasModulate" parent="." unique_id=1626678707]
+color = Color(0.083965786, 0.20867932, 0.42754754, 1)
+
+[node name="warm_light" type="PointLight2D" parent="." unique_id=1666470207]
+position = Vector2(727, 1006)
+scale = Vector2(52.20312, 28.515625)
+color = Color(0.79421383, 0.51520514, 0.10596668, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_bo7ak")
+height = 20.0
+script = ExtResource("2_uhwgr")
+
+[node name="dialogue_layer" type="CanvasLayer" parent="." unique_id=1890670098]
+
+[node name="SampleDialogueBox" parent="dialogue_layer" unique_id=131239595 instance=ExtResource("2_vyh6a")]
+offset_left = -965.0
+offset_top = -1911.0
+offset_right = 955.0
+offset_bottom = 9.0
+grow_vertical = 0
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=422220058]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1808938680]
+stream = ExtResource("4_bo7ak")
+autoplay = true

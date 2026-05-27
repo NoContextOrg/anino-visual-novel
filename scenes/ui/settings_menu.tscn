@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://7rb4yvlxhpj2"]
 
 [ext_resource type="Script" uid="uid://dseijrlnkfb8b" path="res://scenes/ui/settings_menu.gd" id="1_qwcqe"]
-[ext_resource type="Theme" uid="uid://dwjpijsc3chou" path="res://resources/default_theme.tres" id="2_qwcqe"]
+
+[sub_resource type="Theme" id="Theme_qwcqe"]
 
 [node name="Control" type="Control" unique_id=1792778358]
 layout_mode = 3
@@ -10,7 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_qwcqe")
+theme = SubResource("Theme_qwcqe")
 script = ExtResource("1_qwcqe")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1486387852]

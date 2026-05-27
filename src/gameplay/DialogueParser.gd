@@ -7,6 +7,7 @@ var waiting_for_advance = false
 
 
 func load_dialogue(path: String):
+	print("LOADING DIALOGUE FROM:", path)
 	var file = FileAccess.open(path, FileAccess.READ)
 	
 	if file == null:
@@ -32,66 +33,59 @@ func start():
 func process_next_line():
 	# end of dialogue
 	if current_index >= dialogue_data.size():
+		print("DialogueParser: Dialogue finished, emitting dialogue_finished")
 		EventBus.dialogue_finished.emit()
 		return
 	
 	var line = dialogue_data[current_index]
 	current_index += 1
 	
+	print("DialogueParser: Processing line ", current_index - 1, ": ", line)
 	_handle_line(line)
 
 
 func _handle_line(line):
 	var text = line.get("text", "")
-	
+
 	# -----------------------
-	# COMMANDS: [key: value]
+	# COMMAND SYSTEM [bg:]
 	# -----------------------
 	if text.begins_with("[") and text.ends_with("]"):
 		var command = text.strip_edges()
-		command = command.substr(1, command.length() - 2) # remove [ ]
-		
-		var parts = command.split(":")
+		command = command.substr(1, command.length() - 2)
+
+		var parts = command.split(":", true, 1)
 		var key = parts[0].strip_edges()
 		var value = parts[1].strip_edges() if parts.size() > 1 else ""
-		
+
 		match key:
 			"bg":
 				EventBus.background_change_requested.emit(value)
+
+			"sfx":
+				EventBus.play_sfx_requested.emit(value)
+
 			_:
 				push_warning("Unknown command: " + key)
-		
-		# commands do NOT pause
+
 		process_next_line()
 		return
 
 
 	# -----------------------
-	# CHOICES
+	# NORMAL DIALOGUE + SFX
 	# -----------------------
-	if line.has("choices"):
-		EventBus.dialogue_requested.emit({
-			"speaker": line.get("speaker", ""),
-			"text": text,
-			"expression": line.get("expression", "")
-		})
-		
-		# UI should now show choices
-		EventBus.emit_signal("choices_requested", line["choices"])
-		
-		waiting_for_advance = true
-		return
-
-
-	# -----------------------
-	# NORMAL DIALOGUE
-	# -----------------------
+	print("DialogueParser: Emitting dialogue_requested with speaker: ", line.get("speaker", ""))
 	EventBus.dialogue_requested.emit({
 		"speaker": line.get("speaker", ""),
 		"text": text,
 		"expression": line.get("expression", "")
 	})
-	
+
+	# ✔ play SFX if attached
+	if line.has("sfx"):
+		EventBus.play_sfx_requested.emit(line["sfx"])
+
 	waiting_for_advance = true
 
 

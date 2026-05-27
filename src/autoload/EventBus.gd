@@ -6,6 +6,7 @@ signal dialogue_finished()
 
 #scene transition signal
 signal background_change_requested(id: String) 
+signal scene_change_requested(scene_path: String) 
 
 #signal for ui
 signal advance_requested
@@ -14,3 +15,10 @@ signal skip_convo_requested
 # choice system
 signal choices_requested(choices: Array)
 signal choice_selected(index: int)
+
+# modal and hotspot signals
+signal show_image_modal_requested(image_path: String)
+signal hotspot_clicked(id: String)
+
+# sfx signal
+signal play_sfx_requested(path: String, volume_db: float)
