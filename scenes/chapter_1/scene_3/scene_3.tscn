@@ -1,0 +1,274 @@
+[gd_scene format=3 uid="uid://bvqjt51iuku2p"]
+
+[ext_resource type="Script" uid="uid://cirxvgdhtkpw2" path="res://scenes/chapter_1/scene_3/scene_3.gd" id="1_7cekh"]
+[ext_resource type="Texture2D" uid="uid://cbntddeo7bl23" path="res://assets/chapter_1/scene_3/background/map_on_table_1.jpg" id="2_bvp7j"]
+[ext_resource type="Texture2D" uid="uid://cgpbhdtsesscp" path="res://assets/chapter_1/scene_3/background/map_on_table_2.jpg" id="3_lnptj"]
+[ext_resource type="Theme" uid="uid://dwjpijsc3chou" path="res://resources/default_theme.tres" id="6_l6prv"]
+[ext_resource type="Texture2D" uid="uid://bokl58r2vdoos" path="res://assets/ui/table_scene/blank_scroll.png" id="7_spsm5"]
+[ext_resource type="Texture2D" uid="uid://c2nwdiidmklxv" path="res://assets/chapter_1/scene_3/items/canteen.png" id="9_cw5ek"]
+[ext_resource type="Texture2D" uid="uid://di4o3yhuxh05s" path="res://assets/chapter_1/scene_3/items/notes.png" id="10_ui2kv"]
+[ext_resource type="Texture2D" uid="uid://bqx5volk0e41g" path="res://assets/chapter_1/scene_3/items/map.png" id="11_g1bqg"]
+[ext_resource type="Texture2D" uid="uid://bgkcyhfteaf7s" path="res://assets/chapter_1/scene_3/items/journal.png" id="12_257nh"]
+[ext_resource type="FontFile" uid="uid://b2y7x1gyanvpl" path="res://resources/fonts/Montserrat-Regular.ttf" id="12_vi6me"]
+[ext_resource type="Texture2D" uid="uid://r6rduilhgv7w" path="res://assets/chapter_1/scene_3/items/compass.png" id="13_7gcvx"]
+[ext_resource type="Texture2D" uid="uid://cmda7685jd5pg" path="res://assets/chapter_1/scene_3/items/medkit.png" id="13_lnptj"]
+[ext_resource type="Texture2D" uid="uid://b600sc2lgq0ty" path="res://assets/chapter_1/scene_3/items/pencil.png" id="14_0n3g2"]
+
+[sub_resource type="Animation" id="Animation_cw5ek"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg_display:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_bvp7j")]
+}
+
+[sub_resource type="Animation" id="Animation_ui2kv"]
+resource_name = "table_moving"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg_display:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_bvp7j"), ExtResource("3_lnptj")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g1bqg"]
+_data = {
+&"RESET": SubResource("Animation_cw5ek"),
+&"table_moving": SubResource("Animation_ui2kv")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7cekh"]
+
+[node name="TableMapScene" type="Control" unique_id=1619248148]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7cekh")
+
+[node name="background" type="ColorRect" parent="." unique_id=572439709]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.41981313, 0.41981313, 0.4198131, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="bg_display" type="TextureRect" parent="background" unique_id=369377313]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bvp7j")
+expand_mode = 1
+
+[node name="bg_animation" type="AnimationPlayer" parent="background" unique_id=1222814253]
+libraries/ = SubResource("AnimationLibrary_g1bqg")
+autoplay = &"table_moving"
+
+[node name="interactables" type="Control" parent="background" unique_id=1002940440]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="canteen_btn" type="TextureButton" parent="background/interactables" unique_id=1391483106]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3911.9297
+offset_bottom = 2789.4663
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.00093816593
+scale = Vector2(0.2680641, 0.26949626)
+theme = ExtResource("6_l6prv")
+theme_type_variation = &"TableItemButton"
+texture_normal = ExtResource("9_cw5ek")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="war_map_btn" type="TextureButton" parent="background/interactables" unique_id=989128668]
+visible = false
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -451.67896
+offset_bottom = 54.575073
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0007881912
+scale = Vector2(1.4524499, 0.95237964)
+theme = ExtResource("6_l6prv")
+theme_type_variation = &"TableItemButton"
+texture_normal = ExtResource("11_g1bqg")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="journal_btn" type="TextureButton" parent="background/interactables" unique_id=395324421]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2228.8633
+offset_bottom = 1793.3936
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0006082058
+scale = Vector2(0.391443, 0.363658)
+theme = ExtResource("6_l6prv")
+theme_type_variation = &"TableItemButton"
+texture_normal = ExtResource("12_257nh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="compass_btn" type="TextureButton" parent="background/interactables" unique_id=1908900955]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1951.1709
+offset_bottom = 1995.1213
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0016602874
+scale = Vector2(0.42475912, 0.33851153)
+theme = ExtResource("6_l6prv")
+theme_type_variation = &"TableItemButton"
+texture_normal = ExtResource("13_7gcvx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="pencil_btn" type="TextureButton" parent="background/interactables" unique_id=1139867485]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1950.6692
+offset_bottom = 1998.8931
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.00066929904
+scale = Vector2(0.42475912, 0.33851153)
+theme = ExtResource("6_l6prv")
+theme_type_variation = &"TableItemButton"
+texture_normal = ExtResource("14_0n3g2")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="hospital_report_btn" type="TextureButton" parent="background/interactables" unique_id=456037193]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1992.3989
+offset_bottom = 1158.8762
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0020903768
+scale = Vector2(0.41924155, 0.47070283)
+theme = ExtResource("6_l6prv")
+theme_type_variation = &"TableItemButton"
+texture_normal = ExtResource("10_ui2kv")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="medkit_btn" type="TextureButton" parent="background/interactables" unique_id=1214302329]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1992.3989
+offset_bottom = 1158.8762
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0020903768
+scale = Vector2(0.41924155, 0.47070283)
+theme = ExtResource("6_l6prv")
+theme_type_variation = &"TableItemButton"
+texture_normal = ExtResource("13_lnptj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="dark_overlay" type="ColorRect" parent="background" unique_id=1058805459]
+visible = false
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.6627451)
+
+[node name="scroll_panel" type="PopupPanel" parent="background" unique_id=412855753]
+oversampling_override = 1.0
+title = "scroll_info_pop"
+initial_position = 1
+size = Vector2i(1408, 772)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7cekh")
+
+[node name="scroll_popup_panel" type="TextureRect" parent="background/scroll_panel" unique_id=1317726181]
+offset_right = 1408.0
+offset_bottom = 772.0
+texture = ExtResource("7_spsm5")
+stretch_mode = 3
+
+[node name="margin_container" type="MarginContainer" parent="background/scroll_panel/scroll_popup_panel" unique_id=294856878]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 190
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 190
+theme_override_constants/margin_bottom = 120
+
+[node name="label" type="Label" parent="background/scroll_panel/scroll_popup_panel/margin_container" unique_id=1856135094]
+modulate = Color(0, 0, 0, 1)
+light_mask = 0
+visibility_layer = 1047552
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4392157, 0.25882354, 0.078431375, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("12_vi6me")
+theme_override_font_sizes/font_size = 32
+text = "Information here"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
