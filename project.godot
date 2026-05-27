@@ -17,12 +17,12 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-EventBus="*uid://nywwa3adgspu"
+Parser="*uid://cnmfer8jfiq7h"
+SceneTransition="*uid://gufsmetfidcc"
+EventBus="*uid://t2dqri0ktpy8"
 GameState="*uid://26epef3gd8km"
 GameManager="*uid://c2nla6tei06h3"
-Parser="*uid://2fqwk8d2ued4"
-SceneManager="*uid://dkgi8wlq1svsy"
-SceneTransition="*uid://gufsmetfidcc"
+SceneManager="*uid://bpoqqt774bpvf"
 
 [display]
 
