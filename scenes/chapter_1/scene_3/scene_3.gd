@@ -1,15 +1,12 @@
 class_name TableMapScene
 extends Control
 
-# We added "background/" back to the start of these paths so the script knows where to look!
+# I put "$background/" back in front of these paths where they belong!
 @onready var scroll_panel: PopupPanel = $background/scroll_panel
 @onready var info_label: Label = $background/scroll_panel/scroll_popup_panel/margin_container/label
 @onready var interactables: Control = $background/interactables
-@onready var bg_anim: AnimationPlayer = $background/bg_animation 
-
-# Assuming you placed dark_overlay inside the background node too:
 @onready var dark_overlay: ColorRect = $background/dark_overlay 
-# Note: If your dark_overlay is a direct child of TableMapScene instead, just change this back to $dark_overlay
+@onready var bg_anim: AnimationPlayer = $background/bg_animation 
 
 var item_info: Dictionary = {
 	"canteen_btn": "The M1910 canteen was a standard-issue water container designed for durability and field use, often paired with a metal cup for boiling water. In Bataan, where dehydration was constant, it became a lifeline—though for many, it was never enough.",
@@ -24,9 +21,9 @@ var item_info: Dictionary = {
 func _ready() -> void:
 	scroll_panel.hide()
 	
-	# Make sure to check that your dark_overlay is actually spelled exactly like this in your scene tree!
 	if dark_overlay:
 		dark_overlay.hide() 
+		dark_overlay.gui_input.connect(_on_dark_overlay_clicked) 
 	
 	bg_anim.play("table_moving")
 	
@@ -52,6 +49,10 @@ func _on_item_pressed(button_name: String) -> void:
 func _on_popup_closed() -> void:
 	if dark_overlay:
 		dark_overlay.hide()
+
+func _on_dark_overlay_clicked(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		scroll_panel.hide() 
 
 func _on_hover(button: TextureButton, is_hovered: bool) -> void:
 	if is_hovered:
