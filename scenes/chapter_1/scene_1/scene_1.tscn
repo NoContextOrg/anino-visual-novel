@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://bfppwnxvpampj"]
 
 [ext_resource type="PackedScene" uid="uid://dmk01ebol40jx" path="res://scenes/ui/SampleDialogueBox.tscn" id="1_a3g2u"]
-[ext_resource type="Texture2D" uid="uid://hvlyt85hv87f" path="res://assets/chapter_1/scene_1_1/background/burning_mountain_1.jpg" id="2_mountain1"]
+[ext_resource type="Texture2D" uid="uid://b1svg5u2rdw5m" path="res://assets/chapter_1/scene_1_1/background/burning_mountain_1.jpg" id="2_mountain1"]
 [ext_resource type="Texture2D" uid="uid://i2wbe0gdvg4f" path="res://assets/chapter_1/scene_1_1/background/burning_mountain_2.jpg" id="2_mountain2"]
 [ext_resource type="Texture2D" uid="uid://dvwxnprbxacyg" path="res://assets/chapter_1/scene_1_1/background/burning_mountain_3.jpg" id="2_mountain3"]
-[ext_resource type="Texture2D" uid="uid://mty070m73b5y" path="res://assets/chapter_1/scene_1_1/background/burning_mountain_4.jpg" id="2_mountain4"]
+[ext_resource type="Texture2D" uid="uid://ikpmxyaosgk5" path="res://assets/chapter_1/scene_1_1/background/burning_mountain_4.jpg" id="2_mountain4"]
 [ext_resource type="Texture2D" uid="uid://hqkp0l4hfajg" path="res://assets/chapter_1/scene_1_1/background/burning_mountain_5.jpg" id="2_mountain5"]
 [ext_resource type="Texture2D" uid="uid://c0qicbnsrgb08" path="res://assets/chapter_1/scene_1_1/background/burning_mountain_6.jpg" id="2_mountain6"]
-[ext_resource type="Script" uid="uid://dw1rkb3nc2n5i" path="res://src/ui/chapter_1/scene_1/scene_1.gd" id="2_scene1"]
-[ext_resource type="Texture2D" uid="uid://bneav0hoam6fx" path="res://assets/chapter_1/scene_1_1/crow/crow_1.png" id="3_crow"]
+[ext_resource type="Script" uid="uid://sb8qcpbnk8a1" path="res://src/ui/chapter_1/scene_1/scene_1.gd" id="2_scene1"]
+[ext_resource type="Texture2D" uid="uid://dkyge3tq0giy" path="res://assets/chapter_1/scene_1_1/crow/crow_1.png" id="3_crow"]
 [ext_resource type="Script" uid="uid://cqdexrucicf3a" path="res://src/ui/chapter_1/scene_1/modal_crow.gd" id="5_3ie4q"]
 [ext_resource type="PackedScene" uid="uid://crpt8jqealbgp" path="res://scenes/chapter_1/scene_1/modal_crow.tscn" id="5_crow_modal"]
 [ext_resource type="Script" uid="uid://cf8jp4nc8kxra" path="res://src/ui/chapter_1/scene_1/mt_samat.gd" id="6_k61kr"]
@@ -35,6 +35,60 @@ _data = {
 &"burning_mountain": SubResource("burning_mountain_anim")
 }
 
+[sub_resource type="Animation" id="Animation_reset"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fade_from_black"]
+resource_name = "fade_from_black"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fade_to_black"]
+resource_name = "fade_to_black"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_scene_transition"]
+_data = {
+&"RESET": SubResource("Animation_reset"),
+&"fade_from_black": SubResource("Animation_fade_from_black"),
+&"fade_to_black": SubResource("Animation_fade_to_black")
+}
+
 [node name="Scene1" type="Node2D" unique_id=1819517157]
 script = ExtResource("2_scene1")
 
@@ -53,8 +107,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -477.0
-offset_bottom = -87.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_mountain1")
@@ -94,8 +146,22 @@ script = ExtResource("6_k61kr")
 [node name="DialogueLayer" type="CanvasLayer" parent="." unique_id=1462112965]
 
 [node name="SampleDialogueBox" parent="DialogueLayer" unique_id=131239595 instance=ExtResource("1_a3g2u")]
-offset_left = -951.0
-offset_top = -1396.0
-offset_right = 1024.0
-offset_bottom = -121.0
-grow_vertical = 0
+
+[node name="UI_Anchor" type="CanvasLayer" parent="." unique_id=1110658884]
+
+[node name="NextButton" type="TextureButton" parent="UI_Anchor"]
+visible = false
+disabled = true
+focus_mode = 0
+
+[node name="Transition" type="ColorRect" parent="UI_Anchor" unique_id=548317155]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI_Anchor" unique_id=586835094]
+libraries/ = SubResource("AnimationLibrary_scene_transition")

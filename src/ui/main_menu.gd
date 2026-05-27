@@ -10,8 +10,7 @@ func _ready():
 	quit_button.pressed.connect(_on_quit_pressed)
 
 func _on_play_pressed():
-	# Make sure this file name is exactly correct!
-	get_tree().change_scene_to_file("res://scenes/templates/chapter_1.tscn")
+	SceneManager.request_scene_change("res://scenes/chapter_1/scene_1/scene_1.tscn")
 
 func _on_settings_pressed():
 	# Points to the new scene we made in Step 4
