@@ -15,6 +15,10 @@
 		"speaker": "Narrator",
 		"text": "Still, they fought—four months against an enemy better supplied, better fed, and never ordered to yield."
 	},
+			{
+		"speaker": "General King",
+		"text": "How much longer can we hold on…"
+	},
 		{
 		"speaker": "Narrator",
 		"text": "The order had been clear: Hold"
@@ -22,5 +26,28 @@
 		{
 		"speaker": "Narrator",
 		"text": "But what remained… could no longer do so."
+	},
+			{
+		"speaker": "Narrator",
+		"text": "Soon, a decision would be made"
+	},
+			{
+		"speaker": "Narrator",
+		"text": "one that defied orders, but spared what lives could still be saved."
+	},
+			{
+		"speaker": "Narrator",
+		"text": "He still believed they were holding on"
 	}
+	,
+			{
+		"speaker": "Narrator",
+		"text": "not yet realizing…"
+	},
+			{
+		"speaker": "Narrator",
+		"text": "he would soon be the one to end it."
+	}
+	
+	
 ]

@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://p0va0chq3bs0"]
+[gd_scene format=3 uid="uid://ddtidvfqbdp0q"]
 
-[ext_resource type="Script" uid="uid://qke1bhr7qqw1" path="res://src/ui/chapter_1/scene_2/modal_rifle.gd" id="1_dtjyr"]
+[ext_resource type="Script" uid="uid://de57d8d1xyopw" path="res://src/ui/chapter_1/scene_2/modal_rifle.gd" id="1_dtjyr"]
 [ext_resource type="Texture2D" uid="uid://de8mcsgjpqi3m" path="res://assets/chapter_1/scene_2/items/rifle.png" id="2_eqrqm"]
 
 [node name="Modal" type="CanvasLayer" unique_id=169697560]
@@ -30,13 +30,13 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Control" unique_id=313490889]
 layout_mode = 0
-offset_left = 1119.0
-offset_top = 288.99997
-offset_right = 1384.384
-offset_bottom = 1057.6605
+offset_left = 1183.9999
+offset_top = 242.99998
+offset_right = 1646.5679
+offset_bottom = 1117.6558
 rotation = 1.6015726
 texture = ExtResource("2_eqrqm")
-expand_mode = 1
+expand_mode = 3
 stretch_mode = 5
 
 [node name="Button" type="Button" parent="Control" unique_id=1090363012]
@@ -48,9 +48,9 @@ offset_bottom = 117.0
 text = "x"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=886543541]
-offset_left = 114.0
-offset_top = 658.0
-offset_right = 1326.0
-offset_bottom = 786.0
+offset_left = 135.0
+offset_top = 702.0
+offset_right = 1347.0
+offset_bottom = 830.0
 theme_override_font_sizes/normal_font_size = 30
 text = "The M1 Garand or M1 rifle is a semi-automatic rifle that was the service rifle of the U.S. Army during World War II and the Korean War. "

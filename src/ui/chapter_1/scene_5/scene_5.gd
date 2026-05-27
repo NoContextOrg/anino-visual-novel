@@ -2,8 +2,11 @@
 extends Node2D
 
 var parser: Node
+@onready var animation_player = $AnimationPlayer
 
 func _ready():
+	animation_player.play("Tree")
+
 	parser = preload("res://src/gameplay/DialogueParser.gd").new()
 	add_child(parser)
 	

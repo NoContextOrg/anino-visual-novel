@@ -12,23 +12,73 @@
 	"text": "Inside the tent, the air hangs heavy with heat, illness, and quiet desperation."
   },
   {
+	"speaker": "General King",
+	"text": "The lines are still holding… at least on paper."
+  },
+  {
+	"speaker": "General King",
+	"text": "But paper does not bleed. Paper does not starve."
+  },
+  {
 	"speaker": "Narrator",
 	"text": "Around him, the remnants of command lie scattered—maps, reports, and rusted instruments of survival."
   },
-  {
-	"speaker": "",
-	"text": "[bg: res://assets/chapter_1/scene_2/background/outro/inside_tent_bg_outro_1.jpg]"
-  },
-  {
+ {
 	"speaker": "Narrator",
 	"text": "Beyond the canvas walls, tens of thousands wait for orders that grow more impossible by the hour."
+  },
+  {
+	"speaker": "General King",
+	"text": "Seventy-five thousand men."
+  },
+  {
+	"speaker": "General King",
+	"text": "Hungry. Sick. Exhausted."
+  },
+  {
+	"speaker": "General King",
+	"text": "And they are still waiting… for me."
   },
   {
 	"speaker": "Narrator",
 	"text": "The war outside continues its relentless advance, but within the tent, time feels suspended—caught between decision and consequence."
   },
   {
+	"speaker": "General King",
+	"text": "Reinforcements… they said they were coming."
+  },
+  {
+	"speaker": "General King",
+	"text": "But hope is becoming harder to issue than rations."
+  },
+  {
+	"speaker": "Narrator",
+	"text": "He does not move. He does not speak."
+  },
+  {
+	"speaker": "Narrator",
+	"text": "Because every choice before him now carries a cost too great to measure."
+  },
+ {
+	"speaker": "General King",
+	"text": "Every order I give now…"
+  },
+ {
+	"speaker": "General King",
+	"text": "decides how many more will suffer before this ends."
+  },
+
+{
+	"speaker": "",
+	"text": "[bg: res://assets/chapter_1/scene_2/background/outro/inside_tent_bg_outro_1.jpg]"
+  },
+   {
+	"speaker": "",
+	"text": "..."
+  },
+  {
 	"speaker": "",
 	"text": "[bg: res://assets/chapter_1/scene_2/background/outro/inside_tent_bg_outro_2.jpg]"
   }
+
 ]
