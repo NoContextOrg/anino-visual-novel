@@ -1,0 +1,239 @@
+[gd_scene format=3]
+
+[ext_resource type="Theme" path="res://resources/default_theme.tres" id="1"]
+[ext_resource type="Script" path="res://src/ui/load_game.gd" id="2"]
+[ext_resource type="FontFile" path="res://resources/fonts/Montserrat-Italic-VariableFont_wght.ttf" id="3"]
+
+[sub_resource type="StyleBoxFlat" id="1"]
+bg_color = Color(0.12, 0.08, 0.05, 0.95)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.45, 0.2, 1)
+
+[node name="LoadGame" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1")
+script = ExtResource("2")
+
+[node name="Overlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.03, 0.02, 0.92)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -300.0
+offset_top = 40.0
+offset_right = 300.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Load Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 72
+theme_override_colors/font_color = Color(0.9, 0.75, 0.4, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SlotList" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Slot1" type="PanelContainer" parent="CenterContainer/SlotList"]
+layout_mode = 2
+custom_minimum_size = Vector2(700, 140)
+theme_override_styles/panel = SubResource("1")
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 16
+
+[node name="SlotHBox1" type="HBoxContainer" parent="CenterContainer/SlotList/Slot1"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/SlotList/Slot1/SlotHBox1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SlotLabel1" type="Label" parent="CenterContainer/SlotList/Slot1/SlotHBox1/VBoxContainer"]
+layout_mode = 2
+text = "Slot 1"
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 36
+theme_override_colors/font_color = Color(0.9, 0.75, 0.4, 1)
+
+[node name="SaveInfo1" type="Label" parent="CenterContainer/SlotList/Slot1/SlotHBox1/VBoxContainer"]
+layout_mode = 2
+text = "— Empty —"
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.6, 0.55, 0.5, 1)
+
+[node name="ButtonsHBox" type="HBoxContainer" parent="CenterContainer/SlotList/Slot1/SlotHBox1"]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 2
+
+[node name="LoadBtn1" type="Button" parent="CenterContainer/SlotList/Slot1/SlotHBox1/ButtonsHBox"]
+layout_mode = 2
+text = "Load"
+flat = true
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_color = Color(0.9, 0.75, 0.4, 1)
+
+[node name="DeleteBtn1" type="Button" parent="CenterContainer/SlotList/Slot1/SlotHBox1/ButtonsHBox"]
+layout_mode = 2
+text = "Delete"
+flat = true
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_color = Color(0.8, 0.3, 0.2, 1)
+
+[node name="Slot2" type="PanelContainer" parent="CenterContainer/SlotList"]
+layout_mode = 2
+custom_minimum_size = Vector2(700, 140)
+theme_override_styles/panel = SubResource("1")
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 16
+
+[node name="SlotHBox2" type="HBoxContainer" parent="CenterContainer/SlotList/Slot2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/SlotList/Slot2/SlotHBox2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SlotLabel2" type="Label" parent="CenterContainer/SlotList/Slot2/SlotHBox2/VBoxContainer"]
+layout_mode = 2
+text = "Slot 2"
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 36
+theme_override_colors/font_color = Color(0.9, 0.75, 0.4, 1)
+
+[node name="SaveInfo2" type="Label" parent="CenterContainer/SlotList/Slot2/SlotHBox2/VBoxContainer"]
+layout_mode = 2
+text = "— Empty —"
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.6, 0.55, 0.5, 1)
+
+[node name="ButtonsHBox" type="HBoxContainer" parent="CenterContainer/SlotList/Slot2/SlotHBox2"]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 2
+
+[node name="LoadBtn2" type="Button" parent="CenterContainer/SlotList/Slot2/SlotHBox2/ButtonsHBox"]
+layout_mode = 2
+text = "Load"
+flat = true
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_color = Color(0.9, 0.75, 0.4, 1)
+
+[node name="DeleteBtn2" type="Button" parent="CenterContainer/SlotList/Slot2/SlotHBox2/ButtonsHBox"]
+layout_mode = 2
+text = "Delete"
+flat = true
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_color = Color(0.8, 0.3, 0.2, 1)
+
+[node name="Slot3" type="PanelContainer" parent="CenterContainer/SlotList"]
+layout_mode = 2
+custom_minimum_size = Vector2(700, 140)
+theme_override_styles/panel = SubResource("1")
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 16
+
+[node name="SlotHBox3" type="HBoxContainer" parent="CenterContainer/SlotList/Slot3"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/SlotList/Slot3/SlotHBox3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SlotLabel3" type="Label" parent="CenterContainer/SlotList/Slot3/SlotHBox3/VBoxContainer"]
+layout_mode = 2
+text = "Slot 3"
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 36
+theme_override_colors/font_color = Color(0.9, 0.75, 0.4, 1)
+
+[node name="SaveInfo3" type="Label" parent="CenterContainer/SlotList/Slot3/SlotHBox3/VBoxContainer"]
+layout_mode = 2
+text = "— Empty —"
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.6, 0.55, 0.5, 1)
+
+[node name="ButtonsHBox" type="HBoxContainer" parent="CenterContainer/SlotList/Slot3/SlotHBox3"]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 2
+
+[node name="LoadBtn3" type="Button" parent="CenterContainer/SlotList/Slot3/SlotHBox3/ButtonsHBox"]
+layout_mode = 2
+text = "Load"
+flat = true
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_color = Color(0.9, 0.75, 0.4, 1)
+
+[node name="DeleteBtn3" type="Button" parent="CenterContainer/SlotList/Slot3/SlotHBox3/ButtonsHBox"]
+layout_mode = 2
+text = "Delete"
+flat = true
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_color = Color(0.8, 0.3, 0.2, 1)
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "← Back"
+flat = true
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 36
+theme_override_colors/font_color = Color(0.9, 0.75, 0.4, 1)
