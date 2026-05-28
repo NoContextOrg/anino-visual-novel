@@ -9,6 +9,7 @@ var current_bg: Texture2D = null
 var bg_busy := false
 var parser: Node
 var _anim_tween: Tween
+var _end_transition_started := false
 
 
 func _ready():
@@ -30,6 +31,7 @@ func _ready():
 	event_bus.background_change_requested.connect(_on_bg_change)
 	event_bus.play_sfx_requested.connect(_on_sfx)
 	event_bus.sprite_anim_requested.connect(_on_sprite_anim_requested)
+	event_bus.dialogue_finished.connect(_on_dialogue_finished)
 
 
 func _on_bg_change(path: String):
@@ -96,3 +98,9 @@ func _on_sprite_anim_requested(action: String, anim_name: String) -> void:
 			animated_sprite.visible = true
 		_:
 			push_warning("Unknown anim action: %s" % action)
+
+func _on_dialogue_finished() -> void:
+	if _end_transition_started:
+		return
+	_end_transition_started = true
+	SceneManager.request_scene_change("res://scenes/chapter_1/scene_5/scene_5.tscn")

@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://bol3uyegavbs3" path="res://assets/main_menu/background/burning_mountain_7.png" id="bg_7"]
 [ext_resource type="Texture2D" uid="uid://djshhsi6pmof1" path="res://assets/main_menu/buttons/load_btn.png" id="btn_load"]
 [ext_resource type="Texture2D" uid="uid://cmyavwed8crvq" path="res://assets/main_menu/buttons/play_btn.png" id="btn_play"]
-[ext_resource type="Texture2D" uid="uid://djvu1dicm06hv" path="res://assets/main_menu/buttons/quit_btn.png" id="btn_quit"]
 [ext_resource type="Texture2D" uid="uid://cxe2gscg47fbc" path="res://assets/main_menu/buttons/settings_btn.png" id="btn_settings"]
 [ext_resource type="Texture2D" uid="uid://bs412kgr7wtg3" path="res://assets/main_menu/temp_name.png" id="title_img"]
 
@@ -111,7 +110,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("bg_1")
 expand_mode = 1
-stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=354424833]
 libraries/ = SubResource("AnimationLibrary_main")
@@ -179,21 +177,17 @@ texture_normal = ExtResource("btn_settings")
 layout_mode = 2
 focus_neighbor_top = NodePath("../SettingsButton")
 theme_type_variation = &"MainButton"
-text = "Quit"
-flat = true
-alignment = 0
 
-[node name="UI_Anchor" type="CanvasLayer" parent="."]
+[node name="UI_Anchor" type="CanvasLayer" parent="." unique_id=88870873]
 
-[node name="Transition" type="ColorRect" parent="UI_Anchor"]
+[node name="Transition" type="ColorRect" parent="UI_Anchor" unique_id=629506320]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0)
 mouse_filter = 2
+color = Color(0, 0, 0, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI_Anchor"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI_Anchor" unique_id=1855197614]
 libraries/ = SubResource("AnimationLibrary_scene_transition")
-texture_normal = ExtResource("btn_quit")
