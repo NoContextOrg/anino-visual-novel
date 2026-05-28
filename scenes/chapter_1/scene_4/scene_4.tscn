@@ -1,11 +1,50 @@
 [gd_scene format=3 uid="uid://6ek870sbkik3"]
 
 [ext_resource type="Script" uid="uid://b36csrscxqh71" path="res://scenes/chapter_1/scene_4/scene_4.gd" id="1_bo7ak"]
+[ext_resource type="Texture2D" uid="uid://cx70ujw880yv6" path="res://assets/chapter_1/scene_4/man/outside_tent/man_outside_tent_thirsty_drinking_1.png" id="2_8cmcb"]
+[ext_resource type="Texture2D" uid="uid://ddiy68ucdeqx6" path="res://assets/chapter_1/scene_4/background/tent_scene.png" id="2_hqmun"]
 [ext_resource type="Script" uid="uid://t21qivi5ufa3" path="res://src/ui/chapter_1/scene_2/lantern.gd" id="2_uhwgr"]
 [ext_resource type="PackedScene" uid="uid://dmk01ebol40jx" path="res://scenes/ui/SampleDialogueBox.tscn" id="2_vyh6a"]
-[ext_resource type="AudioStream" uid="uid://c8uhs7jo4ovug" path="res://assets/background/chapter_1/scene_4_assets/war_sfx.mp3" id="4_bo7ak"]
+[ext_resource type="Texture2D" uid="uid://dwjgi3flokdew" path="res://assets/chapter_1/scene_4/man/outside_tent/man_outside_tent_thirsty_drinking_2.png" id="3_y5m2h"]
+[ext_resource type="Texture2D" uid="uid://do8uxam5mxv1a" path="res://assets/chapter_1/scene_4/man/outside_tent/man_outside_tent_thirsty_drinking_3.png" id="4_587ki"]
+[ext_resource type="AudioStream" uid="uid://c8uhs7jo4ovug" path="res://assets/general_audio/war_sfx.mp3" id="4_bo7ak"]
+[ext_resource type="Texture2D" uid="uid://dhu18888jr3u0" path="res://assets/chapter_1/scene_4/man/outside_tent/man_outside_tent_thirsty_drinking_4.png" id="5_xo6ab"]
+[ext_resource type="Texture2D" uid="uid://c8phsqksnx8wm" path="res://assets/chapter_1/scene_4/man/outside_tent/man_outside_tent_thirsty_drinking_5.png" id="6_k6ixa"]
+[ext_resource type="Texture2D" uid="uid://ch3t38whqyou6" path="res://assets/chapter_1/scene_4/man/outside_tent/man_outside_tent_thirsty_drinking_6.png" id="7_umcbd"]
+[ext_resource type="Texture2D" uid="uid://deopc6n57nko2" path="res://assets/chapter_1/scene_4/man/outside_tent/man_outside_tent_thirsty_drinking_7.png" id="8_35kyr"]
+[ext_resource type="Texture2D" uid="uid://cg265af1viwpn" path="res://assets/chapter_1/scene_4/man/outside_tent/man_outside_tent_thirsty_drinking_8.png" id="9_37wdi"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uhwgr"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_61ox3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8cmcb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_y5m2h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_587ki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xo6ab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_k6ixa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_umcbd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_35kyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_37wdi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Gradient" id="Gradient_2ib4t"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -17,12 +56,19 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.9, 0.5)
 
 [node name="Scene4" type="Node2D" unique_id=110744277]
+scale = Vector2(0.525, 0.525)
 script = ExtResource("1_bo7ak")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1818596888]
 position = Vector2(1651.725, 866.31)
 scale = Vector2(1.465, 1.465)
-texture = SubResource("CompressedTexture2D_uhwgr")
+texture = ExtResource("2_hqmun")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=353008038]
+position = Vector2(1256.205, 829.97)
+scale = Vector2(3.335, 3.335)
+sprite_frames = SubResource("SpriteFrames_61ox3")
+frame_progress = 0.19394733
 
 [node name="cool_tone" type="CanvasModulate" parent="." unique_id=1626678707]
 color = Color(0.083965786, 0.20867932, 0.42754754, 1)
@@ -43,7 +89,6 @@ offset_left = -965.0
 offset_top = -1911.0
 offset_right = 955.0
 offset_bottom = 9.0
-grow_vertical = 0
 
 [node name="SFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=422220058]
 
