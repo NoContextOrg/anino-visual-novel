@@ -22,3 +22,6 @@ signal hotspot_clicked(id: String)
 
 # sfx signal
 signal play_sfx_requested(path: String, volume_db: float)
+
+# sprite animation control
+signal sprite_anim_requested(action: String, anim_name: String)
