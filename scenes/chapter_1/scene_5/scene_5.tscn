@@ -1,15 +1,14 @@
 [gd_scene format=3 uid="uid://boij8ys5nw041"]
 
-[ext_resource type="Script" uid="uid://ctdwnfuag4ash" path="res://src/ui/chapter_1/scene_5/scene_5.gd" id="1_n5d4y"]
-[ext_resource type="Texture2D" uid="uid://37i7n6xrwq2a" path="res://assets/chapter_1/scene_5/tree_animation/5.png" id="2_0svlp"]
+[ext_resource type="Script" uid="uid://d2wqmwfdu3hwx" path="res://src/ui/chapter_1/scene_5/scene_5.gd" id="1_n5d4y"]
+[ext_resource type="Texture2D" uid="uid://cwsgr87k81jgs" path="res://assets/chapter_1/scene_5/tree_animation/5.png" id="2_0svlp"]
 [ext_resource type="PackedScene" uid="uid://dmk01ebol40jx" path="res://scenes/ui/SampleDialogueBox.tscn" id="3_fhbvt"]
-[ext_resource type="Texture2D" uid="uid://ce4uxy5gc3n7v" path="res://assets/chapter_1/scene_5/tree_animation/6.png" id="3_y7ar5"]
-[ext_resource type="Texture2D" uid="uid://dpfkycf6hjd8u" path="res://assets/chapter_1/scene_5/tree_animation/7.png" id="5_386wa"]
-[ext_resource type="Texture2D" uid="uid://fio6usf1yces" path="res://assets/chapter_1/scene_5/tree_animation/8.png" id="6_2kf4x"]
-[ext_resource type="Texture2D" uid="uid://dmavg06wucoxc" path="res://assets/chapter_1/scene_5/tree_animation/9.png" id="7_k787s"]
-[ext_resource type="Texture2D" uid="uid://c65sggvvljwwn" path="res://assets/chapter_1/scene_5/tree_animation/10.png" id="8_kxl05"]
-[ext_resource type="Texture2D" uid="uid://cucyiywhab7li" path="res://assets/chapter_1/scene_5/tree_animation/11.png" id="9_t3xie"]
-[ext_resource type="Texture2D" uid="uid://dtlu4h6owycdi" path="res://assets/chapter_1/scene_5/tree_animation/12.png" id="10_csi1f"]
+[ext_resource type="Texture2D" uid="uid://b6ywpcssd2yno" path="res://assets/chapter_1/scene_5/tree_animation/6.png" id="3_y7ar5"]
+[ext_resource type="Texture2D" uid="uid://dgyu1w3fc1mcj" path="res://assets/chapter_1/scene_5/tree_animation/7.png" id="5_386wa"]
+[ext_resource type="Texture2D" uid="uid://dawv2k2oefrv4" path="res://assets/chapter_1/scene_5/tree_animation/8.png" id="6_2kf4x"]
+[ext_resource type="Texture2D" uid="uid://dwqcyepslydy8" path="res://assets/chapter_1/scene_5/tree_animation/9.png" id="7_k787s"]
+[ext_resource type="Texture2D" uid="uid://di2fi84guhfqr" path="res://assets/chapter_1/scene_5/tree_animation/10.png" id="8_kxl05"]
+[ext_resource type="Texture2D" uid="uid://ck3v4ssjk1m81" path="res://assets/chapter_1/scene_5/tree_animation/11.png" id="9_t3xie"]
 
 [sub_resource type="Animation" id="Animation_1iti3"]
 length = 0.001
@@ -28,7 +27,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_xoqrx"]
 resource_name = "Tree"
-length = 8.0
+length = 11.033334
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -36,10 +35,10 @@ tracks/0/path = NodePath("Background:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1, 2.0666666, 3.0333333, 4, 5, 6.0333333, 7.0333333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(1, 2.0666666, 3.0333333, 4, 5, 6.0333333, 7, 8, 9.033334, 10.033334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [ExtResource("3_y7ar5"), ExtResource("5_386wa"), ExtResource("6_2kf4x"), ExtResource("7_k787s"), ExtResource("8_kxl05"), ExtResource("9_t3xie"), ExtResource("10_csi1f")]
+"values": [ExtResource("3_y7ar5"), ExtResource("5_386wa"), ExtResource("6_2kf4x"), ExtResource("7_k787s"), ExtResource("8_kxl05"), ExtResource("9_t3xie"), ExtResource("8_kxl05"), ExtResource("9_t3xie"), ExtResource("8_kxl05"), ExtResource("9_t3xie")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rumpp"]
