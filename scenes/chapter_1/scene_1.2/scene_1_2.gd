@@ -25,6 +25,10 @@ extends "res://src/gameplay/sceneTransition.gd"
 @export var end_fade_edge_softness: float = 0.5
 @export var end_fade_start_radius: float = 0.005
 @export var end_fade_start_softness: float = 0.2
+@export var end_fade_blood_color: Color = Color("8B0000")
+@export var end_fade_blood_duration: float = 2.0
+@export var end_fade_black_color: Color = Color(0, 0, 0, 1)
+@export var end_fade_black_duration: float = 2.0
 
 @onready var ambience_player: AudioStreamPlayer = get_node_or_null("AmbiencePlayer")
 @onready var background: TextureRect = get_node_or_null("Background")
@@ -42,6 +46,7 @@ var _shake_time_left := 0.0
 var _shake_active := false
 var _shake_target: Node
 var _shake_base_position := Vector2.ZERO
+var _end_transition_started := false
 
 const _END_FADE_SHADER_CODE := """
 shader_type canvas_item;
@@ -168,6 +173,9 @@ func _connect_dialogue() -> void:
 			dialogue_node.connect("emphasis_shake_stopped", stop_callable)
 
 func _on_dialogue_finished() -> void:
+	if _end_transition_started:
+		return
+	_end_transition_started = true
 	_start_end_fade()
 
 func _on_dialogue_shake_started() -> void:
@@ -255,6 +263,7 @@ func _start_end_fade() -> void:
 		_end_fade_overlay.color = end_fade_color
 		_end_fade_material.set_shader_parameter("radius", 1.0)
 		_end_fade_material.set_shader_parameter("softness", end_softness)
+		_append_post_fade_sequence()
 		return
 
 	_end_fade_tween = create_tween()
@@ -270,6 +279,35 @@ func _start_end_fade() -> void:
 	_end_fade_tween.parallel().tween_property(_end_fade_material, "shader_parameter/softness", end_softness, end_fade_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	_end_fade_tween.parallel().tween_property(_end_fade_rect, "color", end_fade_color, end_fade_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	_end_fade_tween.parallel().tween_property(_end_fade_overlay, "color", end_fade_color, end_fade_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	_append_post_fade_sequence()
+
+func _append_post_fade_sequence() -> void:
+	if _end_fade_rect == null or _end_fade_overlay == null:
+		return
+
+	if _end_fade_tween == null or not _end_fade_tween.is_running():
+		_end_fade_tween = create_tween()
+
+	var blood_duration: float = max(end_fade_blood_duration, 0.0)
+	if blood_duration > 0.0:
+		_end_fade_tween.tween_property(_end_fade_rect, "color", end_fade_blood_color, blood_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		_end_fade_tween.parallel().tween_property(_end_fade_overlay, "color", end_fade_blood_color, blood_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	else:
+		_end_fade_rect.color = end_fade_blood_color
+		_end_fade_overlay.color = end_fade_blood_color
+
+	var black_duration: float = max(end_fade_black_duration, 0.0)
+	if black_duration > 0.0:
+		_end_fade_tween.tween_property(_end_fade_rect, "color", end_fade_black_color, black_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		_end_fade_tween.parallel().tween_property(_end_fade_overlay, "color", end_fade_black_color, black_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	else:
+		_end_fade_rect.color = end_fade_black_color
+		_end_fade_overlay.color = end_fade_black_color
+
+	_end_fade_tween.tween_callback(Callable(self, "_go_to_scene_2"))
+
+func _go_to_scene_2() -> void:
+	SceneManager.request_scene_change("res://scenes/chapter_1/scene_2/scene_2.tscn")
 
 func _ensure_end_fade_rect() -> void:
 	if _end_fade_rect and is_instance_valid(_end_fade_rect):
