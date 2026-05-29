@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 Parser="*uid://cnmfer8jfiq7h"
 SceneTransition="*uid://gufsmetfidcc"
-EventBus="*uid://t2dqri0ktpy8"
+EventBus="*uid://nywwa3adgspu"
 GameState="*uid://26epef3gd8km"
 GameManager="*uid://c2nla6tei06h3"
 SceneManager="*uid://bpoqqt774bpvf"

@@ -1,7 +1,7 @@
 [
 	{
 		"speaker": "",
-		"text": "[bg: res://assets/background/chapter_1/scene_4_assets/tent_scene.png]"
+		"text": "[bg: res://assets/chapter_1/scene_4/background/tent_scene.png]"
 	},
 	{
 		"speaker": "Narrator",
@@ -13,7 +13,7 @@
 	},
 	{
 		"speaker": "",
-		"text": "[bg: res://assets/background/chapter_1/scene_4_assets/blockade_scene.png]"
+		"text": "[bg: res://assets/chapter_1/scene_4/background/blockade_scene.png]"
 	},
 	{
 		"speaker": "Narrator",
@@ -33,7 +33,7 @@
 	},
 	{
 		"speaker": "",
-		"text": "[bg: res://assets/background/chapter_1/scene_4_assets/weakened_blockade_scene.png]"
+		"text": "[bg: res://assets/chapter_1/scene_4/background/weakened_blockade_scene.png]"
 	},
 	{
 		"speaker": "Narrator",
@@ -49,7 +49,7 @@
 	},
 	{
 		"speaker": "",
-		"text": "[bg: res://assets/background/chapter_1/scene_4_assets/command_scene.png]"
+		"text": "[bg: res://assets/chapter_1/scene_4/background/command_scene.png]"
 	},
 	{
 		"speaker": "Narrator",
@@ -73,7 +73,7 @@
 	},
 	{
 		"speaker": "",
-		"text": "[bg: res://assets/background/chapter_1/scene_4_assets/fading_daylight_scene.png]"
+		"text": "[bg: res://assets/chapter_1/scene_4/background/fading_daylight_scene.png]"
 	},
 	{
 		"speaker": "Narrator",
@@ -93,7 +93,7 @@
 	},
 	{
 		"speaker": "",
-		"text": "[bg: res://assets/background/chapter_1/scene_4_assets/general_king_scene.png]"
+		"text": "[bg: res://assets/chapter_1/scene_4/background/general_king_scene.png]"
 	},
 	{
 		"speaker": "General King",
@@ -105,7 +105,11 @@
 	},
 	{
 		"speaker": "",
-		"text": "[bg: res://assets/background/chapter_1/scene_4_assets/soldier_scene.png]"
+		"text": "[bg: res://assets/chapter_1/scene_4/background/soldier_scene.png]"
+	},
+	{
+		"speaker": "",
+		"text": "[anim: play]"
 	},
 	{
 		"speaker": "Narrator",
@@ -121,12 +125,12 @@
 	},
 	{
 		"speaker": "",
-		"text": "[bg: res://assets/background/chapter_1/scene_4_assets/canteen_scene.png]"
+		"text": "[bg: res://assets/chapter_1/scene_4/background/canteen_scene.png]"
 	},
 	{
 		"speaker": "Narrator",
 		"text": "Each drop echoes louder than gunfire.",
-		"sfx": "res://assets/background/chapter_1/scene_4_assets/water_dripping_sfx.mp3"
+		"sfx": "res://assets/general_audio/water_dripping_sfx.mp3"
 	},
 	{
 		"speaker": "General King",
@@ -134,7 +138,11 @@
 	},
 	{
 		"speaker": "",
-		"text": "[bg: res://assets/background/chapter_1/scene_4_assets/food_scene.png]"
+		"text": "[anim: stop]"
+	},
+	{
+		"speaker": "",
+		"text": "[bg: res://assets/chapter_1/scene_4/background/food_scene.png]"
 	},
 	{
 		"speaker": "Narrator",
@@ -154,7 +162,7 @@
 	},
 	{
 		"speaker": "",
-		"text": "[bg: res://assets/background/chapter_1/scene_4_assets/fighting_soldiers_scene.png]"
+		"text": "[bg: res://assets/chapter_1/scene_4/background/fighting_soldiers_scene.png]"
 	},
 	{
 		"speaker": "Narrator",
@@ -170,7 +178,7 @@
 	},
 	{
 		"speaker": "",
-		"text": "[bg: res://assets/background/chapter_1/scene_4_assets/70k_soldiers_scene.png]"
+		"text": "[bg: res://assets/chapter_1/scene_4/background/70k_soldiers_scene.png]"
 	},
 	{
 		"speaker": "Narrator",

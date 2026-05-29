@@ -4,6 +4,7 @@ var dialogue_data = []
 var current_index = 0
 
 var waiting_for_advance = false
+@onready var event_bus = get_node_or_null("/root/EventBus")
 
 
 func load_dialogue(path: String):
@@ -34,7 +35,8 @@ func process_next_line():
 	# end of dialogue
 	if current_index >= dialogue_data.size():
 		print("DialogueParser: Dialogue finished, emitting dialogue_finished")
-		EventBus.dialogue_finished.emit()
+		if event_bus:
+			event_bus.dialogue_finished.emit()
 		return
 	
 	var line = dialogue_data[current_index]
@@ -60,10 +62,19 @@ func _handle_line(line):
 
 		match key:
 			"bg":
-				EventBus.background_change_requested.emit(value)
+				if event_bus:
+					event_bus.background_change_requested.emit(value)
 
 			"sfx":
-				EventBus.play_sfx_requested.emit(value)
+				if event_bus:
+					event_bus.play_sfx_requested.emit(value)
+
+			"anim":
+				var anim_parts = value.split(" ", true, 1)
+				var action = anim_parts[0] if anim_parts.size() > 0 else ""
+				var anim_name = anim_parts[1] if anim_parts.size() > 1 else ""
+				if event_bus:
+					event_bus.sprite_anim_requested.emit(action, anim_name)
 
 			_:
 				push_warning("Unknown command: " + key)
@@ -76,26 +87,31 @@ func _handle_line(line):
 	# NORMAL DIALOGUE + SFX
 	# -----------------------
 	print("DialogueParser: Emitting dialogue_requested with speaker: ", line.get("speaker", ""))
-	EventBus.dialogue_requested.emit({
+	if event_bus:
+		event_bus.dialogue_requested.emit({
 		"speaker": line.get("speaker", ""),
 		"text": text,
 		"expression": line.get("expression", "")
-	})
+		})
 
 	# ✔ play SFX if attached
 	if line.has("sfx"):
-		EventBus.play_sfx_requested.emit(line["sfx"])
+		if event_bus:
+			event_bus.play_sfx_requested.emit(line["sfx"])
 
 	waiting_for_advance = true
 
 
 func _ready():
+	if event_bus == null:
+		push_error("EventBus autoload not found at /root/EventBus.")
+		return
 	# UI signals
-	EventBus.advance_requested.connect(_on_advance_requested)
-	EventBus.skip_convo_requested.connect(_on_skip_requested)
+	event_bus.advance_requested.connect(_on_advance_requested)
+	event_bus.skip_convo_requested.connect(_on_skip_requested)
 	
 	# choice signals
-	EventBus.choice_selected.connect(_on_choice_selected)
+	event_bus.choice_selected.connect(_on_choice_selected)
 
 
 func _on_advance_requested():
@@ -109,7 +125,8 @@ func _on_advance_requested():
 func _on_skip_requested():
 	current_index = dialogue_data.size()
 	waiting_for_advance = false
-	EventBus.dialogue_finished.emit()
+	if event_bus:
+		event_bus.dialogue_finished.emit()
 	
 func _on_choice_selected(index):
 	var line = dialogue_data[current_index - 1]
