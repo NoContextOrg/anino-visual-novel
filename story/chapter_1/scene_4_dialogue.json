@@ -1,7 +1,7 @@
 [
 	{
 		"speaker": "",
-		"text": "[bg: res://assets/chapter_1/scene_4/background/tent_scene.png]"
+		"text": "[anim: play loop_5_7]"
 	},
 	{
 		"speaker": "Narrator",
@@ -10,10 +10,6 @@
 	{
 		"speaker": "Narrator",
 		"text": "but because many inside no longer have the strength to respond to it."
-	},
-	{
-		"speaker": "",
-		"text": "[bg: res://assets/chapter_1/scene_4/background/blockade_scene.png]"
 	},
 	{
 		"speaker": "Narrator",
@@ -32,10 +28,6 @@
 		"text": "Ammunition was critically low, forcing units to conserve fire or abandon positions altogether."
 	},
 	{
-		"speaker": "",
-		"text": "[bg: res://assets/chapter_1/scene_4/background/weakened_blockade_scene.png]"
-	},
-	{
 		"speaker": "Narrator",
 		"text": "Entire regiments had been reduced to fractions of their original strength."
 	},
@@ -46,10 +38,6 @@
 	{
 		"speaker": "Narrator",
 		"text": "Others remained in line despite fever, ordered to hold positions that could no longer be defended."
-	},
-	{
-		"speaker": "",
-		"text": "[bg: res://assets/chapter_1/scene_4/background/command_scene.png]"
 	},
 	{
 		"speaker": "Narrator",
@@ -72,10 +60,6 @@
 		"text": "or to prevent what remained of the force from being completely destroyed."
 	},
 	{
-		"speaker": "",
-		"text": "[bg: res://assets/chapter_1/scene_4/background/fading_daylight_scene.png]"
-	},
-	{
 		"speaker": "Narrator",
 		"text": "From inside the command tent, the outside world is reduced to fragments—"
 	},
@@ -92,24 +76,12 @@
 		"text": "and the faint, irregular sound of water falling from a nearly empty canteen."
 	},
 	{
-		"speaker": "",
-		"text": "[bg: res://assets/chapter_1/scene_4/background/general_king_scene.png]"
-	},
-	{
 		"speaker": "General King",
 		"text": "I can hear it… even over everything else."
 	},
 	{
 		"speaker": "General King",
 		"text": "The silence between suffering."
-	},
-	{
-		"speaker": "",
-		"text": "[bg: res://assets/chapter_1/scene_4/background/soldier_scene.png]"
-	},
-	{
-		"speaker": "",
-		"text": "[anim: play]"
 	},
 	{
 		"speaker": "Narrator",
@@ -124,10 +96,6 @@
 		"text": "Beside him, a canteen hangs at an angle—its last drops falling slowly into nothing."
 	},
 	{
-		"speaker": "",
-		"text": "[bg: res://assets/chapter_1/scene_4/background/canteen_scene.png]"
-	},
-	{
 		"speaker": "Narrator",
 		"text": "Each drop echoes louder than gunfire.",
 		"sfx": "res://assets/general_audio/water_dripping_sfx.mp3"
@@ -135,14 +103,6 @@
 	{
 		"speaker": "General King",
 		"text": "Even water... is rationed down to time."
-	},
-	{
-		"speaker": "",
-		"text": "[anim: stop]"
-	},
-	{
-		"speaker": "",
-		"text": "[bg: res://assets/chapter_1/scene_4/background/food_scene.png]"
 	},
 	{
 		"speaker": "Narrator",
@@ -161,10 +121,6 @@
 		"text": "What remained was stretched beyond its limit."
 	},
 	{
-		"speaker": "",
-		"text": "[bg: res://assets/chapter_1/scene_4/background/fighting_soldiers_scene.png]"
-	},
-	{
 		"speaker": "Narrator",
 		"text": "Many had been fighting without proper rest for weeks—"
 	},
@@ -175,10 +131,6 @@
 	{
 		"speaker": "Narrator",
 		"text": "only to return again with less strength than before."
-	},
-	{
-		"speaker": "",
-		"text": "[bg: res://assets/chapter_1/scene_4/background/70k_soldiers_scene.png]"
 	},
 	{
 		"speaker": "Narrator",
@@ -211,5 +163,5 @@
 	{
 		"speaker": "Narrator",
 		"text": "were no longer on their side."
-	},
+	}
 ]
