@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://di4o3yhuxh05s" path="res://assets/chapter_1/scene_3/items/notes.png" id="10_ui2kv"]
 [ext_resource type="Texture2D" uid="uid://bqx5volk0e41g" path="res://assets/chapter_1/scene_3/items/map.png" id="11_g1bqg"]
 [ext_resource type="Texture2D" uid="uid://bgkcyhfteaf7s" path="res://assets/chapter_1/scene_3/items/journal.png" id="12_257nh"]
+[ext_resource type="PackedScene" uid="uid://g5x8vjhv66ue" path="res://scenes/ui/scroll_popup_panel.tscn" id="12_bvp7j"]
 [ext_resource type="Texture2D" uid="uid://r6rduilhgv7w" path="res://assets/chapter_1/scene_3/items/compass.png" id="13_7gcvx"]
-[ext_resource type="FontFile" uid="uid://d2arlclfybj5n" path="res://resources/fonts/Montserrat-Italic-VariableFont_wght.ttf" id="13_cw5ek"]
 [ext_resource type="Texture2D" uid="uid://cmda7685jd5pg" path="res://assets/chapter_1/scene_3/items/medkit.png" id="13_lnptj"]
 [ext_resource type="Texture2D" uid="uid://b600sc2lgq0ty" path="res://assets/chapter_1/scene_3/items/pencil.png" id="14_0n3g2"]
 
@@ -49,11 +49,6 @@ _data = {
 &"RESET": SubResource("Animation_cw5ek"),
 &"table_moving": SubResource("Animation_ui2kv")
 }
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7cekh"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bvp7j"]
-load_path = "res://.godot/imported/blank_scroll.png-636e919871f3855982b02801be3a2d12.ctex"
 
 [node name="TableMapScene" type="Control" unique_id=1619248148]
 layout_mode = 3
@@ -235,82 +230,6 @@ mouse_filter = 2
 mouse_force_pass_scroll_events = false
 color = Color(0, 0, 0, 0.6627451)
 
-[node name="scroll_panel" type="PopupPanel" parent="background" unique_id=412855753]
-oversampling_override = 1.0
-title = "scroll_info_pop"
-initial_position = 1
-size = Vector2i(2592, 3312)
-theme_override_styles/panel = SubResource("StyleBoxEmpty_7cekh")
-
-[node name="scroll_popup_panel" type="TextureRect" parent="background/scroll_panel" unique_id=1317726181]
-offset_right = 2592.0
-offset_bottom = 3312.0
-texture = SubResource("CompressedTexture2D_bvp7j")
-stretch_mode = 3
-
-[node name="margin_container" type="MarginContainer" parent="background/scroll_panel/scroll_popup_panel" unique_id=294856878]
+[node name="scroll_panel" parent="." unique_id=2056051483 instance=ExtResource("12_bvp7j")]
+visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 300
-theme_override_constants/margin_top = 300
-theme_override_constants/margin_right = 300
-theme_override_constants/margin_bottom = 300
-
-[node name="label" type="Label" parent="background/scroll_panel/scroll_popup_panel/margin_container" unique_id=1856135094]
-modulate = Color(0, 0, 0, 1)
-light_mask = 0
-visibility_layer = 1047552
-custom_minimum_size = Vector2(10, 10)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.4392157, 0.25882354, 0.078431375, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
-theme_override_fonts/font = ExtResource("13_cw5ek")
-theme_override_font_sizes/font_size = 32
-text = "Information here"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="scroll_panel2" type="PopupPanel" parent="background" unique_id=133101863]
-oversampling_override = 1.0
-title = "scroll_info_pop"
-initial_position = 1
-size = Vector2i(2592, 3312)
-theme_override_styles/panel = SubResource("StyleBoxEmpty_7cekh")
-
-[node name="scroll_popup_panel" type="TextureRect" parent="background/scroll_panel2" unique_id=1121875688]
-offset_right = 2592.0
-offset_bottom = 3312.0
-texture = SubResource("CompressedTexture2D_bvp7j")
-stretch_mode = 3
-
-[node name="margin_container" type="MarginContainer" parent="background/scroll_panel2/scroll_popup_panel" unique_id=521316075]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 300
-theme_override_constants/margin_top = 300
-theme_override_constants/margin_right = 300
-theme_override_constants/margin_bottom = 300
-
-[node name="label" type="Label" parent="background/scroll_panel2/scroll_popup_panel/margin_container" unique_id=1271976750]
-modulate = Color(0, 0, 0, 1)
-light_mask = 0
-visibility_layer = 1047552
-custom_minimum_size = Vector2(10, 10)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.4392157, 0.25882354, 0.078431375, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
-theme_override_fonts/font = ExtResource("13_cw5ek")
-theme_override_font_sizes/font_size = 32
-text = "Information here"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3

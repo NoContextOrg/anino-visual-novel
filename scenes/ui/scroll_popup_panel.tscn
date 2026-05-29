@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://g5x8vjhv66ue"]
+
+[ext_resource type="Script" uid="uid://ct528d4tjyqhb" path="res://src/ui/scroll_popup_panel.tscn.gd" id="1_tehj6"]
+[ext_resource type="FontFile" uid="uid://d2arlclfybj5n" path="res://resources/fonts/Montserrat-Italic-VariableFont_wght.ttf" id="2_7ic78"]
+[ext_resource type="Texture2D" uid="uid://bg2lwgg0dnh5s" path="res://assets/ui/hud_interfaces/blank_scroll.png" id="2_62rfa"]
+[ext_resource type="Texture2D" uid="uid://b3vyl0q2t5eat" path="res://assets/ui/hud_interfaces/exit_button.png" id="3_62rfa"]
+[ext_resource type="Theme" uid="uid://dwjpijsc3chou" path="res://resources/default_theme.tres" id="4_62rfa"]
+
+[node name="scroll_panel" type="Control" unique_id=2056051483]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tehj6")
+
+[node name="scroll_popup_panel" type="TextureRect" parent="." unique_id=2013260247]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -700.0
+offset_top = -382.0
+offset_right = 700.0
+offset_bottom = 382.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_62rfa")
+
+[node name="margin_container" type="MarginContainer" parent="scroll_popup_panel" unique_id=956754375]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 300
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 300
+
+[node name="label" type="Label" parent="scroll_popup_panel/margin_container" unique_id=2071257546]
+modulate = Color(0, 0, 0, 1)
+light_mask = 0
+visibility_layer = 1047552
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4392157, 0.25882354, 0.078431375, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("2_7ic78")
+theme_override_font_sizes/font_size = 32
+text = "Information here"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="close_btn" type="TextureButton" parent="." unique_id=444942255]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -367.3833
+offset_top = 280.01962
+offset_right = -95.06091
+offset_bottom = 544.5409
+grow_horizontal = 0
+rotation = -0.0020903768
+scale = Vector2(0.41924155, 0.47070283)
+theme = ExtResource("4_62rfa")
+theme_type_variation = &"TableItemButton"
+texture_normal = ExtResource("3_62rfa")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="close_btn" to="." method="_on_close_btn_pressed"]
