@@ -7,6 +7,9 @@ class_name Scene1
 var _mt_samat_glow_tween: Tween = null
 var _crow_glow_tween: Tween = null
 var _mt_samat_interacted: bool = false
+var _crow_float_tween: Tween = null
+var _crow_base_position := Vector2(950, 280)
+var _crow_base_scale := Vector2(0.28, 0.28)
 
 enum HotspotState { NONE, CROW, MT_SAMAT }
 var _active_hotspot: HotspotState = HotspotState.NONE
@@ -32,6 +35,7 @@ func _ready() -> void:
 
 	$ControlLayer/MtSamatButton.disabled = false
 	_mt_samat_glow_tween = _start_glow($ControlLayer/MtSamatButton)
+	_start_crow_ambient_motion()
 
 func _start_narration(lines: Array) -> void:
 	_narration_queue = lines
@@ -87,6 +91,37 @@ func _on_crow_clicked() -> void:
 		{"speaker": "", "text": "Not as a witness…"},
 		{"speaker": "", "text": "But as the one who must decide."}
 	])
+
+func _start_crow_ambient_motion() -> void:
+	$Crow.position = Vector2(-300, 180)
+	$Crow.scale = _crow_base_scale * 0.12
+
+	var fly_tween = create_tween()
+	fly_tween.tween_property($Crow, "position",
+		Vector2(950, 280), 10.0)\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+	var grow_tween = create_tween()
+	grow_tween.tween_property($Crow, "scale",
+		_crow_base_scale * 2.4, 10.0)\
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+
+	await fly_tween.finished
+	_crow_float_tween = create_tween().set_loops()
+	_crow_float_tween.tween_property($Crow, "position",
+		Vector2(950, 280) + Vector2(-12, -16), 2.0)\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	_crow_float_tween.tween_property($Crow, "position",
+		Vector2(950, 280) + Vector2(10, 12), 2.0)\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+	var scale_tween = create_tween().set_loops()
+	scale_tween.tween_property($Crow, "scale",
+		_crow_base_scale * 2.5, 2.2)\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	scale_tween.tween_property($Crow, "scale",
+		_crow_base_scale * 2.3, 2.2)\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func _start_glow(button: TextureButton) -> Tween:
 	var t = create_tween().set_loops()
