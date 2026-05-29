@@ -105,6 +105,11 @@ offset_top = -1911.0
 offset_right = 955.0
 offset_bottom = 9.0
 
+[node name="NextButton" type="TextureButton" parent="dialogue_layer"]
+visible = false
+disabled = true
+focus_mode = 0
+
 [node name="RifleButton" type="TextureButton" parent="." unique_id=1531838399]
 offset_left = 551.9725
 offset_top = 277.7528

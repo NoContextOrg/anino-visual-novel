@@ -10,21 +10,28 @@ var _is_transitioning := false
 
 var anim_player: AnimationPlayer
 var fader: ColorRect
+var _listening := false
+var _global_layer: CanvasLayer
+var _global_fader: ColorRect
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
-	EventBus.scene_change_requested.connect(_on_scene_change_requested)
+	if _is_autoload_instance():
+		EventBus.scene_change_requested.connect(_on_scene_change_requested)
+		_listening = true
 
 func _exit_tree() -> void:
 	if Engine.is_editor_hint():
 		return
-	if EventBus.scene_change_requested.is_connected(_on_scene_change_requested):
+	if _listening and EventBus.scene_change_requested.is_connected(_on_scene_change_requested):
 		EventBus.scene_change_requested.disconnect(_on_scene_change_requested)
 
 func _on_scene_change_requested(target_path: String) -> void:
 	if target_path.is_empty():
 		push_warning("SceneTransition received an empty target path.")
+		return
+	if not is_inside_tree():
 		return
 	if _is_transitioning:
 		return
@@ -32,27 +39,39 @@ func _on_scene_change_requested(target_path: String) -> void:
 
 func _run_transition(target_path: String) -> void:
 	_is_transitioning = true
+	_ensure_global_overlay()
 
-	if not _resolve_nodes():
+	var has_scene_fade := _resolve_nodes()
+	if has_scene_fade:
+		await _play_fade(fade_out_anim, Color(0, 0, 0, 0))
+	else:
+		await _play_global_fade(Color(0, 0, 0, 0))
+
+	_set_global_fader(Color(0, 0, 0, 1))
+
+	var tree := get_tree()
+	if tree == null:
 		_is_transitioning = false
 		return
-
-	await _play_fade(fade_out_anim, Color(0, 0, 0, 0))
-
-	var error := get_tree().change_scene_to_file(target_path)
+	var error := tree.change_scene_to_file(target_path)
 	if error != OK:
 		push_error("Failed to change scene: %s (%s)" % [target_path, error])
 		_is_transitioning = false
-		await _play_fade(fade_in_anim, Color(0, 0, 0, 1))
+		_set_global_fader(Color(0, 0, 0, 0))
+		if has_scene_fade:
+			await _play_fade(fade_in_anim, Color(0, 0, 0, 1))
+		else:
+			await _play_global_fade(Color(0, 0, 0, 1))
 		return
 
-	await get_tree().scene_changed
-	if not _resolve_nodes():
-		_is_transitioning = false
-		return
-	fader.color = Color(0, 0, 0, 1)
-	await get_tree().process_frame
-	await _play_fade(fade_in_anim, Color(0, 0, 0, 1))
+	await tree.scene_changed
+	var has_new_fade := _resolve_nodes()
+	if has_new_fade:
+		fader.color = Color(0, 0, 0, 1)
+		_set_global_fader(Color(0, 0, 0, 0))
+		await _play_fade(fade_in_anim, Color(0, 0, 0, 1))
+	else:
+		await _play_global_fade(Color(0, 0, 0, 1))
 
 	_is_transitioning = false
 
@@ -92,7 +111,10 @@ func _resolve_nodes() -> bool:
 				fader = ui_anchor.get_node_or_null("Transition")
 
 	if anim_player == null or fader == null:
-		push_error("SceneTransition could not find UI_Anchor nodes on the current scene.")
+		_ensure_fallback_nodes(scene_root)
+
+	if anim_player == null or fader == null:
+		push_warning("SceneTransition could not find UI_Anchor nodes on the current scene.")
 		return false
 
 	return true
@@ -104,3 +126,74 @@ func _find_scene_root() -> Node:
 		if child != null and child.scene_file_path != "":
 			return child
 	return null
+
+func _ensure_fallback_nodes(scene_root: Node) -> void:
+	var ui_anchor := scene_root.get_node_or_null("__SceneTransitionUI")
+	if ui_anchor == null:
+		ui_anchor = CanvasLayer.new()
+		ui_anchor.name = "__SceneTransitionUI"
+		ui_anchor.layer = 10000
+		scene_root.add_child(ui_anchor)
+
+	if fader == null:
+		fader = ui_anchor.get_node_or_null("Transition")
+		if fader == null:
+			fader = ColorRect.new()
+			fader.name = "Transition"
+			fader.anchor_left = 0.0
+			fader.anchor_top = 0.0
+			fader.anchor_right = 1.0
+			fader.anchor_bottom = 1.0
+			fader.offset_left = 0.0
+			fader.offset_top = 0.0
+			fader.offset_right = 0.0
+			fader.offset_bottom = 0.0
+			fader.color = Color(0, 0, 0, 0)
+			fader.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			ui_anchor.add_child(fader)
+
+	if anim_player == null:
+		anim_player = ui_anchor.get_node_or_null("AnimationPlayer")
+		if anim_player == null:
+			anim_player = AnimationPlayer.new()
+			anim_player.name = "AnimationPlayer"
+			ui_anchor.add_child(anim_player)
+
+func _ensure_global_overlay() -> void:
+	if _global_layer == null or not is_instance_valid(_global_layer):
+		_global_layer = CanvasLayer.new()
+		_global_layer.name = "__SceneTransitionGlobal"
+		_global_layer.layer = 10000
+		add_child(_global_layer)
+
+	if _global_fader == null or not is_instance_valid(_global_fader):
+		_global_fader = ColorRect.new()
+		_global_fader.name = "GlobalTransition"
+		_global_fader.anchor_left = 0.0
+		_global_fader.anchor_top = 0.0
+		_global_fader.anchor_right = 1.0
+		_global_fader.anchor_bottom = 1.0
+		_global_fader.offset_left = 0.0
+		_global_fader.offset_top = 0.0
+		_global_fader.offset_right = 0.0
+		_global_fader.offset_bottom = 0.0
+		_global_fader.color = Color(0, 0, 0, 0)
+		_global_fader.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		_global_layer.add_child(_global_fader)
+
+func _set_global_fader(color: Color) -> void:
+	_ensure_global_overlay()
+	_global_fader.color = color
+
+func _play_global_fade(start_color: Color) -> void:
+	_ensure_global_overlay()
+	_global_fader.color = start_color
+	var end_color := start_color
+	end_color.a = 0.0 if start_color.a > 0.0 else 1.0
+	var tween := create_tween()
+	tween.tween_property(_global_fader, "color", end_color, fallback_fade_duration)
+	await tween.finished
+
+func _is_autoload_instance() -> bool:
+	var autoload := get_node_or_null("/root/SceneTransition")
+	return autoload != null and autoload == self

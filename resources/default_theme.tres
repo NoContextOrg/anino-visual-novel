@@ -3,11 +3,9 @@
 [ext_resource type="FontFile" uid="uid://d2arlclfybj5n" path="res://resources/fonts/Montserrat-Italic-VariableFont_wght.ttf" id="1_jlqpw"]
 
 [resource]
-CompletedChapterButton/base_type = &"UnlockedChapterButton"
 CompletedChapterButton/colors/icon_hover_color = Color(0.972549, 0.8509804, 0.7411765, 1)
 CompletedChapterButton/colors/icon_normal_color = Color(0.6101441, 0.8469436, 0.21378231, 1)
 CompletedChapterButton/colors/icon_pressed_color = Color(1, 1, 1, 1)
-LockedChapterButton/base_type = &"UnlockedChapterButton"
 LockedChapterButton/colors/icon_disabled_color = Color(0.2509804, 0.2509804, 0.2509804, 1)
 LockedChapterButton/colors/icon_hover_color = Color(1, 1, 1, 1)
 LockedChapterButton/colors/icon_normal_color = Color(1, 0.9490196, 0.8, 1)
@@ -40,8 +38,9 @@ MainButton/styles/pressed = null
 SubtitleLabel/base_type = &"Label"
 SubtitleLabel/font_sizes/font_size = 40
 SubtitleLabel/fonts/font = ExtResource("1_jlqpw")
+TableItemButton/base_type = &"Button"
+TableItemButton/colors/icon_hover_color = Color(0.99464315, 0.9519573, 0.75551933, 1)
 TitleLabel/base_type = &"Label"
 TitleLabel/font_sizes/font_size = 90
-UnlockedChapterButton/base_type = &"Button"
 UnlockedChapterButton/colors/icon_hover_color = Color(0.9742344, 0.849228, 0.73932606, 1)
 UnlockedChapterButton/colors/icon_pressed_color = Color(1, 1, 1, 1)
