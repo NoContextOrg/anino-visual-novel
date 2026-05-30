@@ -42,8 +42,7 @@ anchor_right = 0.97400004
 offset_top = -0.072021484
 offset_right = 0.4399414
 
-[node name="SampleDialogueBox" parent="UI_Anchor/DialogueBox" index="0" unique_id=131239595 instance=ExtResource("3_tmodk")]
-layout_mode = 1
+[node name="SampleDialogueBox" parent="UI_Anchor" parent_id_path=PackedInt32Array(987300738) index="3" unique_id=131239595 instance=ExtResource("3_tmodk")]
 script = ExtResource("4_c5dbb")
 emphasis_shake_text = "YOU ARE NOW PART OF IT!"
 emphasis_shake_strength = 6.0

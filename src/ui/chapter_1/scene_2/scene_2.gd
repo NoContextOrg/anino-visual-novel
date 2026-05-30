@@ -192,4 +192,4 @@ func _on_next_unhovered() -> void:
 	next_button.scale = Vector2.ONE
 
 func _on_next_pressed() -> void:
-	SceneManager.request_scene_change("res://scenes/chapter_1/scene_3/scene_3.tscn")
+	SceneManager.request_scene_change("res://scenes/chapter_1/scene_3/narration_scene_3.tscn")

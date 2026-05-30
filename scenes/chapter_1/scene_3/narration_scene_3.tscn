@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://njssm7pqh8f5"]
 
 [ext_resource type="Texture2D" uid="uid://cbntddeo7bl23" path="res://assets/chapter_1/scene_3/background/map_on_table_1.jpg" id="1_a8rlt"]
-[ext_resource type="Script" uid="uid://bafhm56t5b45l" path="res://scenes/chapter_1/scene_3/scene_3.gd" id="1_ea8y8"]
+[ext_resource type="Script" uid="uid://bafhm56t5b45l" path="res://scenes/chapter_1/scene_3/narration_scene_3.gd" id="1_ea8y8"]
 [ext_resource type="PackedScene" uid="uid://dmk01ebol40jx" path="res://scenes/ui/SampleDialogueBox.tscn" id="1_luo1q"]
 [ext_resource type="Texture2D" uid="uid://cgpbhdtsesscp" path="res://assets/chapter_1/scene_3/background/map_on_table_2.jpg" id="2_ea8y8"]
 
