@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://6ek870sbkik3"]
 
-[ext_resource type="Script" uid="uid://bmx02e6yf24ks" path="res://scenes/chapter_1/scene_4/scene_4.gd" id="1_bo7ak"]
+[ext_resource type="Script" uid="uid://c152wcgwndlk2" path="res://scenes/chapter_1/scene_4/scene_4.gd" id="1_bo7ak"]
+[ext_resource type="Texture2D" uid="uid://cx70ujw880yv6" path="res://assets/chapter_1/scene_4/man/outside_tent/man_outside_tent_thirsty_drinking_1.png" id="2_8cmcb"]
+[ext_resource type="Texture2D" uid="uid://c1sffiye4x6tv" path="res://assets/chapter_1/scene_4/background/tent_scene.png" id="2_hqmun"]
 [ext_resource type="Script" uid="uid://t21qivi5ufa3" path="res://src/ui/chapter_1/scene_2/lantern.gd" id="2_uhwgr"]
 [ext_resource type="PackedScene" uid="uid://dmk01ebol40jx" path="res://scenes/ui/SampleDialogueBox.tscn" id="2_vyh6a"]
 [ext_resource type="Texture2D" uid="uid://dwjgi3flokdew" path="res://assets/chapter_1/scene_4/man/outside_tent/man_outside_tent_thirsty_drinking_2.png" id="3_y5m2h"]
 [ext_resource type="Texture2D" uid="uid://do8uxam5mxv1a" path="res://assets/chapter_1/scene_4/man/outside_tent/man_outside_tent_thirsty_drinking_3.png" id="4_587ki"]
-[ext_resource type="AudioStream" uid="uid://c8uhs7jo4ovug" path="res://assets/general_audio/war_sfx.mp3" id="4_bo7ak"]
+[ext_resource type="AudioStream" uid="uid://dvaa645ed3m41" path="res://assets/general_audio/war_sfx.mp3" id="4_bo7ak"]
 [ext_resource type="Texture2D" uid="uid://dhu18888jr3u0" path="res://assets/chapter_1/scene_4/man/outside_tent/man_outside_tent_thirsty_drinking_4.png" id="5_xo6ab"]
 [ext_resource type="Texture2D" uid="uid://c8phsqksnx8wm" path="res://assets/chapter_1/scene_4/man/outside_tent/man_outside_tent_thirsty_drinking_5.png" id="6_k6ixa"]
 [ext_resource type="Texture2D" uid="uid://ch3t38whqyou6" path="res://assets/chapter_1/scene_4/man/outside_tent/man_outside_tent_thirsty_drinking_6.png" id="7_umcbd"]
@@ -83,13 +85,6 @@ script = ExtResource("2_uhwgr")
 [node name="dialogue_layer" type="CanvasLayer" parent="." unique_id=1890670098]
 
 [node name="SampleDialogueBox" parent="dialogue_layer" unique_id=131239595 instance=ExtResource("2_vyh6a")]
-<<<<<<< HEAD
-=======
-offset_left = -965.0
-offset_top = -1911.0
-offset_right = 955.0
-offset_bottom = 9.0
->>>>>>> origin/feat/connect-scenes
 
 [node name="SFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=422220058]
 
@@ -97,15 +92,15 @@ offset_bottom = 9.0
 stream = ExtResource("4_bo7ak")
 autoplay = true
 
-[node name="UI_Anchor" type="CanvasLayer" parent="."]
+[node name="UI_Anchor" type="CanvasLayer" parent="." unique_id=1655062653]
 
-[node name="Transition" type="ColorRect" parent="UI_Anchor"]
+[node name="Transition" type="ColorRect" parent="UI_Anchor" unique_id=413509896]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0)
 mouse_filter = 2
+color = Color(0, 0, 0, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI_Anchor"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI_Anchor" unique_id=800468292]

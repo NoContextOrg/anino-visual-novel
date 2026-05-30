@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dmk01ebol40jx"]
 
-[ext_resource type="Texture2D" uid="uid://5b5qks6seiho" path="res://assets/ui/hud_interfaces/dialogue.png" id="2_eibla"]
-[ext_resource type="Script" uid="uid://cpcil5smf8wqx" path="res://src/ui/sample_dialogue_box.gd" id="2_rsvog"]
-[ext_resource type="FontFile" uid="uid://b2y7x1gyanvpl" path="res://resources/fonts/Montserrat-Regular.ttf" id="3_dp2n8"]
+[ext_resource type="Texture2D" uid="uid://djkip4vcv1ud1" path="res://assets/ui/hud_interfaces/dialogue.png" id="2_eibla"]
+[ext_resource type="Script" uid="uid://bprt301wkf1xb" path="res://src/ui/sample_dialogue_box.gd" id="2_rsvog"]
+[ext_resource type="FontFile" uid="uid://ch0b2amh224hj" path="res://resources/fonts/Montserrat-Regular.ttf" id="3_dp2n8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dp2n8"]
 font = ExtResource("3_dp2n8")
@@ -64,10 +64,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -66.0
-offset_top = 518.0
-offset_right = -66.0
-offset_bottom = 614.0
+offset_left = 6.0
+offset_top = 500.0
+offset_right = -1.0
+offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_eibla")
