@@ -1,25 +1,18 @@
 [
     {
         "speaker": "Narrator",
-        "text": "The table falls silent. The war, once contained in lines and symbols… no longer stays there."
+        "text": "The table falls silent.",
+        "sfx": "res://assets/background/chapter_1/scene_3/background_sound.mp3"
     },
     {
         "speaker": "Narrator",
-        "text": "Bataan had been holding for three months. Cut off. Surrounded."
-    },
-    {
-        "speaker": "Narrator",
-        "text": "What remained of the force was no longer fighting at full strength—it was surviving on what little was left."
+        "text": "What remained of the force was no longer fighting at full strength—it was surviving on what little was left.",
+        "sfx": "res://assets/background/chapter_1/scene_3/footsteps_slow.mp3"
     },
     {
         "speaker": "",
-        "text": "*The rustle of paper fades. A chair shifts softly. Footsteps begin—slow, measured.*",
-        "sfx": "res://assets/audio/sfx/footsteps_slow.ogg"
-    },
-    {
-        "speaker": "",
-        "text": "*In their place—distant coughing… labored breathing… and the faint, steady sound of dripping water.*",
-        "sfx": "res://assets/audio/sfx/camp_ambience.ogg"
+        "text": "In their place—distant coughing… labored breathing… and the faint, steady sound of dripping water.",
+        "sfx": "res://assets/background/chapter_1/scene_3/camp_ambience.mp3"
     },
     {
         "speaker": "Narrator",
@@ -38,26 +31,18 @@
         "text": "I can’t decide from here."
     },
     {
-        "speaker": "",
-        "text": "*Footsteps continue over dirt. Canvas lightly rustles in the wind.*",
-        "sfx": "res://assets/audio/sfx/canvas_rustle.ogg"
+        "speaker": "Narrator",
+        "text": "With ammunition nearly gone, food nearly depleted, and tens of thousands too weak to stand—",
+        "sfx": "res://assets/background/chapter_1/scene_3/canvas_rustle.mp3"
     },
     {
         "speaker": "Narrator",
-        "text": "With ammunition nearly gone, food nearly depleted, and tens of thousands too weak to stand—"
-    },
-    {
-        "speaker": "Narrator",
-        "text": "the fight was no longer about holding the line. It was about what remained of the men."
+        "text": "the fight was no longer about holding the line. It was about what remained of the men.",
+        "sfx": "res://assets/background/chapter_1/scene_3/tent_flap.mp3"
     },
     {
         "speaker": "",
-        "text": "*Footsteps stop. A brief silence. Then—the soft lift of canvas.*",
-        "sfx": "res://assets/audio/sfx/tent_flap.ogg"
-    },
-    {
-        "speaker": "",
-        "text": "*Coughing becomes clearer. Breathing, closer. A single drop of water falls.*",
-        "sfx": "res://assets/audio/sfx/water_drop.ogg"
+        "text": "...",
+        "sfx": "res://assets/background/chapter_1/scene_3/water_drop.mp3"
     }
 ]

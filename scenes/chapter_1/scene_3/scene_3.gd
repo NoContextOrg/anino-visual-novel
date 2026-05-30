@@ -2,7 +2,6 @@ extends Control
 
 @onready var background = $bg_display
 @onready var animation_player = $bg_animation
-@onready var sfx_player = $SFXPlayer
 
 # Updated fade_duration to 0.5 seconds for a faster transition
 @export_range(0.1, 90.0, 0.1) var fade_duration: float = 0.5
@@ -139,10 +138,18 @@ func _on_fade_out_finished(next_scene_path: String) -> void:
 		get_tree().change_scene_to_file(next_scene_path)
 
 func _on_sfx(path: String, volume_db: float = 0.0) -> void:
-	var audio = load(path)
-	if audio == null:
-		push_error("Failed to load SFX: " + path)
-		return
-	sfx_player.stream = audio
-	sfx_player.volume_db = volume_db
-	sfx_player.play()
+		var clean_path = path.strip_edges() 
+		
+		var audio = load(clean_path)
+		if audio == null:
+			push_error("Failed to load SFX: '" + clean_path + "'")
+			return
+			
+		var dynamic_player = AudioStreamPlayer.new()
+		dynamic_player.stream = audio
+		dynamic_player.volume_db = volume_db
+		
+		add_child(dynamic_player)
+		dynamic_player.play()
+	
+		dynamic_player.finished.connect(dynamic_player.queue_free)
