@@ -1,18 +1,68 @@
 [gd_scene format=3 uid="uid://bfppwnxvpampj"]
 
 [ext_resource type="PackedScene" uid="uid://dmk01ebol40jx" path="res://scenes/ui/SampleDialogueBox.tscn" id="1_a3g2u"]
-[ext_resource type="Texture2D" uid="uid://b1svg5u2rdw5m" path="res://assets/chapter_1/scene_1_1/background/burning_mountain_1.jpg" id="2_mountain1"]
-[ext_resource type="Texture2D" uid="uid://i2wbe0gdvg4f" path="res://assets/chapter_1/scene_1_1/background/burning_mountain_2.jpg" id="2_mountain2"]
-[ext_resource type="Texture2D" uid="uid://dvwxnprbxacyg" path="res://assets/chapter_1/scene_1_1/background/burning_mountain_3.jpg" id="2_mountain3"]
-[ext_resource type="Texture2D" uid="uid://ikpmxyaosgk5" path="res://assets/chapter_1/scene_1_1/background/burning_mountain_4.jpg" id="2_mountain4"]
-[ext_resource type="Texture2D" uid="uid://hqkp0l4hfajg" path="res://assets/chapter_1/scene_1_1/background/burning_mountain_5.jpg" id="2_mountain5"]
-[ext_resource type="Texture2D" uid="uid://c0qicbnsrgb08" path="res://assets/chapter_1/scene_1_1/background/burning_mountain_6.jpg" id="2_mountain6"]
+[ext_resource type="Texture2D" uid="uid://hvlyt85hv87f" path="res://assets/chapter_1/scene_1_1/Background/burning_mountain_1.jpg" id="2_mountain1"]
+[ext_resource type="Texture2D" uid="uid://btkakkinpu6o3" path="res://assets/chapter_1/scene_1_1/Background/burning_mountain_2.jpg" id="2_mountain2"]
+[ext_resource type="Texture2D" uid="uid://cr848h78eyr2t" path="res://assets/chapter_1/scene_1_1/Background/burning_mountain_3.jpg" id="2_mountain3"]
+[ext_resource type="Texture2D" uid="uid://7pw1qb15rdlw" path="res://assets/chapter_1/scene_1_1/Background/burning_mountain_4.jpg" id="2_mountain4"]
+[ext_resource type="Texture2D" uid="uid://c025l60gcquh5" path="res://assets/chapter_1/scene_1_1/Background/burning_mountain_5.jpg" id="2_mountain5"]
+[ext_resource type="Texture2D" uid="uid://c4ldie120h01q" path="res://assets/chapter_1/scene_1_1/Background/burning_mountain_6.jpg" id="2_mountain6"]
 [ext_resource type="Script" uid="uid://sb8qcpbnk8a1" path="res://src/ui/chapter_1/scene_1/scene_1.gd" id="2_scene1"]
-[ext_resource type="Texture2D" uid="uid://dkyge3tq0giy" path="res://assets/chapter_1/scene_1_1/crow/crow_1.png" id="3_crow"]
 [ext_resource type="Script" uid="uid://cqdexrucicf3a" path="res://src/ui/chapter_1/scene_1/modal_crow.gd" id="5_3ie4q"]
 [ext_resource type="PackedScene" uid="uid://crpt8jqealbgp" path="res://scenes/chapter_1/scene_1/modal_crow.tscn" id="5_crow_modal"]
 [ext_resource type="Script" uid="uid://cf8jp4nc8kxra" path="res://src/ui/chapter_1/scene_1/mt_samat.gd" id="6_k61kr"]
 [ext_resource type="PackedScene" uid="uid://c7ncrxodne1ai" path="res://scenes/chapter_1/scene_1/mt_samat.tscn" id="6_mt_samat"]
+[ext_resource type="Texture2D" uid="uid://po8yec2u7112" path="res://assets/chapter_1/scene_1_1/Crow/crow.png" id="crow_sheet"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crow_0"]
+atlas = ExtResource("crow_sheet")
+region = Rect2(63, 83, 494, 334)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crow_1"]
+atlas = ExtResource("crow_sheet")
+region = Rect2(557, 14, 455, 412)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crow_2"]
+atlas = ExtResource("crow_sheet")
+region = Rect2(1119, 236, 504, 182)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crow_3"]
+atlas = ExtResource("crow_sheet")
+region = Rect2(87, 610, 397, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crow_4"]
+atlas = ExtResource("crow_sheet")
+region = Rect2(567, 628, 512, 181)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crow_5"]
+atlas = ExtResource("crow_sheet")
+region = Rect2(1131, 484, 345, 366)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_crow"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_crow_0")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_crow_1")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_crow_2")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_crow_3")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_crow_4")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_crow_5")
+}],
+"loop": true,
+"name": &"flap",
+"speed": 8.0
+}]
 
 [sub_resource type="Animation" id="burning_mountain_anim"]
 length = 0.6
@@ -126,10 +176,12 @@ offset_top = 695.0
 offset_right = 1089.0
 offset_bottom = 1010.0
 
-[node name="Crow" type="Sprite2D" parent="." unique_id=287644898]
-position = Vector2(1318, 407)
-scale = Vector2(0.11333913, 0.14274691)
-texture = ExtResource("3_crow")
+[node name="Crow" type="AnimatedSprite2D" parent="." unique_id=287644898]
+position = Vector2(1035.35, 283.65)
+scale = Vector2(0.6434694, 0.65163267)
+sprite_frames = SubResource("SpriteFrames_crow")
+animation = &"flap"
+autoplay = "flap"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=107573436]
 libraries/ = SubResource("AnimationLibrary_001")
@@ -149,10 +201,9 @@ script = ExtResource("6_k61kr")
 
 [node name="UI_Anchor" type="CanvasLayer" parent="." unique_id=1110658884]
 
-[node name="NextButton" type="TextureButton" parent="UI_Anchor"]
-visible = false
-disabled = true
+[node name="NextButton" type="TextureButton" parent="UI_Anchor" unique_id=1651548290]
 focus_mode = 0
+disabled = true
 
 [node name="Transition" type="ColorRect" parent="UI_Anchor" unique_id=548317155]
 anchors_preset = 15
