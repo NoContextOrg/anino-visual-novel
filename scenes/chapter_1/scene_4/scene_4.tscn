@@ -121,10 +121,6 @@ script = ExtResource("2_uhwgr")
 [node name="dialogue_layer" type="CanvasLayer" parent="." unique_id=1890670098]
 
 [node name="SampleDialogueBox" parent="dialogue_layer" unique_id=131239595 instance=ExtResource("2_vyh6a")]
-offset_left = -965.0
-offset_top = -1911.0
-offset_right = 955.0
-offset_bottom = 9.0
 
 [node name="SFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=422220058]
 

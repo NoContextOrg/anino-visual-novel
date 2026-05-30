@@ -7,8 +7,6 @@ extends Control
 
 var _active_tween: Tween
 
-# Test data only, temporary parser
-
 var current_line_index = 0
 
 func _ready():
@@ -19,12 +17,10 @@ func _ready():
 	event_bus.dialogue_requested.connect(display_text)
 	event_bus.dialogue_finished.connect(end_dialogue)
 
-
 func display_text(data: Dictionary):
 	show()
 	name_label.text = data.get("speaker", "")
 	dialogue_label.text = data.get("text", "")
-	# keep the rest as-is
 	
 	# Typewriter Effect
 	dialogue_label.visible_ratio = 0.0
@@ -55,5 +51,4 @@ func _input(event):
 				_active_tween.kill()
 			dialogue_label.visible_ratio = 1.0
 		else:
-			if event_bus:
-				event_bus.advance_requested.emit()
+			EventBus.advance_requested.emit()
