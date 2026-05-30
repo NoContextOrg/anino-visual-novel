@@ -1,15 +1,33 @@
 [gd_resource type="Theme" format=3 uid="uid://dwjpijsc3chou"]
 
-[ext_resource type="FontFile" uid="uid://d2arlclfybj5n" path="res://resources/fonts/Montserrat-Italic-VariableFont_wght.ttf" id="1_jlqpw"]
+[ext_resource type="FontFile" uid="uid://dblyybjexl0om" path="res://resources/fonts/Montserrat-Italic-VariableFont_wght.ttf" id="1_jlqpw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2pkyf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_og51b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nva1m"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uwk1s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w7mbl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wdiyg"]
 
 [resource]
+CompletedChapterButton/base_type = &"Button"
 CompletedChapterButton/colors/icon_hover_color = Color(0.972549, 0.8509804, 0.7411765, 1)
 CompletedChapterButton/colors/icon_normal_color = Color(0.6101441, 0.8469436, 0.21378231, 1)
 CompletedChapterButton/colors/icon_pressed_color = Color(1, 1, 1, 1)
-LockedChapterButton/colors/icon_disabled_color = Color(0.2509804, 0.2509804, 0.2509804, 1)
+LockedChapterButton/base_type = &"Button"
+LockedChapterButton/colors/icon_disabled_color = Color(0.44445664, 0.44445667, 0.44445652, 1)
 LockedChapterButton/colors/icon_hover_color = Color(1, 1, 1, 1)
 LockedChapterButton/colors/icon_normal_color = Color(1, 0.9490196, 0.8, 1)
 LockedChapterButton/colors/icon_pressed_color = Color(0.8509804, 0.7019608, 0.2509804, 1)
+LockedChapterButton/styles/disabled = SubResource("StyleBoxEmpty_2pkyf")
+LockedChapterButton/styles/hover = SubResource("StyleBoxEmpty_og51b")
+LockedChapterButton/styles/normal = SubResource("StyleBoxFlat_nva1m")
 MainButton/base_type = &"BackButton"
 MainButton/colors/font_color = Color(1, 1, 1, 1)
 MainButton/colors/font_disabled_color = Color(0.39232534, 0.39232537, 0.39232534, 1)
@@ -42,5 +60,9 @@ TableItemButton/base_type = &"Button"
 TableItemButton/colors/icon_hover_color = Color(0.99464315, 0.9519573, 0.75551933, 1)
 TitleLabel/base_type = &"Label"
 TitleLabel/font_sizes/font_size = 90
+UnlockedChapterButton/base_type = &"Button"
 UnlockedChapterButton/colors/icon_hover_color = Color(0.9742344, 0.849228, 0.73932606, 1)
 UnlockedChapterButton/colors/icon_pressed_color = Color(1, 1, 1, 1)
+UnlockedChapterButton/styles/hover = SubResource("StyleBoxEmpty_uwk1s")
+UnlockedChapterButton/styles/normal = SubResource("StyleBoxEmpty_w7mbl")
+UnlockedChapterButton/styles/pressed = SubResource("StyleBoxEmpty_wdiyg")
