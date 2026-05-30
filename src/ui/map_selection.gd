@@ -30,6 +30,8 @@ func _connect_buttons() -> void:
 func _on_chapter_button_pressed(index: int) -> void:
 	chapter_selected.emit(index)
 	print("Signal Emitted: Chapter ", index)
+	if index == 1:
+		SceneManager.request_scene_change("res://scenes/chapter_1/scene_1/scene_1.tscn")
 
 # Visual States
 func set_chapter_state(chapter_index: int, state: ChapterState) -> void:

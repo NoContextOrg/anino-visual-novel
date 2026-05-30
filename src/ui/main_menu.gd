@@ -14,7 +14,7 @@ func _ready():
 	animation_player.play("burn")
 
 func _on_play_pressed():
-	SceneManager.request_scene_change("res://scenes/chapter_1/scene_1/scene_1.tscn")
+	SceneManager.request_scene_change("res://scenes/ui/map_selection.tscn")
 
 func _on_load_pressed():
 	get_tree().change_scene_to_file("res://scenes/ui/load_game.tscn")
