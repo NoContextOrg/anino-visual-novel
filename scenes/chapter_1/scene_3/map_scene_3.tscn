@@ -1,32 +1,21 @@
 [gd_scene format=3 uid="uid://bvqjt51iuku2p"]
 
-[ext_resource type="Script" uid="uid://cirxvgdhtkpw2" path="res://scenes/chapter_1/scene_3/scene_3.gd" id="1_7cekh"]
-[ext_resource type="Texture2D" uid="uid://cbntddeo7bl23" path="res://assets/chapter_1/scene_3/background/map_on_table_1.jpg" id="2_bvp7j"]
-[ext_resource type="Texture2D" uid="uid://cgpbhdtsesscp" path="res://assets/chapter_1/scene_3/background/map_on_table_2.jpg" id="3_lnptj"]
-[ext_resource type="Theme" uid="uid://dwjpijsc3chou" path="res://resources/default_theme.tres" id="6_l6prv"]
-[ext_resource type="Texture2D" uid="uid://c2nwdiidmklxv" path="res://assets/chapter_1/scene_3/items/canteen.png" id="9_cw5ek"]
-[ext_resource type="Texture2D" uid="uid://di4o3yhuxh05s" path="res://assets/chapter_1/scene_3/items/notes.png" id="10_ui2kv"]
-[ext_resource type="Texture2D" uid="uid://bqx5volk0e41g" path="res://assets/chapter_1/scene_3/items/map.png" id="11_g1bqg"]
-[ext_resource type="Texture2D" uid="uid://bgkcyhfteaf7s" path="res://assets/chapter_1/scene_3/items/journal.png" id="12_257nh"]
-[ext_resource type="PackedScene" uid="uid://g5x8vjhv66ue" path="res://scenes/ui/scroll_popup_panel.tscn" id="12_bvp7j"]
-[ext_resource type="Texture2D" uid="uid://r6rduilhgv7w" path="res://assets/chapter_1/scene_3/items/compass.png" id="13_7gcvx"]
-[ext_resource type="Texture2D" uid="uid://cmda7685jd5pg" path="res://assets/chapter_1/scene_3/items/medkit.png" id="13_lnptj"]
-[ext_resource type="Texture2D" uid="uid://b600sc2lgq0ty" path="res://assets/chapter_1/scene_3/items/pencil.png" id="14_0n3g2"]
+[ext_resource type="Script" uid="uid://cirxvgdhtkpw2" path="res://scenes/chapter_1/scene_3/map_scene_3.gd" id="1_uq0kg"]
+[ext_resource type="Texture2D" uid="uid://cbntddeo7bl23" path="res://assets/chapter_1/scene_3/background/map_on_table_1.jpg" id="2_abppq"]
+[ext_resource type="Texture2D" uid="uid://cgpbhdtsesscp" path="res://assets/chapter_1/scene_3/background/map_on_table_2.jpg" id="3_nwoen"]
+[ext_resource type="Theme" uid="uid://dwjpijsc3chou" path="res://resources/default_theme.tres" id="4_rvsrb"]
+[ext_resource type="Texture2D" uid="uid://c2nwdiidmklxv" path="res://assets/chapter_1/scene_3/items/canteen.png" id="5_u4uur"]
+[ext_resource type="Texture2D" uid="uid://bqx5volk0e41g" path="res://assets/chapter_1/scene_3/items/map.png" id="6_u4han"]
+[ext_resource type="Texture2D" uid="uid://bgkcyhfteaf7s" path="res://assets/chapter_1/scene_3/items/journal.png" id="7_uepwy"]
+[ext_resource type="Texture2D" uid="uid://r6rduilhgv7w" path="res://assets/chapter_1/scene_3/items/compass.png" id="8_6747w"]
+[ext_resource type="Texture2D" uid="uid://b600sc2lgq0ty" path="res://assets/chapter_1/scene_3/items/pencil.png" id="9_ps5jm"]
+[ext_resource type="Texture2D" uid="uid://di4o3yhuxh05s" path="res://assets/chapter_1/scene_3/items/notes.png" id="10_ob034"]
+[ext_resource type="Texture2D" uid="uid://cmda7685jd5pg" path="res://assets/chapter_1/scene_3/items/medkit.png" id="11_cg8a6"]
+[ext_resource type="PackedScene" uid="uid://g5x8vjhv66ue" path="res://scenes/ui/scroll_popup_panel.tscn" id="12_unhbg"]
 
 [sub_resource type="Animation" id="Animation_cw5ek"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("bg_display:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_bvp7j")]
-}
+length = 0.6666667
+loop_mode = 1
 
 [sub_resource type="Animation" id="Animation_ui2kv"]
 resource_name = "table_moving"
@@ -41,7 +30,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("2_bvp7j"), ExtResource("3_lnptj")]
+"values": [ExtResource("2_abppq"), ExtResource("3_nwoen")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g1bqg"]
@@ -57,7 +46,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_7cekh")
+script = ExtResource("1_uq0kg")
 
 [node name="background" type="ColorRect" parent="." unique_id=572439709]
 layout_mode = 1
@@ -77,12 +66,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_bvp7j")
+texture = ExtResource("2_abppq")
 expand_mode = 1
 
 [node name="bg_animation" type="AnimationPlayer" parent="background" unique_id=1222814253]
 libraries/ = SubResource("AnimationLibrary_g1bqg")
-autoplay = &"table_moving"
+autoplay = &"RESET"
 
 [node name="interactables" type="Control" parent="background" unique_id=1002940440]
 layout_mode = 1
@@ -102,9 +91,9 @@ offset_bottom = 2789.4663
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.268, 0.269)
-theme = ExtResource("6_l6prv")
+theme = ExtResource("4_rvsrb")
 theme_type_variation = &"TableItemButton"
-texture_normal = ExtResource("9_cw5ek")
+texture_normal = ExtResource("5_u4uur")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -121,9 +110,9 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.0007881912
 scale = Vector2(1.4524499, 0.95237964)
-theme = ExtResource("6_l6prv")
+theme = ExtResource("4_rvsrb")
 theme_type_variation = &"TableItemButton"
-texture_normal = ExtResource("11_g1bqg")
+texture_normal = ExtResource("6_u4han")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -139,9 +128,9 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.0006082058
 scale = Vector2(0.391443, 0.363658)
-theme = ExtResource("6_l6prv")
+theme = ExtResource("4_rvsrb")
 theme_type_variation = &"TableItemButton"
-texture_normal = ExtResource("12_257nh")
+texture_normal = ExtResource("7_uepwy")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -157,9 +146,9 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.0016602874
 scale = Vector2(0.42475912, 0.33851153)
-theme = ExtResource("6_l6prv")
+theme = ExtResource("4_rvsrb")
 theme_type_variation = &"TableItemButton"
-texture_normal = ExtResource("13_7gcvx")
+texture_normal = ExtResource("8_6747w")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -175,9 +164,9 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.00066929904
 scale = Vector2(0.42475912, 0.33851153)
-theme = ExtResource("6_l6prv")
+theme = ExtResource("4_rvsrb")
 theme_type_variation = &"TableItemButton"
-texture_normal = ExtResource("14_0n3g2")
+texture_normal = ExtResource("9_ps5jm")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -193,9 +182,9 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.0020903768
 scale = Vector2(0.41924155, 0.47070283)
-theme = ExtResource("6_l6prv")
+theme = ExtResource("4_rvsrb")
 theme_type_variation = &"TableItemButton"
-texture_normal = ExtResource("10_ui2kv")
+texture_normal = ExtResource("10_ob034")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -211,9 +200,9 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.0020903768
 scale = Vector2(0.41924155, 0.47070283)
-theme = ExtResource("6_l6prv")
+theme = ExtResource("4_rvsrb")
 theme_type_variation = &"TableItemButton"
-texture_normal = ExtResource("13_lnptj")
+texture_normal = ExtResource("11_cg8a6")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -230,6 +219,6 @@ mouse_filter = 2
 mouse_force_pass_scroll_events = false
 color = Color(0, 0, 0, 0.6627451)
 
-[node name="scroll_panel" parent="." unique_id=2056051483 instance=ExtResource("12_bvp7j")]
+[node name="scroll_panel" parent="." unique_id=2056051483 instance=ExtResource("12_unhbg")]
 visible = false
 layout_mode = 1

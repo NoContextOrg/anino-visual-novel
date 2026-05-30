@@ -1,50 +1,108 @@
-class_name TableMapScene
 extends Control
 
-@onready var scroll_panel: ScrollPopupPanel = $scroll_panel
-@onready var interactables: Control = $background/interactables
-@onready var dark_overlay: ColorRect = $background/dark_overlay 
-@onready var bg_anim: AnimationPlayer = $background/bg_animation
+@onready var background = $bg_display
+@onready var animation_player = $bg_animation
 
-func _ready() -> void:
-	scroll_panel.hide()
+@export_range(0.1, 90.0, 0.1) var fade_duration: float = 2.0
+var current_bg: Texture2D = null
+
+const DIMMED := Color(0.4, 0.4, 0.4, 1)
+const BRIGHT := Color.WHITE
+
+@onready var dimmable_nodes: Array[CanvasItem] = [
+	$bg_display
+]
+
+var bg_busy := false
+var _current_speaker := ""
+var fade_layer: CanvasLayer
+var fade_rect: ColorRect
+var fade_tween: Tween
+
+func _ready():
+	# Load your default background texture
+	current_bg = load("res://assets/chapter_1/scene_3/background/map_on_table_1.jpg")
+	background.texture = current_bg
 	
-	if dark_overlay:
-		dark_overlay.hide() 
-		dark_overlay.gui_input.connect(_on_dark_overlay_clicked) 
+	# Play the table animation
+	animation_player.play("table_moving")
+
+	_create_fade_in_overlay()
+	_setup_focus_system()
+
+	EventBus.background_change_requested.connect(_on_bg_change)
+
+	# Load the specific JSON file we just created
+	Parser.load_dialogue("res://story/chapter_1/scene_3/scene_3_dialogue.json")
+	Parser.start()
+
+func _create_fade_in_overlay():
+	if fade_tween and fade_tween.is_running():
+		fade_tween.kill()
+
+	if fade_layer and is_instance_valid(fade_layer):
+		fade_layer.queue_free()
+
+	fade_layer = CanvasLayer.new()
+	fade_layer.name = "FadeLayer"
+	fade_layer.layer = 10
+	add_child(fade_layer)
+
+	fade_rect = ColorRect.new()
+	fade_rect.color = Color.BLACK
+	fade_rect.anchor_right = 1.0
+	fade_rect.anchor_bottom = 1.0
+	fade_rect.mouse_filter = Control.MOUSE_FILTER_STOP
+	fade_layer.add_child(fade_rect)
+
+	fade_tween = create_tween()
+	fade_tween.tween_property(fade_rect, "color", Color(0, 0, 0, 0), fade_duration)
+	fade_tween.finished.connect(_on_fade_in_finished)
+
+func _on_fade_in_finished() -> void:
+	if fade_layer and is_instance_valid(fade_layer):
+		fade_layer.queue_free()
+	fade_layer = null
+	fade_rect = null
+	fade_tween = null
+
+func _setup_focus_system():
+	EventBus.dialogue_requested.connect(_on_dialogue_requested)
+	EventBus.dialogue_finished.connect(_on_dialogue_finished)
+
+func _on_dialogue_requested(data: Dictionary):
+	var speaker = data.get("speaker", "")
+	if speaker == _current_speaker:
+		return
+	_current_speaker = speaker
 	
-	bg_anim.play("table_moving")
-	
-	scroll_panel.closed.connect(_on_popup_closed)
-	
-	for button in interactables.get_children():
-		if button is TextureButton:
-			var mask = BitMap.new()
-			mask.create_from_image_alpha(button.texture_normal.get_image())
-			button.texture_click_mask = mask
-			
-			button.pressed.connect(_on_item_pressed.bind(button.name))
-			button.mouse_entered.connect(_on_hover.bind(button, true))
-			button.mouse_exited.connect(_on_hover.bind(button, false))
+	var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 
-func _on_item_pressed(button_name: String) -> void:
-	if ItemDatabase.INFO.has(button_name):
-		scroll_panel.display_info(ItemDatabase.INFO[button_name])
-		if dark_overlay:
-			dark_overlay.show()
-
-func _on_popup_closed() -> void:
-	if dark_overlay:
-		dark_overlay.hide()
-
-func _on_dark_overlay_clicked(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		scroll_panel.hide() 
-		_on_popup_closed()
-
-func _on_hover(button: TextureButton, is_hovered: bool) -> void:
-	if is_hovered:
-		var theme_glow = button.get_theme_color("icon_hover_color", "TableItemButton")
-		button.self_modulate = theme_glow
+	# If General King speaks, dim the background to focus on his dialogue
+	if speaker == "General King": 
+		for node in dimmable_nodes:
+			tween.parallel().tween_property(node, "modulate", DIMMED, 0.25)
 	else:
-		button.self_modulate = Color.WHITE
+		for node in dimmable_nodes:
+			tween.parallel().tween_property(node, "modulate", BRIGHT, 0.25)
+
+func _on_dialogue_finished():
+	_current_speaker = ""
+	var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	for node in dimmable_nodes:
+		tween.parallel().tween_property(node, "modulate", BRIGHT, 0.25)
+
+func _on_bg_change(path: String):
+	animation_player.stop()
+	if bg_busy: return
+	bg_busy = true
+
+	var new_bg = load(path)
+	if new_bg == null:
+		push_error("Failed to load: " + path)
+		bg_busy = false
+		return
+	
+	background.texture = new_bg
+	current_bg = new_bg
+	bg_busy = false

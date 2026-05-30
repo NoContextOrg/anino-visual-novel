@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://njssm7pqh8f5"]
+
+[ext_resource type="Texture2D" uid="uid://cbntddeo7bl23" path="res://assets/chapter_1/scene_3/background/map_on_table_1.jpg" id="1_a8rlt"]
+[ext_resource type="Script" uid="uid://bafhm56t5b45l" path="res://scenes/chapter_1/scene_3/scene_3.gd" id="1_ea8y8"]
+[ext_resource type="PackedScene" uid="uid://dmk01ebol40jx" path="res://scenes/ui/SampleDialogueBox.tscn" id="1_luo1q"]
+[ext_resource type="Texture2D" uid="uid://cgpbhdtsesscp" path="res://assets/chapter_1/scene_3/background/map_on_table_2.jpg" id="2_ea8y8"]
+
+[sub_resource type="Animation" id="Animation_cw5ek"]
+length = 0.6666667
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_ui2kv"]
+resource_name = "table_moving"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg_display:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("1_a8rlt"), ExtResource("2_ea8y8")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g4tgy"]
+_data = {
+&"RESET": SubResource("Animation_cw5ek"),
+&"table_moving": SubResource("Animation_ui2kv")
+}
+
+[node name="NarrationScene3" type="Control" unique_id=1852251731]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ea8y8")
+
+[node name="bg_display" type="TextureRect" parent="." unique_id=1797114119]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_a8rlt")
+expand_mode = 1
+
+[node name="bg_animation" type="AnimationPlayer" parent="." unique_id=230162531]
+libraries/ = SubResource("AnimationLibrary_g4tgy")
+autoplay = &"table_moving"
+
+[node name="dialogue_layer" type="CanvasLayer" parent="." unique_id=1024749079]
+
+[node name="SampleDialogueBox" parent="dialogue_layer" unique_id=131239595 instance=ExtResource("1_luo1q")]
+layout_direction = 1
+anchors_preset = 12
+anchor_left = 0.0
+anchor_right = 1.0
+offset_left = -218.0
+offset_top = 0.0
+offset_right = 221.0
