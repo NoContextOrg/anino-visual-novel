@@ -99,11 +99,6 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="SampleDialogueBox" parent="dialogue_layer" unique_id=131239595 instance=ExtResource("4_wg7b0")]
-visible = false
-offset_left = -965.0
-offset_top = -1911.0
-offset_right = 955.0
-offset_bottom = 9.0
 
 [node name="RifleButton" type="TextureButton" parent="." unique_id=1531838399]
 offset_left = 551.9725

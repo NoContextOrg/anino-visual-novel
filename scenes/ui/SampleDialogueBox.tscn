@@ -1,44 +1,15 @@
 [gd_scene format=3 uid="uid://dmk01ebol40jx"]
 
-[ext_resource type="FontFile" uid="uid://bnh0lslf4yh87" path="res://addons/gut/fonts/CourierPrime-Regular.ttf" id="1_h4ipq"]
-[ext_resource type="FontFile" uid="uid://mcht266g817e" path="res://addons/gut/fonts/CourierPrime-Italic.ttf" id="1_rsvog"]
-[ext_resource type="Script" uid="uid://dwd7y0ioyr1l" path="res://src/ui/sample_dialogue_box.gd" id="2_rsvog"]
-
-[sub_resource type="Theme" id="Theme_eibla"]
-default_font = ExtResource("1_rsvog")
-default_font_size = 55
-RichTextLabel/font_sizes/normal_font_size = 55
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eibla"]
-bg_color = Color(0.7647059, 0.5176471, 0.6039216, 0.99215686)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_color = Color(0.46666667, 0.07450981, 0.35686275, 1)
-border_blend = true
-corner_radius_top_left = 40
-corner_radius_top_right = 40
+[ext_resource type="Texture2D" uid="uid://5b5qks6seiho" path="res://assets/ui/hud_interfaces/dialogue.png" id="2_eibla"]
+[ext_resource type="Script" uid="uid://cpcil5smf8wqx" path="res://src/ui/sample_dialogue_box.gd" id="2_rsvog"]
+[ext_resource type="FontFile" uid="uid://b2y7x1gyanvpl" path="res://resources/fonts/Montserrat-Regular.ttf" id="3_dp2n8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dp2n8"]
-font = ExtResource("1_h4ipq")
-font_size = 60
-font_color = Color(0.46666667, 0.07450981, 0.35686275, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_menyh"]
-content_margin_left = 100.0
-content_margin_top = 57.0
-content_margin_right = 100.0
-content_margin_bottom = 57.0
-bg_color = Color(0.7647059, 0.5176471, 0.6039216, 0.9882353)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(0.46666667, 0.07450981, 0.35686275, 1)
-border_blend = true
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
+font = ExtResource("3_dp2n8")
+font_size = 42
+font_color = Color(0, 0, 0, 1)
+shadow_size = 9
+shadow_color = Color(0, 0, 0, 0.42352942)
 
 [sub_resource type="Animation" id="Animation_rsvog"]
 length = 0.001
@@ -80,70 +51,94 @@ _data = {
 
 [node name="SampleDialogueBox" type="Control" unique_id=131239595]
 layout_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -960.0
-offset_top = -1920.0
-offset_right = 960.0
 grow_horizontal = 2
-grow_vertical = 0
-theme = SubResource("Theme_eibla")
+grow_vertical = 2
 script = ExtResource("2_rsvog")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2100049902]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -66.0
+offset_top = 518.0
+offset_right = -66.0
+offset_bottom = 614.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_eibla")
+expand_mode = 1
+
 [node name="Name" type="PanelContainer" parent="." unique_id=1032126254]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 263.0
-offset_top = -367.0
-offset_right = 781.0
-offset_bottom = -277.0
+offset_left = 181.0
+offset_top = -314.00006
+offset_right = 497.52222
+offset_bottom = -253.00006
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_eibla")
+rotation = 0.0031079995
 
 [node name="NameLabel" type="Label" parent="Name" unique_id=1233219798]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 6.21
+theme_override_fonts/font = ExtResource("3_dp2n8")
 text = "Mary Ruth"
 label_settings = SubResource("LabelSettings_dp2n8")
 
 [node name="Dialogue" type="PanelContainer" parent="." unique_id=1179100936]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 264.0
-offset_top = -282.0
-offset_right = -270.0
-offset_bottom = -26.0
+offset_left = 228.0
+offset_top = -256.0
+offset_right = -151.0
+offset_bottom = -86.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_menyh")
 
 [node name="DialogueLabel" type="RichTextLabel" parent="Dialogue" unique_id=299388543]
+layout_direction = 1
 layout_mode = 2
-theme_override_colors/default_color = Color(0.46666667, 0.07450981, 0.35686275, 1)
+theme_override_colors/default_color = Color(0.00784183, 0.0046313303, 0.0020151816, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_dp2n8")
+theme_override_fonts/bold_font = ExtResource("3_dp2n8")
+theme_override_fonts/bold_italics_font = ExtResource("3_dp2n8")
+theme_override_fonts/italics_font = ExtResource("3_dp2n8")
+theme_override_fonts/mono_font = ExtResource("3_dp2n8")
+theme_override_font_sizes/normal_font_size = 34
+theme_override_font_sizes/bold_font_size = 34
+theme_override_font_sizes/bold_italics_font_size = 34
+theme_override_font_sizes/italics_font_size = 34
+theme_override_font_sizes/mono_font_size = 34
 bbcode_enabled = true
 text = "Hi, I am [i]mary[/i], [wave]lorem[/wave] [b]ipsum[/b] [shake]bro[/shake] "
 
 [node name="ForwardSymbol" type="Control" parent="." unique_id=1944655154]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -175.0
-offset_top = -98.0
-offset_right = -114.0
-offset_bottom = -56.0
+offset_left = 305.0
+offset_top = 798.0
+offset_right = 366.0
+offset_bottom = 840.0
 grow_horizontal = 0
 grow_vertical = 0
 

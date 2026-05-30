@@ -57,10 +57,3 @@ autoplay = &"table_moving"
 [node name="dialogue_layer" type="CanvasLayer" parent="." unique_id=1024749079]
 
 [node name="SampleDialogueBox" parent="dialogue_layer" unique_id=131239595 instance=ExtResource("1_luo1q")]
-layout_direction = 1
-anchors_preset = 12
-anchor_left = 0.0
-anchor_right = 1.0
-offset_left = -218.0
-offset_top = 0.0
-offset_right = 221.0

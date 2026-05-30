@@ -2,6 +2,7 @@ extends Control
 
 @onready var background = $bg_display
 @onready var animation_player = $bg_animation
+@onready var sfx_player = $SFXPlayer
 
 # Updated fade_duration to 0.5 seconds for a faster transition
 @export_range(0.1, 90.0, 0.1) var fade_duration: float = 0.5
@@ -29,6 +30,7 @@ func _ready():
 	_setup_focus_system()
 
 	EventBus.background_change_requested.connect(_on_bg_change)
+	EventBus.play_sfx_requested.connect(_on_sfx)
 
 	Parser.load_dialogue("res://story/chapter_1/scene_3/scene_3_dialogue.json")
 	Parser.start()
@@ -135,3 +137,12 @@ func _on_fade_out_finished(next_scene_path: String) -> void:
 
 	if next_scene_path != "":
 		get_tree().change_scene_to_file(next_scene_path)
+
+func _on_sfx(path: String, volume_db: float = 0.0) -> void:
+	var audio = load(path)
+	if audio == null:
+		push_error("Failed to load SFX: " + path)
+		return
+	sfx_player.stream = audio
+	sfx_player.volume_db = volume_db
+	sfx_player.play()

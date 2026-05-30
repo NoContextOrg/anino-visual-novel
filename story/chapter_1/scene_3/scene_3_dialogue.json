@@ -13,11 +13,13 @@
     },
     {
         "speaker": "",
-        "text": "*The rustle of paper fades. A chair shifts softly. Footsteps begin—slow, measured.*"
+        "text": "*The rustle of paper fades. A chair shifts softly. Footsteps begin—slow, measured.*",
+        "sfx": "res://assets/audio/sfx/footsteps_slow.ogg"
     },
     {
         "speaker": "",
-        "text": "*In their place—distant coughing… labored breathing… and the faint, steady sound of dripping water.*"
+        "text": "*In their place—distant coughing… labored breathing… and the faint, steady sound of dripping water.*",
+        "sfx": "res://assets/audio/sfx/camp_ambience.ogg"
     },
     {
         "speaker": "Narrator",
@@ -37,7 +39,8 @@
     },
     {
         "speaker": "",
-        "text": "*Footsteps continue over dirt. Canvas lightly rustles in the wind.*"
+        "text": "*Footsteps continue over dirt. Canvas lightly rustles in the wind.*",
+        "sfx": "res://assets/audio/sfx/canvas_rustle.ogg"
     },
     {
         "speaker": "Narrator",
@@ -49,10 +52,12 @@
     },
     {
         "speaker": "",
-        "text": "*Footsteps stop. A brief silence. Then—the soft lift of canvas.*"
+        "text": "*Footsteps stop. A brief silence. Then—the soft lift of canvas.*",
+        "sfx": "res://assets/audio/sfx/tent_flap.ogg"
     },
     {
         "speaker": "",
-        "text": "*Coughing becomes clearer. Breathing, closer. A single drop of water falls.*"
+        "text": "*Coughing becomes clearer. Breathing, closer. A single drop of water falls.*",
+        "sfx": "res://assets/audio/sfx/water_drop.ogg"
     }
 ]
