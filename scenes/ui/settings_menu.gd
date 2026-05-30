@@ -1,7 +1,7 @@
 extends Control
 
 # Reference the back button
-@onready var back_button = $MarginContainer/VBoxContainer/back_button
+@onready var back_button = $MarginContainer/VBoxContainer/BackButton
 
 func _ready():
 	# Connect the button click to the function below

@@ -1,21 +1,37 @@
 extends Node2D
 
 @onready var background = $Background
+@onready var animated_sprite = $AnimatedSprite2D
 @onready var sfx_player = $SFXPlayer
+@onready var event_bus = get_node_or_null("/root/EventBus")
 
 var current_bg: Texture2D = null
 var bg_busy := false
+var parser: Node
+var _anim_tween: Tween
+var _end_transition_started := false
 
 
 func _ready():
 	current_bg = load("res://assets/background/chapter_1/scene_4_assets/tent_scene.png")
 	background.texture = current_bg
+	animated_sprite.visible = false
+	animated_sprite.stop()
+	animated_sprite.frame = 0
+	animated_sprite.modulate.a = 0.0
 
-	Parser.load_dialogue("res://story/chapter_1/scene_4_dialogue.json")
-	Parser.start()
+	parser = preload("res://src/gameplay/DialogueParser.gd").new()
+	add_child(parser)
+	parser.load_dialogue("res://story/chapter_1/scene_4_dialogue.json")
+	parser.start()
 
-	EventBus.background_change_requested.connect(_on_bg_change)
-	EventBus.play_sfx_requested.connect(_on_sfx)
+	if event_bus == null:
+		push_error("EventBus autoload not found at /root/EventBus.")
+		return
+	event_bus.background_change_requested.connect(_on_bg_change)
+	event_bus.play_sfx_requested.connect(_on_sfx)
+	event_bus.sprite_anim_requested.connect(_on_sprite_anim_requested)
+	event_bus.dialogue_finished.connect(_on_dialogue_finished)
 
 
 func _on_bg_change(path: String):
@@ -59,3 +75,32 @@ func _on_sfx(path: String):
 
 	sfx_player.stream = audio
 	sfx_player.play()
+
+func _on_sprite_anim_requested(action: String, anim_name: String) -> void:
+	match action:
+		"play":
+			animated_sprite.visible = true
+			animated_sprite.modulate.a = 0.0
+			if _anim_tween and _anim_tween.is_running():
+				_anim_tween.kill()
+			_anim_tween = create_tween()
+			_anim_tween.tween_property(animated_sprite, "modulate:a", 1.0, 0.35)
+			if anim_name.is_empty():
+				animated_sprite.play()
+			else:
+				animated_sprite.play(anim_name)
+		"stop":
+			animated_sprite.stop()
+			animated_sprite.visible = false
+		"hide":
+			animated_sprite.visible = false
+		"show":
+			animated_sprite.visible = true
+		_:
+			push_warning("Unknown anim action: %s" % action)
+
+func _on_dialogue_finished() -> void:
+	if _end_transition_started:
+		return
+	_end_transition_started = true
+	SceneManager.request_scene_change("res://scenes/chapter_1/scene_5/scene_5.tscn")
