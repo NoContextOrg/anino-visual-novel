@@ -1,0 +1,48 @@
+[
+    {
+        "speaker": "Narrator",
+        "text": "The table falls silent.",
+        "sfx": "res://assets/background/chapter_1/scene_3/background_sound.mp3"
+    },
+    {
+        "speaker": "Narrator",
+        "text": "What remained of the force was no longer fighting at full strength—it was surviving on what little was left.",
+        "sfx": "res://assets/background/chapter_1/scene_3/footsteps_slow.mp3"
+    },
+    {
+        "speaker": "",
+        "text": "In their place—distant coughing… labored breathing… and the faint, steady sound of dripping water.",
+        "sfx": "res://assets/background/chapter_1/scene_3/camp_ambience.mp3"
+    },
+    {
+        "speaker": "Narrator",
+        "text": "Rations had been reduced to a fraction of what a man needed. Rice stretched thin. Canned goods long exhausted."
+    },
+    {
+        "speaker": "Narrator",
+        "text": "Disease spread faster than reinforcements ever could—malaria, dysentery, and starvation cutting through the ranks."
+    },
+    {
+        "speaker": "Narrator",
+        "text": "More men were falling in the tents… than on the battlefield."
+    },
+    {
+        "speaker": "General King",
+        "text": "I can’t decide from here."
+    },
+    {
+        "speaker": "Narrator",
+        "text": "With ammunition nearly gone, food nearly depleted, and tens of thousands too weak to stand—",
+        "sfx": "res://assets/background/chapter_1/scene_3/canvas_rustle.mp3"
+    },
+    {
+        "speaker": "Narrator",
+        "text": "the fight was no longer about holding the line. It was about what remained of the men.",
+        "sfx": "res://assets/background/chapter_1/scene_3/tent_flap.mp3"
+    },
+    {
+        "speaker": "",
+        "text": "...",
+        "sfx": "res://assets/background/chapter_1/scene_3/water_drop.mp3"
+    }
+]
